@@ -16,6 +16,7 @@ import CustomBoxInput from "../../components/ui/groups/CustomBoxInput";
 import Button from "../../components/ui/buttons/Button";
 
 let structureCopy = null;
+let load = true;
 
 export function buidCardContent(content) {
   console.log("debug card", content);
@@ -68,7 +69,7 @@ export function renderElementItems(array) {
                 // What do we have? data & print of structure. need structure ask custom data and what overide it with data from dataitem
                 return item.parts[0].type === "card"
                   ? // before render merge data into structure
-                    (todo = renderComponent(item.parts[0], "card" + i))
+                  (todo = renderComponent(item.parts[0], "card" + i))
                   : null;
                 //   handleMerge(structureCopy, dataItem, "card")
                 // : null;
@@ -215,29 +216,33 @@ export function renderComponent(item, key, array) {
 }
 
 export function createElement(item, key) {
-  if (item.parts.length > 0) {
-    // Nested DOM
-    if (item.type === "card") {
-      return renderComponent(item, "", null, null);
-    } else {
-      return (
-        <item.element key={key} className={createClass(item)}>
-          {renderElementItems(item.parts)}
-        </item.element>
-      );
-    }
+  if (load) {
+    return <h3>loading</h3>
   } else {
-    // Single DOM
-    if (
-      item.type === "discription" ||
-      item.type === "term" ||
-      item.type === "textItem" ||
-      item.type === "button" ||
-      item.type === "customBoxInput"
-    ) {
-      return renderComponent(item, key, null);
+    if (item.parts.length > 0) {
+      // Nested DOM
+      if (item.type === "card") {
+        return renderComponent(item, "", null, null);
+      } else {
+        return (
+          <item.element key={key} className={createClass(item)}>
+            {renderElementItems(item.parts)}
+          </item.element>
+        );
+      }
     } else {
-      return renderElement(item, key);
+      // Single DOM
+      if (
+        item.type === "discription" ||
+        item.type === "term" ||
+        item.type === "textItem" ||
+        item.type === "button" ||
+        item.type === "customBoxInput"
+      ) {
+        return renderComponent(item, key, null);
+      } else {
+        return renderElement(item, key);
+      }
     }
   }
 }
