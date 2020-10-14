@@ -4,8 +4,8 @@ import React from "react";
 import {
   header__content,
   footer__content,
-  weather__content,
-  forecast__content
+  // weather__content,
+  // forecast__content
 } from "../../constants/conf";
 
 // functions
@@ -38,7 +38,7 @@ export default function App() {
         {/* content while loading = no weather or forecast data */}
 
         {/* content when loaded = received weather and or forecast data */}
-        <Weather
+        {/* <Weather
           content={weather__content}
           createElement={createElement}
           createClass={createClass}
@@ -48,7 +48,7 @@ export default function App() {
           content={forecast__content}
           createElement={createElement}
           createClass={createClass}
-        />
+        /> */}
 
         {/* common */}
         <Footer
