@@ -1,0 +1,17 @@
+// @import "~bootstrap/scss/bootstrap";
+@import "../supplies/variables.scss";
+
+// Setup
+@import "../setup/reset.scss";
+@import "../setup/base.scss";
+
+@import "../fonts/font.scss";
+
+@import "../supplies/variables.scss";
+
+@import "../components/forecast.scss";
+@import "../components/weather.scss";
+
+@import "../components/ui/button.scss";
+
+@import "../components/common/blocks/form.scss"

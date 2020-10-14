@@ -1,0 +1,38 @@
+/* *** MEDIAQUERY *** */
+@media only screen and (max-width: 992px) {
+  .weather {
+    grid-gap: 0px;
+  }
+
+  .weather__right {
+    padding: 0;
+  }
+
+  .weather__discription--bigger {
+    font-size: 14vw;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .weather__discription--bigger {
+    font-size: 27vw;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .weather {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-areas: "search""location""day""temp""feature""list";
+
+    padding: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .forecast__item {
+    max-width: 13.999%;
+  }
+}

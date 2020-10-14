@@ -1,0 +1,23 @@
+// *** LAYOUT ***
+
+// *** MODULE ***
+.footer {
+  background-color: var(--primary-color2);
+}
+
+.footer__text {
+  opacity: 0.7;
+}
+
+.footer__text a {
+  color: $secundairy-color1;
+}
+
+// *** STATE ***
+
+.footer__text a:hover {
+  color: var(--secundairy-color1);
+  opacity: 0.3;
+  text-decoration: none;
+  cursor: pointer;
+}
