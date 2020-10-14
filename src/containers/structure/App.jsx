@@ -20,10 +20,10 @@ import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
 
 // --- weather ---
-import Weather from "../../components/weather/Weather";
+// import Weather from "../../components/weather/Weather";
 
 // --- forecast ---
-import Forecast from "../../components/forecast/Forecast";
+// import Forecast from "../../components/forecast/Forecast";
 
 export default function App() {
   return (
