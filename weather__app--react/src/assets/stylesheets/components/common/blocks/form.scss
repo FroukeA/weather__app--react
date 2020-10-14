@@ -1,0 +1,15 @@
+.weather__form--row{
+  display: flex;
+  align-items: center;
+}
+
+.form__input--search {
+  border: 0.1rem solid $secundairy-color1;
+  padding: 0.5rem 1rem;
+
+  border-radius: 50rem;
+}
+
+.weather__form label, .form__title--hide{
+  display: none;
+}

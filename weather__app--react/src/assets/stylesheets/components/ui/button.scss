@@ -1,0 +1,79 @@
+.weather__button--primary > p > span,
+.weather__customBoxInput--search > label > span {
+  display: none;
+} 
+
+.button, .weather__customBoxInput--search {
+  padding: 1.6rem;
+
+  border: 0.1rem solid $secundairy-color1;
+
+  font-size: 1.6rem;
+  transition: all 300ms ease;
+
+  cursor: pointer;
+}
+
+.weather__customBoxInput--search {
+  background-color: $primary-color2;
+  color: $secundairy-color1;
+
+  margin-left: 1.6rem;
+}
+
+.weather__button--primary, .form__button--submit {
+  background-color: $secundairy-color1;
+  color: $primary-color2;
+
+  margin: auto;
+} 
+
+.weather__button--primary, .weather__customBoxInput--search {
+  border-radius: 100%;
+}
+
+.form__button--submit {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  border-radius: 50rem;
+}
+
+.weather__customBoxInput--search > label {
+  margin: 0;
+  cursor: pointer;
+}
+
+.weather__button--primary > p,.weather__customBoxInput--search > label{ 
+  width: 3.5rem;
+  height: 3.5rem; 
+
+  color: red;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+} 
+
+.weather__button--primary > p::after, .weather__customBoxInput--search > label::after {
+  content:"♥️";
+}
+
+.weather__button--smaller {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.button>.fas {
+  margin: auto;
+}
+
+// *** STATE ***
+
+.button:hover,
+.weather__customBoxInput--search:hover {
+  background-color: $secundairy-color1;
+  color: $primary-color1;
+  opacity: 0.3;
+}
