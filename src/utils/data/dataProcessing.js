@@ -1,4 +1,4 @@
-// add data
+// add data to structure
 export function handleMergeElementItems(array, data, key) {
   return array.map((item, i) => {
     return handleMerge(item, data, key);
