@@ -147,7 +147,7 @@ export function renderElement(item, key) {
   }
 }
 
-export function renderComponent(item, key, array) {
+export function renderComponent(item, key, array, load) {
   switch (item.type) {
     case "list":
       return (
@@ -213,4 +213,6 @@ export function renderComponent(item, key, array) {
     default:
       console.log(`ERROR: no types are matching ${item.type}.`);
   }
+
+  load = false;
 }
