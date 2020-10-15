@@ -16,13 +16,6 @@ let structureCopy = null;
 let load = true;
 
 function promiseRender(item, key) {
-
-}
-
-export function createElement(item, key) {
-  console.log(item, key, load);
-  promiseRender(item, key);
-
   if (item.parts.length > 0) {
     // Nested DOM
     if (item.type === "card") {
@@ -48,10 +41,15 @@ export function createElement(item, key) {
       renderElement(item, key);
     }
   }
+}
 
-  if (load) {
-    return <h3>loading</h3>
-  }
+export function createElement(item, key) {
+  return <div>
+    {promiseRender(item, key)}
+  </div>
+  // if (load) {
+  //   return <h3>loading</h3>
+  // }
 }
 
 // add styling and SCSS
