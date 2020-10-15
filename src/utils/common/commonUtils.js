@@ -13,13 +13,20 @@ import { } from "../data/dataStyling";
 // import { forecast_data } from "../../constants/mock";
 
 let structureCopy = null;
-// let load = true;
+let load = true;
 
 function promiseRender(item, key) {
+
+}
+
+export function createElement(item, key) {
+  console.log(item, key, load);
+  promiseRender(item, key);
+
   if (item.parts.length > 0) {
     // Nested DOM
     if (item.type === "card") {
-      return renderComponent(item, "", null, null);
+      renderComponent(item, "", null, null, load);
     } else {
       return (
         <item.element key={key} className={createClass(item)}>
@@ -36,21 +43,15 @@ function promiseRender(item, key) {
       item.type === "button" ||
       item.type === "customBoxInput"
     ) {
-      return renderComponent(item, key, null);
+      renderComponent(item, key, null);
     } else {
-      return renderElement(item, key);
+      renderElement(item, key);
     }
   }
-}
 
-export function createElement(item, key) {
-  console.log(item, key);
-  // if (load) {
-  //   return <h3>loading</h3>
-  // }
-
-  // promiseRender(item, key)
-  return promiseRender(item, key);
+  if (load) {
+    return <h3>loading</h3>
+  }
 }
 
 // add styling and SCSS
