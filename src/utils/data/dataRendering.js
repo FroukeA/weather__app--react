@@ -32,14 +32,17 @@ export function renderElementItems(array) {
       if (item.type === "list" || item.type === "discription_group") {
         // DOM is a list of any type or group dd
         // render list !!! type = trough props
-        todo = renderComponent(item, i, null);
+        return renderComponent(item, i, null);
       } else if (item.parts.length > 0) {
         // Nested DOM
+
         todo = (
           <item.element key={i} className={createClass(item)}>
             {renderElementItems(item.parts)}
           </item.element>
         );
+
+        return todo;
       } else {
         // Single DOM
         if (
@@ -52,6 +55,8 @@ export function renderElementItems(array) {
           return renderComponent(item, i, null);
         } else {
           todo = renderElement(item, i, null);
+
+          return todo;
         }
       }
     } else {
@@ -76,15 +81,18 @@ export function renderElementItems(array) {
               })}
             </item.element>
           );
+
+          return todo;
         }
       }
     }
 
-    return todo;
+    // return todo;
   });
 }
 
 export function renderElement(item, key) {
+  // console.log('renderElement')
   if (item.data.length === 0) {
     // NO data comes from external source, data comes from constants
     if (item.type === "form") {
@@ -148,6 +156,7 @@ export function renderElement(item, key) {
 }
 
 export function renderComponent(item, key, array, load) {
+  // console.log('renderComponent')
   switch (item.type) {
     case "list":
       return (
@@ -168,9 +177,11 @@ export function renderComponent(item, key, array, load) {
           createElement={createElement.bind(this)}
           createClass={createClass.bind(this)}
         />
+        // <div>card need to come</div>
       );
     case "form":
-      return <Form key={key} array={array} class={createClass(item)} />;
+      return <div>form need to come</div>
+    // <Form key={key} array={array} class={createClass(item)} />;
     case "term":
       return <Term key={key} item={item} class={createClass(item)} />;
     case "discription":
