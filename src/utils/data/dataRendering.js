@@ -8,7 +8,7 @@ import { createElement } from "../common/commonUtils";
 import { forms } from "../../constants/conf";
 import { forecast_data } from "../../constants/mock";
 
-// import Form from "../../components/common/blocks/form/Form";
+import Form from "../../components/common/blocks/form/Form";
 import Input from "../../components/ui/inputs/Input";
 import List from "../../components/common/blocks/list/List";
 import Card from "../../components/common/blocks/cards/Card";
@@ -170,8 +170,7 @@ export function renderComponent(item, key, array, load) {
         />
       );
     case "form":
-      return <div>form here</div>
-    // <Form key={key} array={array} class={createClass(item)} />;
+      return <Form key={key} array={array} class={createClass(item)} />;
     case "term":
       return <Term key={key} item={item} class={createClass(item)} />;
     case "discription":
