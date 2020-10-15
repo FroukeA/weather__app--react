@@ -216,6 +216,7 @@ export function renderComponent(item, key, array) {
 }
 
 export function createElement(item, key) {
+  console.log(item, key);
   if (load) {
     return <h3>loading</h3>
   }
