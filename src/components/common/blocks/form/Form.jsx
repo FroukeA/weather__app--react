@@ -25,7 +25,7 @@ function renderFormFields(props) {
                 hide={props.hide}
                 labelText={item.label}
                 htmlFor={item.id}
-                // array & objects
+              // array & objects
               />
 
               <Input
@@ -42,7 +42,7 @@ function renderFormFields(props) {
                 required="true" // TODO: change to true
                 reference={item.ref}
                 checked={item.visible === "true" ? true : false}
-                // array & objects
+              // array & objects
               />
             </React.Fragment>
           ) : null}
@@ -62,7 +62,7 @@ function renderFormFields(props) {
                 name={props.idSecondButton}
                 // onClick={handleClick.bind(this)}
                 label={props.labelSecondButton}
-                // array & objects
+              // array & objects
               />
             ) : null}
           </div>
@@ -87,7 +87,7 @@ function renderFormItems(props, array) {
             hide={props.hide}
             labelText={parentItem.label}
             htmlFor={parentItem.id}
-            // array & objects
+          // array & objects
           />
 
           <Input
@@ -103,57 +103,57 @@ function renderFormItems(props, array) {
             placeholder={parentItem.placeholder}
             required={parentItem.required}
             reference={parentItem.ref}
-            // array & objects
+          // array & objects
           />
         </div>
       ) : (
-        <p key={pi}>here custom input</p>
-      )
+          <p key={pi}>here custom input</p>
+        )
     ) : (
-      parentItem.elements.map((subItem, si) => {
-        return subItem.type !== "custom" ? (
-          <div key={si} className={props.createClass(subItem)}>
-            <Label
-              // titles
-              // functions
-              // data
-              class={""}
-              base=""
-              type=""
-              hide={props.hide}
-              labelText={subItem.label}
-              htmlFor={subItem.id}
+        parentItem.elements.map((subItem, si) => {
+          return subItem.type !== "custom" ? (
+            <div key={si} className={props.createClass(subItem)}>
+              <Label
+                // titles
+                // functions
+                // data
+                class={""}
+                base=""
+                type=""
+                hide={props.hide}
+                labelText={subItem.label}
+                htmlFor={subItem.id}
               // array & objects
-            />
-            <Input
-              // titles
-              // functions
-              onChange={props.functionIntput}
-              // data
-              class={"form__input--search"}
-              base=""
-              type={subItem.type}
-              id={subItem.id}
-              name={subItem.id}
-              placeholder={subItem.placeholder}
-              required={subItem.required}
-              reference={subItem.ref}
+              />
+              <Input
+                // titles
+                // functions
+                onChange={props.functionIntput}
+                // data
+                class={"form__input--search"}
+                base=""
+                type={subItem.type}
+                id={subItem.id}
+                name={subItem.id}
+                placeholder={subItem.placeholder}
+                required={subItem.required}
+                reference={subItem.ref}
               // array & objects
-            />
-          </div>
-        ) : (
-          <p key={si}>here custom input (not created yet)</p>
-        );
-      })
-    );
+              />
+            </div>
+          ) : (
+              <p key={si}>here custom input (not created yet)</p>
+            );
+        })
+      );
   });
 }
 
 export default function Form(props) {
   return (
-    // TODO: change back to form
     <form className={"form " + props.class} id={""}>
-      {renderFormFields(props)}
+      { renderFormFields(props)}
+
       <Button
         // titles
         // functions
@@ -166,8 +166,8 @@ export default function Form(props) {
         onSubmit={props.functionButton}
         // onClick={handleClick.bind(this)}
         label={"submit"}
-        // array & objects
+      // array & objects
       />
-    </form>
+    </form >
   );
 }
