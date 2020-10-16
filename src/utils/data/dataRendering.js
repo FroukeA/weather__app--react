@@ -1,13 +1,14 @@
-// render data
+// data
 import React from "react";
-import handleCreateFormArray from "../common/forms/forms";
-import { createClass } from "./dataStyling";
-import { createElement } from "../common/commonUtils";
-
-
 import { forms } from "../../constants/conf";
 import { forecast_data } from "../../constants/mock";
 
+// functions
+import handleCreateFormArray from "../common/forms/forms";
+import { createClass } from "./dataStyling";
+import { createElement } from "../common/setup/commonUtils";
+
+// components
 import Form from "../../components/common/blocks/form/Form";
 import Input from "../../components/ui/inputs/Input";
 import List from "../../components/common/blocks/list/List";
@@ -19,9 +20,11 @@ import TextItem from "../../components/common/elements/list/TextItem";
 import CustomBoxInput from "../../components/ui/groups/CustomBoxInput";
 import Button from "../../components/ui/buttons/Button";
 
+// variables
 // eslint-disable-next-line 
 let structureCopy = null;
 
+// render data
 export function renderElementItems(array) {
   return array.map((item, i) => {
     let todo = null;
@@ -71,8 +74,6 @@ export function renderElementItems(array) {
                   ? // before render merge data into structure
                   (todo = renderComponent(item.parts[0], "card" + i))
                   : null;
-                //   handleMerge(structureCopy, dataItem, "card")
-                // : null;
               })}
             </item.element>
           );
@@ -99,9 +100,7 @@ export function renderElement(item, key) {
         null
       );
 
-      // render form
       return renderComponent(item, "form" + key, array);
-      // return <Form key={"form" + key} array={array} />;
     } else if (item.id.includes("wi")) {
       return (
         // DOM is a input of any kind
