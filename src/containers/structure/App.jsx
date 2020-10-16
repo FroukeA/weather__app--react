@@ -9,7 +9,8 @@ import {
 } from "../../constants/conf";
 
 // functions
-import { createElement, createClass } from "../../utils/common/commonUtils";
+import { createElement } from "../../utils/common/setup/commonUtils";
+import { createClass } from "../../utils/data/dataStyling"
 
 // style
 import "../../assets/stylesheets/base/app.scss";

@@ -1,3 +1,8 @@
+// data
+// functions
+// components
+// variables
+
 export default function handleCreateFormArray(
   list,
   handleSetState,
@@ -9,7 +14,6 @@ export default function handleCreateFormArray(
   const item = list.filter((form) => form["ref"] === ref)[0];
   const formArray = item["parts"];
 
-  // return formdata
   return formArray;
   // handleSetState(formRef, formLayerRef, item);
   // handleSetState(formArrayRef, formLayerRef, formArray);
