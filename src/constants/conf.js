@@ -1520,7 +1520,7 @@ export const forecast__content = {
           icon: "",
           parts: [
             {
-              label: "Forest article",
+              label: "Forecast article title",
               link: "",
               id: "fh_2",
               ref: "forecast",
@@ -1539,7 +1539,7 @@ export const forecast__content = {
           link: "",
           id: "flt_1",
           ref: "forecast",
-          type: "list",
+          type: "list--forecast",
           element: "dl",
           class: [],
           icon: "",
@@ -1555,7 +1555,7 @@ export const forecast__content = {
               icon: "",
               parts: [
                 {
-                  label: "div",
+                  label: "structureChild",
                   link: "",
                   id: "fd_1",
                   ref: "forecast",
@@ -1565,7 +1565,7 @@ export const forecast__content = {
                   icon: "",
                   parts: [
                     {
-                      label: "Monday",
+                      label: "Day",
                       link: "",
                       id: "fdt_1",
                       ref: "forecast",
@@ -1601,30 +1601,33 @@ export const forecast__content = {
                         {
                           label: "Daily article",
                           link: "",
-                          id: "fa_1",
+                          id: "fad_1",
                           ref: "forecast",
                           type: "part",
                           element: "article",
                           class: [],
                           icon: "",
+                          dataParent: true,
                           parts: [
                             {
                               label: "",
                               link: "",
-                              id: "fahd_1",
+                              id: "fahdd_1",
                               ref: "forcast",
                               type: "header",
                               element: "header",
                               class: [],
                               icon: "",
+                              dataParent: true,
                               parts: [
                                 {
                                   label: "23",
-                                  link: "data.daily.day.temp",
+                                  link: `data.daily.temp.day`,
                                   id: "fh_2",
                                   ref: "forecast",
                                   type: "title",
                                   element: "h4",
+                                  parentId: "fahdd_1",
                                   class: [
                                     {
                                       label: "big",
@@ -1646,7 +1649,7 @@ export const forecast__content = {
                               data: []
                             },
                             {
-                              label: "sun",
+                              label: "weather icon",
                               link: "",
                               id: "fp_1",
                               ref: "forecast",
@@ -1668,7 +1671,7 @@ export const forecast__content = {
                               icon: "",
                               parts: [
                                 {
-                                  label: "sun",
+                                  label: "weather type",
                                   link: "",
                                   id: "fs_2",
                                   ref: "forecast",
@@ -1701,6 +1704,7 @@ export const forecast__content = {
                               ref: "forecast",
                               type: "text",
                               element: "p",
+                              parentId: "fad_1",
                               class: [],
                               icon: "",
                               parts: [],
@@ -1727,6 +1731,183 @@ export const forecast__content = {
   ],
   data: []
 };
+
+export const emptyCard = {
+  label: "card",
+  link: "",
+  id: "crd_1",
+  ref: "forecast",
+  type: "card",
+  element: "card",
+  class: [],
+  icon: "",
+  parts: [
+    {
+      label: "structureChild",
+      link: "",
+      id: "fd_1",
+      ref: "forecast",
+      type: "cardContent",
+      element: "div",
+      class: [],
+      icon: "",
+      parts: [
+        {
+          label: "Day",
+          link: "",
+          id: "fdt_1",
+          ref: "forecast",
+          type: "term",
+          element: "dt",
+          class: [
+            {
+              label: "hide",
+              link: "",
+              id: "f_2",
+              ref: "forecast",
+              type: "class",
+              element: "className",
+              icon: "",
+              parts: [],
+              data: []
+            }
+          ],
+          icon: "",
+          parts: [],
+          data: []
+        },
+        {
+          label: "",
+          link: "",
+          id: "fdd_1",
+          ref: "forecast",
+          type: "discription_group",
+          element: "dd",
+          class: [],
+          icon: "",
+          parts: [
+            {
+              label: "Daily article",
+              link: "",
+              id: "fa_1",
+              ref: "forecast",
+              type: "part",
+              element: "article",
+              class: [],
+              icon: "",
+              parts: [
+                {
+                  label: "",
+                  link: "",
+                  id: "fahdd_1",
+                  ref: "forcast",
+                  type: "header",
+                  element: "header",
+                  class: [],
+                  icon: "",
+                  dataParent: true,
+                  parts: [
+                    {
+                      label: "23",
+                      link: `data.daily.temp.day`,
+                      id: "fh_2",
+                      ref: "forecast",
+                      type: "title",
+                      element: "h4",
+                      class: [
+                        {
+                          label: "big",
+                          link: "",
+                          id: "f_1",
+                          ref: "forecast",
+                          type: "class",
+                          element: "className",
+                          icon: "",
+                          parts: [],
+                          data: []
+                        }
+                      ],
+                      icon: "",
+                      parts: [],
+                      data: []
+                    }
+                  ],
+                  data: []
+                },
+                {
+                  label: "weather icon",
+                  link: "",
+                  id: "fp_1",
+                  ref: "forecast",
+                  type: "text",
+                  element: "p",
+                  class: [
+                    {
+                      label: "01d",
+                      link: "",
+                      id: "c_1",
+                      ref: "forecast",
+                      type: "class",
+                      element: "className",
+                      icon: "",
+                      parts: [],
+                      data: []
+                    }
+                  ],
+                  icon: "",
+                  parts: [
+                    {
+                      label: "weather type",
+                      link: "",
+                      id: "fs_2",
+                      ref: "forecast",
+                      type: "text",
+                      element: "span",
+                      class: [
+                        {
+                          label: "hide",
+                          link: "",
+                          id: "c_1",
+                          ref: "header",
+                          type: "class",
+                          element: "className",
+                          icon: "",
+                          parts: [],
+                          data: []
+                        }
+                      ],
+                      icon: "",
+                      parts: [],
+                      data: []
+                    }
+                  ],
+                  data: []
+                },
+                {
+                  label: "Monday",
+                  // link: "data.day",
+                  link: "",
+                  id: "fs_2",
+                  ref: "forecast",
+                  type: "text",
+                  element: "p",
+                  class: [],
+                  icon: "",
+                  parts: [],
+                  data: []
+                }
+              ],
+              data: []
+            }
+          ],
+          data: []
+        }
+      ],
+      data: []
+    }
+  ],
+  data: []
+}
 
 export const nav__items = [];
 

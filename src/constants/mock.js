@@ -71,7 +71,7 @@ export const forecast_data = [
       day: "Sunday",
       daily: {
         temp: {
-          day: 200
+          day: 333
         }
       }
     }
