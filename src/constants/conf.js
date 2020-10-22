@@ -81,7 +81,7 @@ export const footer__content = {
         },
         {
           label: "Github",
-          link: "",
+          link: "https://github.com/FroukeA/weather__app--react",
           id: "fta_2",
           ref: "footer",
           type: "link",

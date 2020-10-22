@@ -1,28 +1,18 @@
-// 1 element data merge in parrent and child works now add parrent to element and element to structure
 // data
 import { forecast_data } from "../../constants/mock";
-import {
-  emptyCard
-} from '../../constants/conf';
 
 // functions
-let handle = null;
 // components
 // variables
-let tempStructureElement = null;
 let tempElementPart = null; // foreCast = list
 let elementPart__parent = null; // foreCast = card
 let elementPart__child = null; // foreCast = structureChild
 let elementData__parent = null; // foreCast = header or article
-let elementData__child = null; // foreCast = h4 or p
+// let elementData__child = null; // foreCast = h4 or p
 
 let elementPart__parentId = null; // foreCast = card id
-let elementData__childId = null;
 
 let parents = {};
-
-// add data to structure
-// eslint-disable-next-line 
 
 function dataMerge(elementData__child, id) {
 
@@ -30,7 +20,6 @@ function dataMerge(elementData__child, id) {
   tempData.parts[id] = elementData__child;
 
   mergeDataStructure(tempData);
-  // handle(tempStructureElement);
 }
 
 function mergeDataStructure(tempData) {
@@ -38,10 +27,9 @@ function mergeDataStructure(tempData) {
 }
 
 export function mergeDataElementItems(structureEl, key, handleData) {
-  handle = handleData;
   elementPart__parent = null;
 
-  structureEl.parts.map((elementPart, elementPartId) => {
+  structureEl.parts.forEach((elementPart, elementPartId) => {
     if (elementPart.data.length === 0) {
       mergeDataElementItems(elementPart, key, handleData)
     } else {
@@ -114,8 +102,6 @@ export function handlePrepareData(elementPart__child, dataItem) {
 
 export function handleMergeElementItems(array, data) {
   return array.map((item, itemId) => {
-    elementData__childId = itemId;
-
     return handleMerge(item, data, itemId);
   });
 }

@@ -1,7 +1,6 @@
 // data
 import React from "react";
 import { forms } from "../../constants/conf";
-import { forecast_data } from "../../constants/mock";
 
 // functions
 import handleCreateFormArray from "../common/forms/forms";
@@ -20,18 +19,10 @@ import TextItem from "../../components/common/elements/list/TextItem";
 import CustomBoxInput from "../../components/ui/groups/CustomBoxInput";
 import Button from "../../components/ui/buttons/Button";
 
-// variables
-// eslint-disable-next-line 
-let structureCopy = null;
-
 // render data
 export function renderElementItems(array) {
   return array.map((item, i) => {
     let todo = null;
-
-    // if (item.type === "list--forecast") {
-
-    // }
     if (item.type === "card") {
       return (
         // DOM is a card

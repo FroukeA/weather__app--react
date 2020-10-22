@@ -49,9 +49,6 @@ function handleRenderElements(item, key) {
 
 export function createElement(item, key) {
   return handleRenderElements(item, key);
-  // if (load) {
-  //   return <h3>loading</h3>
-  // }
 }
 
 function handleMergeDataElements(item, key, handleData) {
