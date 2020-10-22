@@ -1,9 +1,42 @@
 // data
 import { forecast_data } from "../../constants/mock";
+import {
+  forecast__content
+} from "../../constants/conf";
 
 // functions
+let handle = null;
 // components
 // variables
+// *** weather and forecast ***
+// let currentCity = {
+//   name: "",
+//   data: {},
+// };
+
+// let sunrise = null;
+// let sunset = null;
+
+// const currentDate = new Date();
+
+// let currentDay = null;
+
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+// *** merge ***
+let data = null;
+
+let type = null;
+let item = null;
+
 let tempElementPart = null; // foreCast = list
 let elementPart__parent = null; // foreCast = card
 let elementPart__child = null; // foreCast = structureChild
@@ -14,28 +47,182 @@ let elementPart__parentId = null; // foreCast = card id
 
 let parents = {};
 
+// date
+function convertData(object, key, data) {
+  switch (key) {
+    case 'dt':
+      return handleCreateDay(handleCreateDate(data.dt).getDay());
+    case 'temp':
+      return object[key].day.toFixed(1)
+    default:
+      return object[key].day
+  }
+}
+
+// const handleChangeDate = () => {
+// const minutes =
+//   currentDate.getMinutes() < 10
+//     ? "0" + currentDate.getMinutes()
+//     : currentDate.getMinutes();
+
+//   currentDay = currentDate.getDay();
+// };
+
+const handleCreateDate = (stamp) => {
+  return new Date(stamp * 1000);
+};
+
+const handleCreateDay = (day) => {
+  let tempCurrentDay = day;
+
+  if (tempCurrentDay < 6) {
+    tempCurrentDay = tempCurrentDay + 1;
+  } else if (tempCurrentDay === 6) {
+    tempCurrentDay = 0;
+  }
+
+  return days[tempCurrentDay]
+}
+
+// weather and forecast
+// const handleCelsiusToFahrenheit = (value) => {
+//   const temp = (value * 9) / 5 + 32;
+//   return temp;
+// };
+
+// const handleFahrenheitToCelsius = (value) => {
+//   const temp = ((value - 32) * 5) / 9;
+//   return temp;
+// };
+
+// function handleCurrentWeatherLocation() {
+//   sunrise = handleCreateDate(currentCity.data.current.sunrise);
+//   sunset = handleCreateDate(currentCity.data.current.sunset);
+
+//   const weather__elements = [
+//     {
+//       class: "#location",
+//       content: currentCity.name,
+//     },
+//     {
+//       class: "#temp",
+//       content: currentCity.data.current.temp.toFixed(1),
+//     },
+//     {
+//       class: "#rain",
+//       content: currentCity.data.current.rain
+//         ? `${currentCity.data.current.rain}mm/h`
+//         : `0mm/h`,
+//     },
+//     {
+//       class: "#humidity",
+//       content: `${currentCity.data.current.humidity}%`,
+//     },
+//     {
+//       class: "#tempCold",
+//       content: currentCity.data.daily[0].temp.min.toFixed(1),
+//     },
+//     {
+//       class: "#tempHot",
+//       content: currentCity.data.daily[0].temp.max.toFixed(1),
+//     },
+//     {
+//       class: "#wind",
+//       content: `${currentCity.data.current.wind_speed}m/sec`,
+//     },
+//     {
+//       class: "#weather__description",
+//       content: currentCity.data.current.weather[0].description,
+//     },
+//     {
+//       class: "#sunrise",
+//       content: `${sunrise.getHours() < 10 ? "0" + sunrise.getHours() : sunrise.getHours()
+//         }: ${sunrise.getMinutes() < 10
+//           ? "0" + sunrise.getMinutes()
+//           : sunrise.getMinutes()
+//         }`,
+//     },
+//     {
+//       class: "#sunset",
+//       content: `${sunset.getHours() < 10 ? "0" + sunset.getHours() : sunset.getHours()
+//         }: ${sunset.getMinutes() < 10
+//           ? "0" + sunset.getMinutes()
+//           : sunset.getMinutes()
+//         }`,
+//     },
+//   ];
+// }
+
+// function handleDailyWeatherLocation() {
+//   let tempCurrentDay = currentDay;
+
+//   currentCity.data.daily.map((item, i) => {
+//     if (i !== 0) {
+//       if (tempCurrentDay < 6) {
+//         tempCurrentDay = tempCurrentDay + 1;
+//       } else if (tempCurrentDay === 6) {
+//         tempCurrentDay = 0;
+//       }
+//     }
+//   });
+// }
+
+// merge
+
 function dataMerge(elementData__child, id) {
 
   const tempData = { ...parents[elementData__child.parentId] };
   tempData.parts[id] = elementData__child;
 
-  mergeDataStructure(tempData);
+  mergeDataStructure();
 }
 
-function mergeDataStructure(tempData) {
+function mergeDataStructure() {
   tempElementPart.parts[elementPart__parentId] = elementPart__parent;
+
+  handle(type, item)
 }
 
-export function mergeDataElementItems(structureEl, key, handleData) {
+function createDataElement(d, i, t) {
+  type = t;
+  item = i;
+  data = d.slice(0, d.length - 1);
+
+  handleMergeDataElements(item);
+}
+
+
+export function handleReceiveData(d, handleData) {
+  // d  = {
+  //   name: "",
+  //   data: {},
+  // }
+  handle = handleData;
+
+  createDataElement(d.data.daily, forecast__content, "forecastContent");
+}
+
+function handleMergeDataElements(item, key) {
+
+  if (item.parts.length > 0) {
+    // Nested DOM
+    mergeDataElementItems(item, key)
+  } else {
+    // Single DOM
+    mergeDataElement(item, key);
+  }
+}
+
+export function mergeDataElementItems(structureEl) {
   elementPart__parent = null;
 
   structureEl.parts.forEach((elementPart, elementPartId) => {
     if (elementPart.data.length === 0) {
-      mergeDataElementItems(elementPart, key, handleData)
+      mergeDataElementItems(elementPart)
     } else {
       // data comes from external source, data does NOT come from constants
       if (elementPart.parts[0] !== undefined) {
-        const data = forecast_data;
+        // const data = forecast_data;
 
         if (elementPart.parts.length > 0) {
           // Nested DOM
@@ -63,7 +250,7 @@ export function mergeDataElementItems(structureEl, key, handleData) {
   });
 }
 
-export function mergeDataElement(temp, item, key) {
+export function mergeDataElement(temp, item) {
   let elementPart__parent = null;
 
   let todo = null;
@@ -107,20 +294,24 @@ export function handleMergeElementItems(array, data) {
 }
 
 export function handleMergeData(structureElement, data, id) {
+  let result = 'test';
+
   function get(object, key) {
-    var keys = key.split('.');
-    for (var i = 0; i < keys.length; i++) {
+    const keys = key.split('.');
+
+    for (let i = 0; i < keys.length; i++) {
       if (!object.hasOwnProperty(keys[i])) {
         return null;
       }
+
+      result = convertData(object, keys[i], data);
       object = object[keys[i]];
     }
 
-    return object;
+    return result;
   }
 
   let elementData__child = { ...structureElement }
-
 
   elementData__child.label = get(data, structureElement.link);
 
@@ -162,7 +353,7 @@ export function handleMerge(structureElement, data, itemId) {
         handleMergeData(structureElement, data, itemId);
       } else {
         // NO data needed in this layer
-        // renderComponent(structureElement, key);
+        // renderComponent(structureElement);
       }
     }
   }

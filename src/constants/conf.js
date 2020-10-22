@@ -1622,7 +1622,7 @@ export const forecast__content = {
                               parts: [
                                 {
                                   label: "23",
-                                  link: `data.daily.temp.day`,
+                                  link: `temp`,
                                   id: "fh_2",
                                   ref: "forecast",
                                   type: "title",
@@ -1699,7 +1699,7 @@ export const forecast__content = {
                             },
                             {
                               label: "Monday",
-                              link: "data.day",
+                              link: "dt",
                               id: "fs_2",
                               ref: "forecast",
                               type: "text",
@@ -1809,7 +1809,7 @@ export const emptyCard = {
                   parts: [
                     {
                       label: "23",
-                      link: `data.daily.temp.day`,
+                      link: `data.daily.temp`,
                       id: "fh_2",
                       ref: "forecast",
                       type: "title",
