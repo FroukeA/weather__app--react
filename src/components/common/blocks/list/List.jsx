@@ -15,8 +15,8 @@ function renderDL(props) {
         ) : item.element === "dt" ? (
           <Term key={"list" + i} item={item.label} />
         ) : (
-          <TextDiscription key={"list" + i} item={item.label} />
-        );
+              <TextDiscription key={"list" + i} item={item.label} />
+            );
       })}
     </dl>
   );
@@ -31,8 +31,8 @@ function renderUL(props) {
             {props.createElement(item)}
           </React.Fragment>
         ) : (
-          <TextItem key={"list" + i} item={item} />
-        );
+            <TextItem key={"list" + i} item={item} />
+          );
       })}
     </ul>
   );

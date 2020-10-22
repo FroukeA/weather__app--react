@@ -29,55 +29,39 @@ export function renderElementItems(array) {
   return array.map((item, i) => {
     let todo = null;
 
-    if (item.data.length === 0) {
-      // NO data comes from external source, data comes from constants
+    // if (item.type === "list--forecast") {
 
-      if (item.type === "list" || item.type === "discription_group") {
-        // DOM is a list of any type or group dd
-        // render list !!! type = trough props
-        todo = renderComponent(item, i, null);
-      } else if (item.parts.length > 0) {
-        // Nested DOM
-        todo = (
-          <item.element key={i} className={createClass(item)}>
-            {renderElementItems(item.parts)}
-          </item.element>
-        );
-      } else {
-        // Single DOM
-        if (
-          item.type === "discription" ||
-          item.type === "term" ||
-          item.type === "textItem" ||
-          item.type === "button" ||
-          item.type === "customBoxInput"
-        ) {
-          return renderComponent(item, i, null);
-        } else {
-          todo = renderElement(item, i, null);
-        }
-      }
+    // }
+    if (item.type === "card") {
+      return (
+        // DOM is a card
+        // render card !!! content = interactive created by creatElement
+        renderComponent(item, "")
+      );
+    }
+    if (item.type === "list" || item.type === "discription_group") {
+      // DOM is a list of any type or group dd
+      // render list !!! type = trough props
+      todo = renderComponent(item, i, null);
+    } else if (item.parts.length > 0) {
+      // Nested DOM
+      todo = (
+        <item.element key={i} className={createClass(item)}>
+          {renderElementItems(item.parts)}
+        </item.element>
+      );
     } else {
-      // data comes from external source, data does NOT come from constants
-      if (item.parts[0] !== undefined) {
-        const data = forecast_data;
-        if (item.parts.length > 0) {
-          // Nested DOM
-
-          structureCopy = item.parts[0];
-
-          todo = (
-            <item.element key={i} className={createClass(item)}>
-              {data.map((dataItem, i) => {
-                // What do we have? data & print of structure. need structure ask custom data and what overide it with data from dataitem
-                return item.parts[0].type === "card"
-                  ? // before render merge data into structure
-                  (todo = renderComponent(item.parts[0], "card" + i))
-                  : null;
-              })}
-            </item.element>
-          );
-        }
+      // Single DOM
+      if (
+        item.type === "discription" ||
+        item.type === "term" ||
+        item.type === "textItem" ||
+        item.type === "button" ||
+        item.type === "customBoxInput"
+      ) {
+        return renderComponent(item, i, null);
+      } else {
+        todo = renderElement(item, i, null);
       }
     }
 
@@ -86,63 +70,49 @@ export function renderElementItems(array) {
 }
 
 export function renderElement(item, key) {
-  if (item.data.length === 0) {
-    // NO data comes from external source, data comes from constants
-    if (item.type === "form") {
-      // DOM is a form
-      // collect the form data
-      const array = handleCreateFormArray(
-        forms,
-        null,
-        item.id,
-        null,
-        null,
-        null
-      );
+  if (item.type === "form") {
+    // DOM is a form
+    // collect the form data
+    const array = handleCreateFormArray(
+      forms,
+      null,
+      item.id,
+      null,
+      null,
+      null
+    );
 
-      return renderComponent(item, "form" + key, array);
-    } else if (item.id.includes("wi")) {
+    return renderComponent(item, "form" + key, array);
+  } else if (item.id.includes("wi")) {
+    return (
+      // DOM is a input of any kind
+      // render input !!! type = trough props
+      <Input
+        class={createClass(item)}
+        base={item.ref}
+        type={item.type}
+        id={item.id}
+        name={item.id}
+        placeholder={item.label}
+        required={item.required}
+        reference={item.ref}
+        key={"input" + key}
+      />
+    );
+  } else if (item.parts[0] !== undefined) {
+    if (item.part[0].type === "card") {
       return (
-        // DOM is a input of any kind
-        // render input !!! type = trough props
-        <Input
-          class={createClass(item)}
-          base={item.ref}
-          type={item.type}
-          id={item.id}
-          name={item.id}
-          placeholder={item.label}
-          required={item.required}
-          reference={item.ref}
-          key={"input" + key}
-        />
-      );
-    } else if (item.parts[0] !== undefined) {
-      if (item.part[0].type === "card") {
-        return (
-          // DOM is a card
-          // render card !!! content = interactive created by creatElement
-          renderComponent(item, "")
-        );
-      }
-    } else {
-      return (
-        <item.element key={"element" + key} className={createClass(item)}>
-          {item.label}
-        </item.element>
+        // DOM is a card
+        // render card !!! content = interactive created by creatElement
+        renderComponent(item, "")
       );
     }
   } else {
-    // data comes from external source, data does NOT come from constants
-    if (item.parts[0] !== undefined) {
-      if (item.part[0].type === "card") {
-        return (
-          // DOM is a card
-          // render card !!! content = interactive created by creatElement
-          renderComponent(item, "")
-        );
-      }
-    }
+    return (
+      <item.element key={"element" + key} className={createClass(item)}>
+        {item.label}
+      </item.element>
+    );
   }
 }
 

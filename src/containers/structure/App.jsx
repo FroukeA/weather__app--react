@@ -1,14 +1,15 @@
 // data
-import React from "react";
+import React, { useState } from "react";
 
 import {
   header__content,
   footer__content,
   weather__content,
-  forecast__content,
+  forecast__content
 } from "../../constants/conf";
 
 // functions
+import { createDataElement } from "../../utils/common/setup/commonUtils";
 import { createElement } from "../../utils/common/setup/commonUtils";
 import { createClass } from "../../utils/data/dataStyling"
 
@@ -26,7 +27,18 @@ import Weather from "../../components/weather/Weather";
 // --- forecast ---
 import Forecast from "../../components/forecast/Forecast";
 
+const forecastdata = { ...forecast__content }
+
 export default function App() {
+  let [forecast, setForecast] = useState(null);
+
+  function handleData(data) {
+
+    // setForecast(data);
+  }
+
+  createDataElement(forecast__content, null, handleData.bind(this))
+
   return (
     <div className="App">
       <div className="container">
@@ -49,6 +61,7 @@ export default function App() {
           content={forecast__content}
           createElement={createElement}
           createClass={createClass}
+        // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
         />
 
         {/* common */}

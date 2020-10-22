@@ -2,7 +2,10 @@
 import React from "react";
 
 // functions
-import { } from "../../data/dataProcessing";
+import {
+  mergeDataElement,
+  mergeDataElementItems
+} from "../../data/dataProcessing";
 import {
   renderComponent,
   renderElementItems,
@@ -45,8 +48,22 @@ function handleRenderElements(item, key) {
 }
 
 export function createElement(item, key) {
-  return handleRenderElements(item, key)
+  return handleRenderElements(item, key);
   // if (load) {
   //   return <h3>loading</h3>
   // }
+}
+
+function handleMergeDataElements(item, key, handleData) {
+  if (item.parts.length > 0) {
+    // Nested DOM
+    mergeDataElementItems(item, key, handleData)
+  } else {
+    // Single DOM
+    mergeDataElement(item, key, handleData);
+  }
+}
+
+export function createDataElement(item, key, handleData) {
+  return handleMergeDataElements(item, key, handleData);
 }

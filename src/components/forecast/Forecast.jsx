@@ -6,6 +6,7 @@ import React from "react";
 // components
 
 export default function Forecast(props) {
+  // if (props.content) {
   return (
     <section className={props.createClass(props.content)}>
       <h3>forecast</h3>
@@ -14,4 +15,8 @@ export default function Forecast(props) {
       })}
     </section>
   );
+  // } else {
+  //   props.handle();
+  //   return null;
+  // }
 }
