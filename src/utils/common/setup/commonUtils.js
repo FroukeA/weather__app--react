@@ -61,6 +61,6 @@ function handleMergeDataElements(item, key, handleData) {
   }
 }
 
-export function createDataElement(item, key, handleData) {
-  return handleMergeDataElements(item, key, handleData);
+export function createDataElement(item, handleData) {
+  return handleMergeDataElements(item, handleData);
 }
