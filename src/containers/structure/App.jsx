@@ -1,5 +1,5 @@
 // data
-import React, { useState } from "react";
+import React from "react";
 
 import {
   header__content,
@@ -27,10 +27,8 @@ import Weather from "../../components/weather/Weather";
 // --- forecast ---
 import Forecast from "../../components/forecast/Forecast";
 
-const forecastdata = { ...forecast__content }
-
 export default function App() {
-  let [forecast, setForecast] = useState(null);
+  // let [forecast, setForecast] = useState(null);
 
   function handleData(data) {
 
