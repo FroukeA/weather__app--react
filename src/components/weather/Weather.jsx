@@ -8,7 +8,6 @@ import React from "react";
 export default function Weather(props) {
   return (
     <section className={props.createClass(props.content)}>
-      <h3>weather</h3>
       {props.content.parts.map((item, i) => {
         return props.createElement(item, i);
       })}
