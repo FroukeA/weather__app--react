@@ -1,5 +1,4 @@
 // data
-import { forecast_data } from "../../constants/mock";
 import {
   forecast__content,
   weather__content
@@ -234,7 +233,7 @@ function handleMergeDataElements(item, key) {
 export function mergeDataElementItems(structureEl) {
   elementPart__parent = null;
 
-  structureEl.parts.map((elementPart, elementPartId) => {
+  structureEl.parts.foreach((elementPart, elementPartId) => {
     // return mergeDataElement(elementPart, elementPartId);
     if (elementPart.data.length === 0) {
       mergeDataElementItems(elementPart);

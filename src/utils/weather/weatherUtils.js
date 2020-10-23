@@ -14,7 +14,6 @@ let currentCity = {
 
 const apiKey = "cce07da6a69974d4cbb12e9fb81759f5";
 // let apiKey = "3225187ffeee1aca42bdcb35054909ac";
-// let apiKey = "3225187ffeee1aca42bdcb35054909ac";
 
 let apiUrl = null;
 
@@ -49,7 +48,7 @@ const handleGetWeatherCurrentPosition = () => {
           });
       })
       .catch((error) => {
-        console.log(error.response);
+        console.log('error', error.response);
       });
   }
 };
