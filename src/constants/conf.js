@@ -276,240 +276,6 @@ export const weather__content = {
           data: []
         },
         {
-          label: "list",
-          link: "",
-          id: "wlt_1",
-          ref: "weather",
-          type: "list",
-          element: "dl",
-          class: [
-            {
-              label: "day",
-              link: "",
-              id: "c_11",
-              ref: "weather",
-              type: "class",
-              element: "className",
-              icon: "",
-              parts: [],
-              data: []
-            }
-          ],
-          icon: "",
-          parts: [
-            {
-              label: "",
-              link: "",
-              id: "wld_1",
-              ref: "weather",
-              type: "div",
-              element: "div",
-              class: [],
-              icon: "",
-              parts: [
-                {
-                  label: "Day",
-                  link: "",
-                  id: "wdt_1",
-                  ref: "weather",
-                  type: "term",
-                  element: "dt",
-                  class: [
-                    {
-                      label: "hide",
-                      link: "",
-                      id: "c_1",
-                      ref: "weather",
-                      type: "class",
-                      element: "className",
-                      icon: "",
-                      parts: [],
-                      data: []
-                    }
-                  ],
-                  icon: "",
-                  parts: [],
-                  data: []
-                },
-                {
-                  label: "Dayname",
-                  link: "",
-                  id: "wdd_1",
-                  ref: "weather",
-                  type: "discription",
-                  element: "dd",
-                  class: [],
-                  icon: "",
-                  parts: [
-                    {
-                      label: "day",
-                      link: "dt",
-                      id: "wdd_1",
-                      ref: "weather",
-                      type: "small",
-                      element: "small",
-                      class: [
-                        {
-                          label: "dayname",
-                          link: "",
-                          id: "c_10",
-                          ref: "weather",
-                          type: "class",
-                          element: "className",
-                          icon: "",
-                          parts: [],
-                          data: []
-                        }
-                      ],
-                      icon: "",
-                      parts: [],
-                      data: []
-                    }
-                  ],
-                  data: []
-                }
-              ],
-              data: []
-            }
-          ],
-          data: []
-        },
-        {
-          label: "",
-          link: "",
-          id: "wd_1",
-          ref: "weather",
-          type: "div",
-          element: "div",
-          class: [
-            {
-              label: "searchEngine",
-              link: "",
-              id: "c_10",
-              ref: "weather",
-              type: "class",
-              element: "className",
-              icon: "",
-              parts: [],
-              data: []
-            }
-          ],
-          icon: "",
-          parts: [
-            {
-              label: "row",
-              link: "",
-              id: "wd_2",
-              ref: "weather",
-              type: "div",
-              element: "div",
-              class: [
-                {
-                  label: "row",
-                  link: "",
-                  id: "c_10",
-                  ref: "weather",
-                  type: "class",
-                  element: "className",
-                  icon: "",
-                  parts: [],
-                  data: []
-                }
-              ],
-              icon: "",
-              parts: [
-                {
-                  label: "item",
-                  link: "",
-                  id: "wd_3",
-                  ref: "weather",
-                  type: "div",
-                  element: "div",
-                  class: [],
-                  icon: "",
-                  parts: [
-                    {
-                      label: "Current location",
-                      link: "",
-                      id: "wb_1",
-                      ref: "weather",
-                      type: "button",
-                      element: "button",
-                      class: [
-                        {
-                          label: "primary",
-                          link: "",
-                          id: "c_10",
-                          ref: "weather",
-                          type: "class",
-                          element: "className",
-                          icon: "",
-                          parts: [],
-                          data: []
-                        }
-                      ],
-                      icon: "",
-                      parts: [],
-                      data: []
-                    }
-                  ],
-                  data: []
-                },
-                {
-                  label: "search",
-                  link: "",
-                  id: "wcbi_2",
-                  ref: "weather",
-                  type: "customBoxInput",
-                  element: "checkbox",
-                  class: [
-                    {
-                      label: "search",
-                      link: "",
-                      id: "c_14",
-                      ref: "weather",
-                      type: "class",
-                      element: "className",
-                      icon: "",
-                      parts: [],
-                      data: []
-                    }
-                  ],
-                  icon: "",
-                  parts: [],
-                  data: []
-                },
-                {
-                  label: "search form",
-                  link: "",
-                  id: "f_search",
-                  ref: "weather",
-                  type: "form",
-                  element: "form",
-                  class: [
-                    {
-                      label: "row",
-                      link: "",
-                      id: "c_14",
-                      ref: "weather",
-                      type: "class",
-                      element: "className",
-                      icon: "",
-                      parts: [],
-                      data: []
-                    }
-                  ],
-                  icon: "",
-                  parts: [],
-                  data: []
-                }
-              ],
-              data: []
-            }
-          ],
-          data: []
-        },
-        {
           label: "",
           link: "",
           id: "wd_5",
@@ -566,12 +332,13 @@ export const weather__content = {
                     {
                       label: "",
                       link: "",
-                      id: "wld_2",
+                      id: "wldd_2",
                       ref: "weather",
                       type: "div",
                       element: "div",
                       class: [],
                       icon: "",
+                      dataParent: true,
                       parts: [
                         {
                           label: "Temperature",
@@ -599,7 +366,7 @@ export const weather__content = {
                         },
                         {
                           label: "temp",
-                          link: `temp`,
+                          link: "temp",
                           id: "wdd_2",
                           ref: "weather",
                           type: "discription",
@@ -618,6 +385,7 @@ export const weather__content = {
                             }
                           ],
                           icon: "",
+                          parentId: "wldd_2",
                           parts: [],
                           data: []
                         }
@@ -814,7 +582,7 @@ export const weather__content = {
                 {
                   label: "div",
                   link: "",
-                  id: "wd_10",
+                  id: "wdd_11",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -843,11 +611,12 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
-                      label: "lowest temp",
+                      label: "lowest temperature",
                       link: "",
-                      id: "wdt_3",
+                      id: "wdt_4",
                       ref: "weather",
                       type: "term",
                       element: "dt",
@@ -870,8 +639,8 @@ export const weather__content = {
                     },
                     {
                       label: "temp low",
-                      link: "temp--low",
-                      id: "wdd_3",
+                      link: "temp.low",
+                      id: "wdd_4",
                       ref: "weather",
                       type: "discription",
                       element: "dd",
@@ -889,6 +658,7 @@ export const weather__content = {
                         }
                       ],
                       icon: "",
+                      parentId: "wdd_11",
                       parts: [],
                       data: []
                     }
@@ -898,7 +668,7 @@ export const weather__content = {
                 {
                   label: "div",
                   link: "",
-                  id: "wd_12",
+                  id: "wdd_12",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -927,6 +697,7 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
                       label: "highest temperature",
@@ -954,7 +725,7 @@ export const weather__content = {
                     },
                     {
                       label: "temp high",
-                      link: "temp--high",
+                      link: "temp.high",
                       id: "wdd_4",
                       ref: "weather",
                       type: "discription",
@@ -973,6 +744,7 @@ export const weather__content = {
                         }
                       ],
                       icon: "",
+                      parentId: "wdd_12",
                       parts: [],
                       data: []
                     }
@@ -1007,7 +779,7 @@ export const weather__content = {
                 {
                   label: "div",
                   link: "",
-                  id: "wd_17",
+                  id: "wdd_17",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -1025,6 +797,7 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
                       label: "description",
@@ -1052,13 +825,14 @@ export const weather__content = {
                     },
                     {
                       label: "discription",
-                      link: "weather.0.description",
+                      link: "description",
                       id: "wdd_6",
                       ref: "weather",
                       type: "discription",
                       element: "dd",
                       class: [],
                       icon: "",
+                      parentId: "wdd_17",
                       parts: [],
                       data: []
                     }
@@ -1068,7 +842,7 @@ export const weather__content = {
                 {
                   label: "item",
                   link: "",
-                  id: "wd_18",
+                  id: "wdd_18",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -1086,6 +860,7 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
                       label: "rain",
@@ -1113,7 +888,7 @@ export const weather__content = {
                     },
                     {
                       label: "...mm/h",
-                      link: "",
+                      link: "rain",
                       id: "wdd_7",
                       ref: "weather",
                       type: "discription",
@@ -1132,6 +907,7 @@ export const weather__content = {
                         }
                       ],
                       icon: "",
+                      parentId: "wdd_18",
                       parts: [],
                       data: []
                     }
@@ -1141,7 +917,7 @@ export const weather__content = {
                 {
                   label: "item",
                   link: "",
-                  id: "wd_19",
+                  id: "wdd_19",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -1159,6 +935,7 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
                       label: "wind",
@@ -1205,6 +982,7 @@ export const weather__content = {
                         }
                       ],
                       icon: "",
+                      parentId: "wdd_19",
                       parts: [],
                       data: []
                     }
@@ -1214,7 +992,7 @@ export const weather__content = {
                 {
                   label: "item",
                   link: "",
-                  id: "wd_19",
+                  id: "wdd_22",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -1232,6 +1010,7 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
                       label: "humidity",
@@ -1259,7 +1038,7 @@ export const weather__content = {
                     },
                     {
                       label: "...%",
-                      link: "",
+                      link: "humidity",
                       id: "wdd_8",
                       ref: "weather",
                       type: "discription",
@@ -1278,6 +1057,7 @@ export const weather__content = {
                         }
                       ],
                       icon: "",
+                      parentId: "wdd_22",
                       parts: [],
                       data: []
                     }
@@ -1287,7 +1067,7 @@ export const weather__content = {
                 {
                   label: "item",
                   link: "",
-                  id: "wd_20",
+                  id: "wdd_20",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -1305,10 +1085,11 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
                       label: "sunrise",
-                      link: "dt--sunrise",
+                      link: "",
                       id: "wdt_7",
                       ref: "weather",
                       type: "term",
@@ -1332,7 +1113,7 @@ export const weather__content = {
                     },
                     {
                       label: "00:00",
-                      link: "",
+                      link: "sunrise",
                       id: "wdd_7",
                       ref: "weather",
                       type: "discription",
@@ -1351,6 +1132,7 @@ export const weather__content = {
                         }
                       ],
                       icon: "",
+                      parentId: "wdd_20",
                       parts: [],
                       data: []
                     }
@@ -1360,7 +1142,7 @@ export const weather__content = {
                 {
                   label: "item",
                   link: "",
-                  id: "wd_21",
+                  id: "wdd_21",
                   ref: "weather",
                   type: "div",
                   element: "div",
@@ -1378,6 +1160,7 @@ export const weather__content = {
                     }
                   ],
                   icon: "",
+                  dataParent: true,
                   parts: [
                     {
                       label: "sunset",
@@ -1405,7 +1188,7 @@ export const weather__content = {
                     },
                     {
                       label: "00:00",
-                      link: "dt--sunset",
+                      link: "sunset",
                       id: "wdd_9",
                       ref: "weather",
                       type: "discription",
@@ -1424,6 +1207,7 @@ export const weather__content = {
                         }
                       ],
                       icon: "",
+                      parentId: "wdd_21",
                       parts: [],
                       data: []
                     }
@@ -1435,7 +1219,240 @@ export const weather__content = {
             }
           ],
           data: []
-        }
+        }, // {
+        //   label: "list",
+        //   link: "",
+        //   id: "wlt_1",
+        //   ref: "weather",
+        //   type: "list",
+        //   element: "dl",
+        //   class: [
+        //     {
+        //       label: "day",
+        //       link: "",
+        //       id: "c_11",
+        //       ref: "weather",
+        //       type: "class",
+        //       element: "className",
+        //       icon: "",
+        //       parts: [],
+        //       data: []
+        //     }
+        //   ],
+        //   icon: "",
+        //   parts: [
+        //     {
+        //       label: "",
+        //       link: "",
+        //       id: "wld_1",
+        //       ref: "weather",
+        //       type: "div",
+        //       element: "div",
+        //       class: [],
+        //       icon: "",
+        //       parts: [
+        //         {
+        //           label: "Day",
+        //           link: "",
+        //           id: "wdt_1",
+        //           ref: "weather",
+        //           type: "term",
+        //           element: "dt",
+        //           class: [
+        //             {
+        //               label: "hide",
+        //               link: "",
+        //               id: "c_1",
+        //               ref: "weather",
+        //               type: "class",
+        //               element: "className",
+        //               icon: "",
+        //               parts: [],
+        //               data: []
+        //             }
+        //           ],
+        //           icon: "",
+        //           parts: [],
+        //           data: []
+        //         },
+        //         {
+        //           label: "Dayname",
+        //           link: "",
+        //           id: "wdd_1",
+        //           ref: "weather",
+        //           type: "discription",
+        //           element: "dd",
+        //           class: [],
+        //           icon: "",
+        //           parts: [
+        //             {
+        //               label: "day",
+        //               link: "dt",
+        //               id: "wdd_1",
+        //               ref: "weather",
+        //               type: "small",
+        //               element: "small",
+        //               class: [
+        //                 {
+        //                   label: "dayname",
+        //                   link: "",
+        //                   id: "c_10",
+        //                   ref: "weather",
+        //                   type: "class",
+        //                   element: "className",
+        //                   icon: "",
+        //                   parts: [],
+        //                   data: []
+        //                 }
+        //               ],
+        //               icon: "",
+        //               parts: [],
+        //               data: []
+        //             }
+        //           ],
+        //           data: []
+        //         }
+        //       ],
+        //       data: []
+        //     }
+        //   ],
+        //   data: []
+        // },
+        // {
+        //   label: "",
+        //   link: "",
+        //   id: "wd_1",
+        //   ref: "weather",
+        //   type: "div",
+        //   element: "div",
+        //   class: [
+        //     {
+        //       label: "searchEngine",
+        //       link: "",
+        //       id: "c_10",
+        //       ref: "weather",
+        //       type: "class",
+        //       element: "className",
+        //       icon: "",
+        //       parts: [],
+        //       data: []
+        //     }
+        //   ],
+        //   icon: "",
+        //   parts: [
+        //     {
+        //       label: "row",
+        //       link: "",
+        //       id: "wd_2",
+        //       ref: "weather",
+        //       type: "div",
+        //       element: "div",
+        //       class: [
+        //         {
+        //           label: "row",
+        //           link: "",
+        //           id: "c_10",
+        //           ref: "weather",
+        //           type: "class",
+        //           element: "className",
+        //           icon: "",
+        //           parts: [],
+        //           data: []
+        //         }
+        //       ],
+        //       icon: "",
+        //       parts: [
+        //         {
+        //           label: "item",
+        //           link: "",
+        //           id: "wd_3",
+        //           ref: "weather",
+        //           type: "div",
+        //           element: "div",
+        //           class: [],
+        //           icon: "",
+        //           parts: [
+        //             {
+        //               label: "Current location",
+        //               link: "",
+        //               id: "wb_1",
+        //               ref: "weather",
+        //               type: "button",
+        //               element: "button",
+        //               class: [
+        //                 {
+        //                   label: "primary",
+        //                   link: "",
+        //                   id: "c_10",
+        //                   ref: "weather",
+        //                   type: "class",
+        //                   element: "className",
+        //                   icon: "",
+        //                   parts: [],
+        //                   data: []
+        //                 }
+        //               ],
+        //               icon: "",
+        //               parts: [],
+        //               data: []
+        //             }
+        //           ],
+        //           data: []
+        //         },
+        //         {
+        //           label: "search",
+        //           link: "",
+        //           id: "wcbi_2",
+        //           ref: "weather",
+        //           type: "customBoxInput",
+        //           element: "checkbox",
+        //           class: [
+        //             {
+        //               label: "search",
+        //               link: "",
+        //               id: "c_14",
+        //               ref: "weather",
+        //               type: "class",
+        //               element: "className",
+        //               icon: "",
+        //               parts: [],
+        //               data: []
+        //             }
+        //           ],
+        //           icon: "",
+        //           parts: [],
+        //           data: []
+        //         },
+        //         {
+        //           label: "search form",
+        //           link: "",
+        //           id: "f_search",
+        //           ref: "weather",
+        //           type: "form",
+        //           element: "form",
+        //           class: [
+        //             {
+        //               label: "row",
+        //               link: "",
+        //               id: "c_14",
+        //               ref: "weather",
+        //               type: "class",
+        //               element: "className",
+        //               icon: "",
+        //               parts: [],
+        //               data: []
+        //             }
+        //           ],
+        //           icon: "",
+        //           parts: [],
+        //           data: []
+        //         }
+        //       ],
+        //       data: []
+        //     }
+        //   ],
+        //   data: []
+        // },
       ],
       data: "weather_Data"
     }
@@ -1624,7 +1641,7 @@ export const forecast__content = {
                               parts: [
                                 {
                                   label: "23",
-                                  link: `temp`,
+                                  link: "temp",
                                   id: "fh_2",
                                   ref: "forecast",
                                   type: "title",
@@ -1810,8 +1827,8 @@ export const emptyCard = {
                   dataParent: true,
                   parts: [
                     {
-                      label: "23",
-                      link: `data.daily.temp`,
+                      label: "temp",
+                      link: "temp",
                       id: "fh_2",
                       ref: "forecast",
                       type: "title",

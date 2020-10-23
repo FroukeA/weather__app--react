@@ -52,8 +52,35 @@ function convertData(object, key, data) {
   switch (key) {
     case 'dt':
       return handleCreateDay(handleCreateDate(data.dt).getDay());
+    case 'sunrise':
+      const sunrise = handleCreateDate(data.sunrise);
+      return `${sunrise.getHours() < 10 ? "0" + sunrise.getHours() : sunrise.getHours()
+        }: ${sunrise.getMinutes() < 10
+          ? "0" + sunrise.getMinutes()
+          : sunrise.getMinutes()
+        }`;
+    case 'sunset':
+      const sunset = handleCreateDate(data.sunset);
+
+      return `${sunset.getHours() < 10 ? "0" + sunset.getHours() : sunset.getHours()
+        }: ${sunset.getMinutes() < 10
+          ? "0" + sunset.getMinutes()
+          : sunset.getMinutes()
+        }`;
     case 'temp':
       return object[key].day.toFixed(1)
+    case 'low':
+      return data.temp.min.toFixed(1)
+    case 'high':
+      return data.temp.max.toFixed(1)
+    case 'discription':
+      return data.weather[0].discription;
+    case 'wind_speed':
+      return `${data.wind_speed}m/sec`;
+    case 'rain':
+      return `${data.rain}mm/h`;
+    case 'humidity':
+      return `${data.humidity}%`;
     default:
       return object[key]
   }
@@ -95,64 +122,6 @@ const handleCreateDay = (day) => {
 //   return temp;
 // };
 
-// function handleCurrentWeatherLocation() {
-//   sunrise = handleCreateDate(currentCity.data.current.sunrise);
-//   sunset = handleCreateDate(currentCity.data.current.sunset);
-
-//   const weather__elements = [
-//     {
-//       class: "#location",
-//       content: currentCity.name,
-//     },
-//     {
-//       class: "#temp",
-//       content: currentCity.data.current.temp.toFixed(1),
-//     },
-//     {
-//       class: "#rain",
-//       content: currentCity.data.current.rain
-//         ? `${currentCity.data.current.rain}mm/h`
-//         : `0mm/h`,
-//     },
-//     {
-//       class: "#humidity",
-//       content: `${currentCity.data.current.humidity}%`,
-//     },
-//     {
-//       class: "#tempCold",
-//       content: currentCity.data.daily[0].temp.min.toFixed(1),
-//     },
-//     {
-//       class: "#tempHot",
-//       content: currentCity.data.daily[0].temp.max.toFixed(1),
-//     },
-//     {
-//       class: "#wind",
-//       content: `${currentCity.data.current.wind_speed}m/sec`,
-//     },
-//     {
-//       class: "#weather__description",
-//       content: currentCity.data.current.weather[0].description,
-//     },
-//     {
-//       class: "#sunrise",
-//       content: `${sunrise.getHours() < 10 ? "0" + sunrise.getHours() : sunrise.getHours()
-//         }: ${sunrise.getMinutes() < 10
-//           ? "0" + sunrise.getMinutes()
-//           : sunrise.getMinutes()
-//         }`,
-//     },
-//     {
-//       class: "#sunset",
-//       content: `${sunset.getHours() < 10 ? "0" + sunset.getHours() : sunset.getHours()
-//         }: ${sunset.getMinutes() < 10
-//           ? "0" + sunset.getMinutes()
-//           : sunset.getMinutes()
-//         }`,
-//     },
-//   ];
-// }
-
 // function handleDailyWeatherLocation() {
 //   let tempCurrentDay = currentDay;
 
@@ -173,7 +142,6 @@ function dataMerge(elementData__child, id) {
   const tempData = { ...parents[elementData__child.parentId] };
   tempData.parts[id] = elementData__child;
 
-
   mergeDataStructure();
 }
 
@@ -182,7 +150,7 @@ function mergeDataStructure() {
     tempElementPart.parts[elementPart__parentId] = elementPart__parent; // forecast
   }
   if (elementPart__parent.ref === 'weather') {
-    tempElementPart = elementPart__parent; // weather  
+    tempElementPart = elementPart__parent; // weather
   }
 
   // forecast
@@ -209,7 +177,6 @@ export function handleReceiveData(d, handleData) {
   //   name: "",
   //   data: {},
   // }
-  // console.log(888, d.data.current)
 
   handle = handleData;
 
@@ -258,12 +225,25 @@ export function mergeDataElementItems(structureEl) {
             })
           } else {
             elementPart__parentId = 0;
-            elementPart__parent = { ...elementPart }; // weather = weather article === deep copy
+            elementPart__parent = { ...elementPart }; // weather = weather article === copy
 
-            elementPart__child = { ...elementPart__parent.parts[0] }; // weather = structureChild
-            return elementPart__parent.type === "part"
-              ? handlePrepareData(elementPart__child, data)
-              : null;
+            if (elementPart__parent.parts.length > 0) {
+              elementPart__parent.parts.map((partItem, partId) => {
+                elementPart__parentId = partId;
+                elementPart__child = { ...partItem }
+                return elementPart__parent.type === "part"
+                  ? handlePrepareData(elementPart__child, data)
+                  : null;
+              })
+            } else {
+              elementPart__child = { ...elementPart__parent.parts[0] }; // weather = structureChild
+
+              return elementPart__parent.type === "part"
+                ? handlePrepareData(elementPart__child, data)
+                : null;
+            }
+
+
           }
         }
       }
@@ -286,21 +266,38 @@ export function mergeDataElement(elementPart, elementPartId) {
         // Nested DOM
         tempElementPart = elementPart; // foreCast = list
 
-        data.map((dataItem, dataId) => {
-          elementPart__parentId = dataId;
-          elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
-          // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
-          elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+        if (data.length > 0) {
+          data.map((dataItem, dataId) => {
+            elementPart__parentId = dataId;
+            elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
+            // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
+            elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+            return elementPart__parent.type === "card"
+              ? handlePrepareData(elementPart__child, dataItem)
+              : null;
+          })
+        } else {
+          elementPart__parentId = 0;
+          elementPart__parent = { ...elementPart }; // weather = weather article === copy
 
-          return elementPart__parent.type === "card"
-            ? handlePrepareData(elementPart__child, dataItem)
-            : null;
-        })
-      } else {
-        elementPart__parent = { ...elementPart };
-        return (elementPart__parent.type === "card"
-          ? (handleMerge(elementPart__parent, data, elementPartId))
-          : null)
+          if (elementPart__parent.parts.length > 0) {
+            elementPart__parent.parts.map((partItem, partId) => {
+              elementPart__parentId = partId;
+              elementPart__child = { ...partItem }
+              return elementPart__parent.type === "part"
+                ? handlePrepareData(elementPart__child, data)
+                : null;
+            })
+          } else {
+            elementPart__child = { ...elementPart__parent.parts[0] }; // weather = structureChild
+
+            return elementPart__parent.type === "part"
+              ? handlePrepareData(elementPart__child, data)
+              : null;
+          }
+
+
+        }
       }
     }
   }
@@ -322,10 +319,6 @@ export function handleMergeData(structureElement, data, id) {
   function get(object, key) {
     const keys = key.split('.');
     for (let i = 0; i < keys.length; i++) {
-      if (!object.hasOwnProperty(keys[i])) {
-        return null;
-      }
-
       result = convertData(object, keys[i], data);
       object = object[keys[i]];
     }

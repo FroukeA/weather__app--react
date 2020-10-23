@@ -12,8 +12,9 @@ let currentCity = {
   data: {},
 };
 
-const apiKey = "cce07da6a69974d4cbb12e9fb81759f5";
+// let apiKey = "cce07da6a69974d4cbb12e9fb81759f5";
 // let apiKey = "3225187ffeee1aca42bdcb35054909ac";
+let apiKey = "9f4b04499dcdf5ed9e092a332dd558d1";
 
 let apiUrl = null;
 
