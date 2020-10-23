@@ -168,7 +168,7 @@ export const weather__content = {
         {
           label: "",
           link: "",
-          id: "wahd_1",
+          id: "wahdd_1",
           ref: "weather",
           type: "header",
           element: "header",
@@ -197,14 +197,16 @@ export const weather__content = {
             }
           ],
           icon: "",
+          dataParent: true,
           parts: [
             {
-              label: "Spring",
-              link: "",
+              label: "city name",
+              link: "name",
               id: "wh_2",
               ref: "weather",
               type: "title",
               element: "h3",
+              parentId: "wahdd_1",
               class: [
                 {
                   label: "location",
@@ -340,8 +342,8 @@ export const weather__content = {
                   icon: "",
                   parts: [
                     {
-                      label: "Monday",
-                      link: "",
+                      label: "day",
+                      link: "dt",
                       id: "wdd_1",
                       ref: "weather",
                       type: "small",
@@ -596,8 +598,8 @@ export const weather__content = {
                           data: []
                         },
                         {
-                          label: "35",
-                          link: "",
+                          label: "temp",
+                          link: `temp`,
                           id: "wdd_2",
                           ref: "weather",
                           type: "discription",
@@ -867,8 +869,8 @@ export const weather__content = {
                       data: []
                     },
                     {
-                      label: "temp C",
-                      link: "",
+                      label: "temp low",
+                      link: "temp--low",
                       id: "wdd_3",
                       ref: "weather",
                       type: "discription",
@@ -951,8 +953,8 @@ export const weather__content = {
                       data: []
                     },
                     {
-                      label: "temp C",
-                      link: "",
+                      label: "temp high",
+                      link: "temp--high",
                       id: "wdd_4",
                       ref: "weather",
                       type: "discription",
@@ -1049,8 +1051,8 @@ export const weather__content = {
                       data: []
                     },
                     {
-                      label: "sunny",
-                      link: "",
+                      label: "discription",
+                      link: "weather.0.description",
                       id: "wdd_6",
                       ref: "weather",
                       type: "discription",
@@ -1184,7 +1186,7 @@ export const weather__content = {
                     },
                     {
                       label: "...km/h",
-                      link: "",
+                      link: "wind_speed",
                       id: "wdd_7",
                       ref: "weather",
                       type: "discription",
@@ -1306,7 +1308,7 @@ export const weather__content = {
                   parts: [
                     {
                       label: "sunrise",
-                      link: "",
+                      link: "dt--sunrise",
                       id: "wdt_7",
                       ref: "weather",
                       type: "term",
@@ -1403,7 +1405,7 @@ export const weather__content = {
                     },
                     {
                       label: "00:00",
-                      link: "",
+                      link: "dt--sunset",
                       id: "wdd_9",
                       ref: "weather",
                       type: "discription",
@@ -1435,7 +1437,7 @@ export const weather__content = {
           data: []
         }
       ],
-      data: []
+      data: "weather_Data"
     }
   ],
   data: []

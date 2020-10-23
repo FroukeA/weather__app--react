@@ -68,15 +68,11 @@ function handleGetCurrentLocation() {
 }
 
 
-function handleCurrentForcast(data) {
+function handleCurrentForcast() {
   currentCity.name = currentCityName;
+  currentCity.data.daily[0].name = currentCityName;
 
-  // here we have the data new it need to be merged and in case need formated
-  // weather
-  // daily data.data.daily
-  // createDataElement2(data.data.daily.slice(1), forecast__content, handleData, "forecastContent")
   handleReceiveData(currentCity, handleData);
-  // hourly -- later
 }
 
 export function getData(handle) {

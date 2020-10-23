@@ -29,19 +29,13 @@ import Weather from "../../components/weather/Weather";
 import Forecast from "../../components/forecast/Forecast";
 
 export default function App() {
-  // let [forecast, setForecast] = useState(null);
   const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, forecastContent: {} });
-  // const [loading, setLoading] = useState(true);
-  // const [city, setCity] = useState('spring');
 
   function handleData(element, data) {
-    console.log('set data',)
     setWeatherData({
       ready: false,
       [element]: data
     })
-
-    // setForecast(data);
   }
 
   // createDataElement(forecast__content, handleData.bind(this))
@@ -76,13 +70,14 @@ export default function App() {
               createClass={createClass}
             // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
             /> */}
-
-            <Forecast
-              content={weatherData.forecastContent}
-              createElement={createElement}
-              createClass={createClass}
-            // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
-            />
+            {(weatherData.forecastContent ?
+              <Forecast
+                content={weatherData.forecastContent}
+                createElement={createElement}
+                createClass={createClass}
+              // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
+              />
+              : null)}
           </React.Fragment>
         )
         }
