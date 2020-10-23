@@ -1,7 +1,8 @@
 // data
 import { forecast_data } from "../../constants/mock";
 import {
-  forecast__content
+  forecast__content,
+  weather__content
 } from "../../constants/conf";
 
 // functions
@@ -55,7 +56,7 @@ function convertData(object, key, data) {
     case 'temp':
       return object[key].day.toFixed(1)
     default:
-      return object[key].day
+      return object[key]
   }
 }
 
@@ -170,15 +171,22 @@ const handleCreateDay = (day) => {
 // merge
 
 function dataMerge(elementData__child, id) {
-
   const tempData = { ...parents[elementData__child.parentId] };
   tempData.parts[id] = elementData__child;
+
 
   mergeDataStructure();
 }
 
 function mergeDataStructure() {
-  tempElementPart.parts[elementPart__parentId] = elementPart__parent;
+  if (elementPart__parent.ref === 'forecast') {
+    tempElementPart.parts[elementPart__parentId] = elementPart__parent; // forecast
+  }
+  if (elementPart__parent.ref === 'weather') {
+    tempElementPart = elementPart__parent; // weather  
+  }
+
+  // forecast
 
   handle(type, item)
 }
@@ -186,7 +194,12 @@ function mergeDataStructure() {
 function createDataElement(d, i, t) {
   type = t;
   item = i;
-  data = d.slice(0, d.length - 1);
+
+  if (type === 'forecastContent') {
+    data = d.slice(0, d.length - 1);
+  } else if (type === 'weatherContent') {
+    data = d[0];
+  }
 
   handleMergeDataElements(item);
 }
@@ -197,28 +210,34 @@ export function handleReceiveData(d, handleData) {
   //   name: "",
   //   data: {},
   // }
+  // console.log(888, d.data.current)
+
   handle = handleData;
 
+  // weather
+  createDataElement(d.data.daily, weather__content, "weatherContent");
+  // daily data.data.daily
   createDataElement(d.data.daily, forecast__content, "forecastContent");
+  // hourly -- later
 }
 
 function handleMergeDataElements(item, key) {
-
   if (item.parts.length > 0) {
     // Nested DOM
     mergeDataElementItems(item, key)
   } else {
     // Single DOM
-    mergeDataElement(item, key);
+    mergeDataElement(item, 0);
   }
 }
 
 export function mergeDataElementItems(structureEl) {
   elementPart__parent = null;
 
-  structureEl.parts.forEach((elementPart, elementPartId) => {
+  structureEl.parts.map((elementPart, elementPartId) => {
+    // return mergeDataElement(elementPart, elementPartId);
     if (elementPart.data.length === 0) {
-      mergeDataElementItems(elementPart)
+      mergeDataElementItems(elementPart);
     } else {
       // data comes from external source, data does NOT come from constants
       if (elementPart.parts[0] !== undefined) {
@@ -228,63 +247,68 @@ export function mergeDataElementItems(structureEl) {
           // Nested DOM
           tempElementPart = elementPart; // foreCast = list
 
-          data.map((dataItem, dataId) => {
-            elementPart__parentId = dataId;
-            elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
-            // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
-            elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+          if (data.length > 0) {
+            data.map((dataItem, dataId) => {
+              elementPart__parentId = dataId;
+              elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
+              // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
+              elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+              return elementPart__parent.type === "card"
+                ? handlePrepareData(elementPart__child, dataItem)
+                : null;
+            })
+          } else {
+            elementPart__parentId = 0;
+            elementPart__parent = { ...elementPart }; // weather = weather article === deep copy
 
-            return elementPart__parent.type === "card"
-              ? handlePrepareData(elementPart__child, dataItem)
+            elementPart__child = { ...elementPart__parent.parts[0] }; // weather = structureChild
+            return elementPart__parent.type === "part"
+              ? handlePrepareData(elementPart__child, data)
               : null;
-          })
-        } else {
-          elementPart__parent = { ...elementPart };
-
-          return (elementPart__parent.type === "card"
-            ? (handleMerge(elementPart__parent, data, elementPartId))
-            : null)
+          }
         }
       }
     }
+
   });
 }
 
-export function mergeDataElement(temp, item) {
+export function mergeDataElement(elementPart, elementPartId) {
   let elementPart__parent = null;
 
-  let todo = null;
-
-  if (item.data.length !== 0) {
+  if (elementPart.data.length === 0) {
+    mergeDataElementItems(elementPart);
+  } else {
     // data comes from external source, data does NOT come from constants
-    if (item.parts[0] !== undefined) {
-      const data = forecast_data;
+    if (elementPart.parts[0] !== undefined) {
+      // const data = forecast_data;
 
-      if (item.parts.length > 0) {
+      if (elementPart.parts.length > 0) {
         // Nested DOM
-        elementPart__parent = item.parts[0];
+        tempElementPart = elementPart; // foreCast = list
 
-        todo = (data.map((dataItem, i) => {
-          return item.parts[0].type === "card"
-            ? // before render merge data into structure
-            (todo = handleMerge(elementPart__parent, dataItem, null))
+        data.map((dataItem, dataId) => {
+          elementPart__parentId = dataId;
+          elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
+          // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
+          elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+
+          return elementPart__parent.type === "card"
+            ? handlePrepareData(elementPart__child, dataItem)
             : null;
         })
-        );
       } else {
-        todo = item.parts[0].type === "card"
-          ? // before render merge data into structure
-          (todo = handleMerge(elementPart__parent, data, null))
-          : null;
+        elementPart__parent = { ...elementPart };
+        return (elementPart__parent.type === "card"
+          ? (handleMerge(elementPart__parent, data, elementPartId))
+          : null)
       }
     }
   }
-
-  return todo;
 }
 
 export function handlePrepareData(elementPart__child, dataItem) {
-  handleMerge(elementPart__child.parts, dataItem, null);
+  handleMerge(elementPart__child, dataItem, null);
 }
 
 export function handleMergeElementItems(array, data) {
@@ -298,7 +322,6 @@ export function handleMergeData(structureElement, data, id) {
 
   function get(object, key) {
     const keys = key.split('.');
-
     for (let i = 0; i < keys.length; i++) {
       if (!object.hasOwnProperty(keys[i])) {
         return null;
