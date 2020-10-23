@@ -233,7 +233,7 @@ function handleMergeDataElements(item, key) {
 export function mergeDataElementItems(structureEl) {
   elementPart__parent = null;
 
-  structureEl.parts.foreach((elementPart, elementPartId) => {
+  structureEl.parts.map((elementPart, elementPartId) => {
     // return mergeDataElement(elementPart, elementPartId);
     if (elementPart.data.length === 0) {
       mergeDataElementItems(elementPart);
@@ -268,7 +268,7 @@ export function mergeDataElementItems(structureEl) {
         }
       }
     }
-
+    return null;
   });
 }
 
