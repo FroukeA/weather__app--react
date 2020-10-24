@@ -1,4 +1,7 @@
-import { handleChangeText } from "../utils/weather/weatherUtils";
+import {
+  handleChangeText,
+  handleGetCurrentLocation
+} from "../utils/weather/weatherUtils";
 
 export const header__content = {
   label: "header",
@@ -226,30 +229,30 @@ export const weather__content = {
               parts: [],
               data: []
             },
-            {
-              label: "favorite",
-              link: "",
-              id: "wcbi_1",
-              ref: "weather",
-              type: "customBoxInput",
-              element: "checkbox",
-              class: [
-                {
-                  label: "favorite",
-                  link: "",
-                  id: "c_14",
-                  ref: "weather",
-                  type: "class",
-                  element: "className",
-                  icon: "",
-                  parts: [],
-                  data: []
-                }
-              ],
-              icon: "",
-              parts: [],
-              data: []
-            }
+            // {
+            //   label: "favorite",
+            //   link: "",
+            //   id: "wcbi_1",
+            //   ref: "weather",
+            //   type: "customBoxInput",
+            //   element: "checkbox",
+            //   class: [
+            //     {
+            //       label: "favorite",
+            //       link: "",
+            //       id: "c_14",
+            //       ref: "weather",
+            //       type: "class",
+            //       element: "className",
+            //       icon: "",
+            //       parts: [],
+            //       data: []
+            //     }
+            //   ],
+            //   icon: "",
+            //   parts: [],
+            //   data: []
+            // }
             // {
             //   label: "favorite",
             //   link: "",
@@ -1386,7 +1389,8 @@ export const weather__content = {
                       ],
                       icon: "",
                       parts: [],
-                      data: []
+                      data: [],
+                      function: handleGetCurrentLocation.bind(this,)
                     }
                   ],
                   data: []

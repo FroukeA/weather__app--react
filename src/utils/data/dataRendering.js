@@ -13,8 +13,8 @@ import Input from "../../components/ui/inputs/Input";
 import List from "../../components/common/blocks/list/List";
 import Card from "../../components/common/blocks/cards/Card";
 import Term from "../../components/common/elements/list/Term";
-import Textdescription from "../../components/common/elements/list/Textdescription";
-import Groupdescription from "../../components/common/blocks/list/Groupdescription";
+import Textdescription from "../../components/common/elements/list/TextDescription";
+import Groupdescription from "../../components/common/blocks/list/GroupDescription";
 import TextItem from "../../components/common/elements/list/TextItem";
 import CustomBoxInput from "../../components/ui/groups/CustomBoxInput";
 import Button from "../../components/ui/buttons/Button";
@@ -90,6 +90,12 @@ export function renderElement(item, key) {
         key={"input" + key}
       />
     );
+  } else if (item.id.includes("fta")) {
+    return (
+      <item.element key={"element" + key} href={item.link} target="_blank" className={createClass(item)}>
+        {item.label}
+      </item.element>
+    )
   } else if (item.parts[0] !== undefined) {
     if (item.part[0].type === "card") {
       return (
@@ -167,6 +173,7 @@ export function renderComponent(item, key, array, load) {
           item={item}
           label={item.label}
           class={createClass(item)}
+          onClick={item.function}
         />
       );
 

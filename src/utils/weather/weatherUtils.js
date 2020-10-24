@@ -69,7 +69,7 @@ function handlePosition(response) {
   handleGetWeatherCurrentPosition();
 };
 
-function handleGetCurrentLocation() {
+export function handleGetCurrentLocation() {
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
 
@@ -83,6 +83,7 @@ function handleCurrentForcast() {
 
 export function getData(handle) {
   handleData = handle;
+
   handleGetCurrentLocation();
 }
 

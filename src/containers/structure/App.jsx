@@ -26,7 +26,7 @@ import Footer from "../../components/common/footer/Footer";
 import Weather from "../../components/weather/Weather";
 
 // --- forecast ---
-import Forecast from "../../components/forecast/Forecast";
+// import Forecast from "../../components/forecast/Forecast";
 
 export default function App() {
   const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, forecastContent: {} });
