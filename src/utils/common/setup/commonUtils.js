@@ -34,7 +34,7 @@ function handleRenderElements(item, key) {
   } else {
     // Single DOM
     if (
-      item.type === "discription" ||
+      item.type === "description" ||
       item.type === "term" ||
       item.type === "textItem" ||
       item.type === "button" ||

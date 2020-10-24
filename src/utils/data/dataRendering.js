@@ -13,8 +13,8 @@ import Input from "../../components/ui/inputs/Input";
 import List from "../../components/common/blocks/list/List";
 import Card from "../../components/common/blocks/cards/Card";
 import Term from "../../components/common/elements/list/Term";
-import TextDiscription from "../../components/common/elements/list/TextDiscription";
-import GroupDiscription from "../../components/common/blocks/list/GroupDiscription";
+import Textdescription from "../../components/common/elements/list/Textdescription";
+import Groupdescription from "../../components/common/blocks/list/Groupdescription";
 import TextItem from "../../components/common/elements/list/TextItem";
 import CustomBoxInput from "../../components/ui/groups/CustomBoxInput";
 import Button from "../../components/ui/buttons/Button";
@@ -30,7 +30,7 @@ export function renderElementItems(array) {
         renderComponent(item, "")
       );
     }
-    if (item.type === "list" || item.type === "discription_group") {
+    if (item.type === "list" || item.type === "description_group") {
       // DOM is a list of any type or group dd
       // render list !!! type = trough props
       todo = renderComponent(item, i, null);
@@ -44,7 +44,7 @@ export function renderElementItems(array) {
     } else {
       // Single DOM
       if (
-        item.type === "discription" ||
+        item.type === "description" ||
         item.type === "term" ||
         item.type === "textItem" ||
         item.type === "button" ||
@@ -133,13 +133,13 @@ export function renderComponent(item, key, array, load) {
       return <Form key={key} array={array} class={createClass(item)} />;
     case "term":
       return <Term key={key} item={item} class={createClass(item)} />;
-    case "discription":
+    case "description":
       return (
-        <TextDiscription key={key} item={item} class={createClass(item)} />
+        <Textdescription key={key} item={item} class={createClass(item)} />
       );
-    case "discription_group":
+    case "description_group":
       return (
-        <GroupDiscription
+        <Groupdescription
           key={key}
           class={createClass(item)}
           item={item}

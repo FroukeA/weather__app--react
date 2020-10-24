@@ -3,10 +3,16 @@ import axios from "axios";
 
 // functions
 import { handleReceiveData } from "../data/dataProcessing";
-let handleData = null;
 
 // components
 // variables
+// let favorites = {};
+let handleData = null;
+
+let sentence = "";
+
+let city = "";
+
 let currentCity = {
   name: "",
   data: {},
@@ -79,3 +85,49 @@ export function getData(handle) {
   handleData = handle;
   handleGetCurrentLocation();
 }
+
+// SearchEngine
+export function handleChangeText(event) {
+  event.preventDefault();
+
+  const value = event.target.value;
+
+  city = value;
+}
+
+export function handleSubmitCity(event) {
+  event.preventDefault();
+
+  // handleUnCheckFavorites("all");
+  // document.querySelector("#favorite").checked = "";
+
+  const apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${city.toLowerCase()}&appid=${apiKey}&units=metric`;
+
+  axios
+    .get(apiUrl1)
+    .then((response) => {
+      currentCityName = response.data.name;
+      lat = response.data.coord.lat;
+      long = response.data.coord.lon;
+
+      apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minute&appid=${apiKey}&units=metric`;
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          currentCity.data = response.data;
+          handleCurrentForcast();
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    })
+    .catch((error) => {
+      console.log(error.response);
+      sentence = `Sorry, we do not know the weather for this city, try going to https://www.google.com/search?q=weather+${city}`;
+      handleGreeting(sentence);
+    });
+};
+
+const handleGreeting = (greeting) => {
+  alert(greeting);
+};

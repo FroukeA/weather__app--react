@@ -21,7 +21,7 @@ export default function Input(props) {
       id={props.id}
       name={props.name}
       placeholder={props.placeholder || ""}
-      // onChange={handleChange.bind(this)}
+      onChange={props.onChange}
       required={props.required === "true" ? true : false}
       checked={props.checked ? props.checked : null}
     />

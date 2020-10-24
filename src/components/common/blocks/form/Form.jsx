@@ -1,5 +1,7 @@
 import React from "react";
 
+import { handleSubmitCity } from "../../../../utils/weather/weatherUtils"
+
 import Button from "../../../ui/buttons/Button";
 import Input from "../../../ui/inputs/Input";
 import Label from "../../../ui/labels/Label";
@@ -31,7 +33,7 @@ function renderFormFields(props) {
               <Input
                 // titles
                 // functions
-                onChange={props.functionIntput}
+                onChange={item.function}
                 // data
                 class={"form__input--search"}
                 base=""
@@ -93,7 +95,7 @@ function renderFormItems(props, array) {
           <Input
             // titles
             // functions
-            onChange={props.functionIntput}
+            onChange={parentItem.function}
             // data
             class={"form__input--search"}
             base=""
@@ -128,7 +130,7 @@ function renderFormItems(props, array) {
               <Input
                 // titles
                 // functions
-                onChange={props.functionIntput}
+                onChange={subItem.function}
                 // data
                 class={"form__input--search"}
                 base=""
@@ -151,7 +153,7 @@ function renderFormItems(props, array) {
 
 export default function Form(props) {
   return (
-    <form className={"form " + props.class} id={""}>
+    <form className={"form " + props.class} id={""} onSubmit={handleSubmitCity}>
       { renderFormFields(props)}
 
       <Button
@@ -163,7 +165,7 @@ export default function Form(props) {
         type={props.idSubmitButton}
         id={props.idSubmitButton}
         name={props.idSubmitButton}
-        onSubmit={props.functionButton}
+        // onSubmit={handleSubmitCity}
         // onClick={handleClick.bind(this)}
         label={"submit"}
       // array & objects

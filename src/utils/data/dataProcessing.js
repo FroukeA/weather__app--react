@@ -73,12 +73,12 @@ function convertData(object, key, data) {
       return data.temp.min.toFixed(1)
     case 'high':
       return data.temp.max.toFixed(1)
-    case 'discription':
-      return data.weather[0].discription;
+    case 'description':
+      return data.weather[0].description;
     case 'wind_speed':
       return `${data.wind_speed}m/sec`;
     case 'rain':
-      return `${data.rain}mm/h`;
+      return (data.rain ? `${data.rain}mm/h` : `...mm/h`);
     case 'humidity':
       return `${data.humidity}%`;
     default:
@@ -100,15 +100,7 @@ const handleCreateDate = (stamp) => {
 };
 
 const handleCreateDay = (day) => {
-  let tempCurrentDay = day;
-
-  if (tempCurrentDay < 6) {
-    tempCurrentDay = tempCurrentDay + 1;
-  } else if (tempCurrentDay === 6) {
-    tempCurrentDay = 0;
-  }
-
-  return days[tempCurrentDay]
+  return days[day]
 }
 
 // weather and forecast
@@ -121,20 +113,6 @@ const handleCreateDay = (day) => {
 //   const temp = ((value - 32) * 5) / 9;
 //   return temp;
 // };
-
-// function handleDailyWeatherLocation() {
-//   let tempCurrentDay = currentDay;
-
-//   currentCity.data.daily.map((item, i) => {
-//     if (i !== 0) {
-//       if (tempCurrentDay < 6) {
-//         tempCurrentDay = tempCurrentDay + 1;
-//       } else if (tempCurrentDay === 6) {
-//         tempCurrentDay = 0;
-//       }
-//     }
-//   });
-// }
 
 // merge
 
@@ -163,7 +141,7 @@ function createDataElement(d, i, t) {
   item = i;
 
   if (type === 'forecastContent') {
-    data = d.slice(0, d.length - 1);
+    data = d.slice(1, d.length);
   } else if (type === 'weatherContent') {
     data = d[0];
   }

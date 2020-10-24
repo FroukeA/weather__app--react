@@ -1,3 +1,5 @@
+import { handleChangeText } from "../utils/weather/weatherUtils";
+
 export const header__content = {
   label: "header",
   link: "",
@@ -369,7 +371,7 @@ export const weather__content = {
                           link: "temp",
                           id: "wdd_2",
                           ref: "weather",
-                          type: "discription",
+                          type: "description",
                           element: "dd",
                           class: [
                             {
@@ -642,7 +644,7 @@ export const weather__content = {
                       link: "temp.low",
                       id: "wdd_4",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [
                         {
@@ -728,7 +730,7 @@ export const weather__content = {
                       link: "temp.high",
                       id: "wdd_4",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [
                         {
@@ -824,11 +826,11 @@ export const weather__content = {
                       data: []
                     },
                     {
-                      label: "discription",
+                      label: "description",
                       link: "description",
                       id: "wdd_6",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [],
                       icon: "",
@@ -891,7 +893,7 @@ export const weather__content = {
                       link: "rain",
                       id: "wdd_7",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [
                         {
@@ -966,7 +968,7 @@ export const weather__content = {
                       link: "wind_speed",
                       id: "wdd_7",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [
                         {
@@ -1041,7 +1043,7 @@ export const weather__content = {
                       link: "humidity",
                       id: "wdd_8",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [
                         {
@@ -1116,7 +1118,7 @@ export const weather__content = {
                       link: "sunrise",
                       id: "wdd_7",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [
                         {
@@ -1191,7 +1193,7 @@ export const weather__content = {
                       link: "sunset",
                       id: "wdd_9",
                       ref: "weather",
-                      type: "discription",
+                      type: "description",
                       element: "dd",
                       class: [
                         {
@@ -1219,240 +1221,230 @@ export const weather__content = {
             }
           ],
           data: []
-        }, // {
-        //   label: "list",
-        //   link: "",
-        //   id: "wlt_1",
-        //   ref: "weather",
-        //   type: "list",
-        //   element: "dl",
-        //   class: [
-        //     {
-        //       label: "day",
-        //       link: "",
-        //       id: "c_11",
-        //       ref: "weather",
-        //       type: "class",
-        //       element: "className",
-        //       icon: "",
-        //       parts: [],
-        //       data: []
-        //     }
-        //   ],
-        //   icon: "",
-        //   parts: [
-        //     {
-        //       label: "",
-        //       link: "",
-        //       id: "wld_1",
-        //       ref: "weather",
-        //       type: "div",
-        //       element: "div",
-        //       class: [],
-        //       icon: "",
-        //       parts: [
-        //         {
-        //           label: "Day",
-        //           link: "",
-        //           id: "wdt_1",
-        //           ref: "weather",
-        //           type: "term",
-        //           element: "dt",
-        //           class: [
-        //             {
-        //               label: "hide",
-        //               link: "",
-        //               id: "c_1",
-        //               ref: "weather",
-        //               type: "class",
-        //               element: "className",
-        //               icon: "",
-        //               parts: [],
-        //               data: []
-        //             }
-        //           ],
-        //           icon: "",
-        //           parts: [],
-        //           data: []
-        //         },
-        //         {
-        //           label: "Dayname",
-        //           link: "",
-        //           id: "wdd_1",
-        //           ref: "weather",
-        //           type: "discription",
-        //           element: "dd",
-        //           class: [],
-        //           icon: "",
-        //           parts: [
-        //             {
-        //               label: "day",
-        //               link: "dt",
-        //               id: "wdd_1",
-        //               ref: "weather",
-        //               type: "small",
-        //               element: "small",
-        //               class: [
-        //                 {
-        //                   label: "dayname",
-        //                   link: "",
-        //                   id: "c_10",
-        //                   ref: "weather",
-        //                   type: "class",
-        //                   element: "className",
-        //                   icon: "",
-        //                   parts: [],
-        //                   data: []
-        //                 }
-        //               ],
-        //               icon: "",
-        //               parts: [],
-        //               data: []
-        //             }
-        //           ],
-        //           data: []
-        //         }
-        //       ],
-        //       data: []
-        //     }
-        //   ],
-        //   data: []
-        // },
-        // {
-        //   label: "",
-        //   link: "",
-        //   id: "wd_1",
-        //   ref: "weather",
-        //   type: "div",
-        //   element: "div",
-        //   class: [
-        //     {
-        //       label: "searchEngine",
-        //       link: "",
-        //       id: "c_10",
-        //       ref: "weather",
-        //       type: "class",
-        //       element: "className",
-        //       icon: "",
-        //       parts: [],
-        //       data: []
-        //     }
-        //   ],
-        //   icon: "",
-        //   parts: [
-        //     {
-        //       label: "row",
-        //       link: "",
-        //       id: "wd_2",
-        //       ref: "weather",
-        //       type: "div",
-        //       element: "div",
-        //       class: [
-        //         {
-        //           label: "row",
-        //           link: "",
-        //           id: "c_10",
-        //           ref: "weather",
-        //           type: "class",
-        //           element: "className",
-        //           icon: "",
-        //           parts: [],
-        //           data: []
-        //         }
-        //       ],
-        //       icon: "",
-        //       parts: [
-        //         {
-        //           label: "item",
-        //           link: "",
-        //           id: "wd_3",
-        //           ref: "weather",
-        //           type: "div",
-        //           element: "div",
-        //           class: [],
-        //           icon: "",
-        //           parts: [
-        //             {
-        //               label: "Current location",
-        //               link: "",
-        //               id: "wb_1",
-        //               ref: "weather",
-        //               type: "button",
-        //               element: "button",
-        //               class: [
-        //                 {
-        //                   label: "primary",
-        //                   link: "",
-        //                   id: "c_10",
-        //                   ref: "weather",
-        //                   type: "class",
-        //                   element: "className",
-        //                   icon: "",
-        //                   parts: [],
-        //                   data: []
-        //                 }
-        //               ],
-        //               icon: "",
-        //               parts: [],
-        //               data: []
-        //             }
-        //           ],
-        //           data: []
-        //         },
-        //         {
-        //           label: "search",
-        //           link: "",
-        //           id: "wcbi_2",
-        //           ref: "weather",
-        //           type: "customBoxInput",
-        //           element: "checkbox",
-        //           class: [
-        //             {
-        //               label: "search",
-        //               link: "",
-        //               id: "c_14",
-        //               ref: "weather",
-        //               type: "class",
-        //               element: "className",
-        //               icon: "",
-        //               parts: [],
-        //               data: []
-        //             }
-        //           ],
-        //           icon: "",
-        //           parts: [],
-        //           data: []
-        //         },
-        //         {
-        //           label: "search form",
-        //           link: "",
-        //           id: "f_search",
-        //           ref: "weather",
-        //           type: "form",
-        //           element: "form",
-        //           class: [
-        //             {
-        //               label: "row",
-        //               link: "",
-        //               id: "c_14",
-        //               ref: "weather",
-        //               type: "class",
-        //               element: "className",
-        //               icon: "",
-        //               parts: [],
-        //               data: []
-        //             }
-        //           ],
-        //           icon: "",
-        //           parts: [],
-        //           data: []
-        //         }
-        //       ],
-        //       data: []
-        //     }
-        //   ],
-        //   data: []
-        // },
+        },
+        {
+          label: "list",
+          link: "",
+          id: "wlt_1",
+          ref: "weather",
+          type: "list",
+          element: "dl",
+          class: [
+            {
+              label: "day",
+              link: "",
+              id: "c_11",
+              ref: "weather",
+              type: "class",
+              element: "className",
+              icon: "",
+              parts: [],
+              data: []
+            }
+          ],
+          icon: "",
+          parts: [
+            {
+              label: "",
+              link: "",
+              id: "wld_1",
+              ref: "weather",
+              type: "div",
+              element: "div",
+              class: [],
+              icon: "",
+              dataParent: true,
+              parts: [
+                {
+                  label: "Day",
+                  link: "",
+                  id: "wdt_1",
+                  ref: "weather",
+                  type: "term",
+                  element: "dt",
+                  class: [
+                    {
+                      label: "hide",
+                      link: "",
+                      id: "c_1",
+                      ref: "weather",
+                      type: "class",
+                      element: "className",
+                      icon: "",
+                      parts: [],
+                      data: []
+                    }
+                  ],
+                  icon: "",
+                  parts: [],
+                  data: []
+                },
+                {
+                  label: "Dayname",
+                  link: "dt",
+                  id: "wdd_1",
+                  ref: "weather",
+                  type: "description",
+                  element: "dd",
+                  class: [
+                    {
+                      label: "dayname",
+                      link: "",
+                      id: "c_10",
+                      ref: "weather",
+                      type: "class",
+                      element: "className",
+                      icon: "",
+                      parts: [],
+                      data: []
+                    }
+                  ],
+                  icon: "",
+                  parentId: "wld_1",
+                  parts: [],
+                  data: []
+                }
+              ],
+              data: []
+            }
+          ],
+          data: []
+        },
+        {
+          label: "",
+          link: "",
+          id: "wd_1",
+          ref: "weather",
+          type: "div",
+          element: "div",
+          class: [
+            {
+              label: "searchEngine",
+              link: "",
+              id: "c_10",
+              ref: "weather",
+              type: "class",
+              element: "className",
+              icon: "",
+              parts: [],
+              data: []
+            }
+          ],
+          icon: "",
+          parts: [
+            {
+              label: "row",
+              link: "",
+              id: "wd_2",
+              ref: "weather",
+              type: "div",
+              element: "div",
+              class: [
+                {
+                  label: "row",
+                  link: "",
+                  id: "c_10",
+                  ref: "weather",
+                  type: "class",
+                  element: "className",
+                  icon: "",
+                  parts: [],
+                  data: []
+                }
+              ],
+              icon: "",
+              parts: [
+                {
+                  label: "item",
+                  link: "",
+                  id: "wd_3",
+                  ref: "weather",
+                  type: "div",
+                  element: "div",
+                  class: [],
+                  icon: "",
+                  parts: [
+                    {
+                      label: "Current location",
+                      link: "",
+                      id: "wb_1",
+                      ref: "weather",
+                      type: "button",
+                      element: "button",
+                      class: [
+                        {
+                          label: "primary",
+                          link: "",
+                          id: "c_10",
+                          ref: "weather",
+                          type: "class",
+                          element: "className",
+                          icon: "",
+                          parts: [],
+                          data: []
+                        }
+                      ],
+                      icon: "",
+                      parts: [],
+                      data: []
+                    }
+                  ],
+                  data: []
+                },
+                // {
+                //   label: "search",
+                //   link: "",
+                //   id: "wcbi_2",
+                //   ref: "weather",
+                //   type: "customBoxInput",
+                //   element: "checkbox",
+                //   class: [
+                //     {
+                //       label: "search",
+                //       link: "",
+                //       id: "c_14",
+                //       ref: "weather",
+                //       type: "class",
+                //       element: "className",
+                //       icon: "",
+                //       parts: [],
+                //       data: []
+                //     }
+                //   ],
+                //   icon: "",
+                //   parts: [],
+                //   data: []
+                // },
+                {
+                  label: "search form",
+                  link: "",
+                  id: "f_search",
+                  ref: "weather",
+                  type: "form",
+                  element: "form",
+                  class: [
+                    {
+                      label: "row",
+                      link: "",
+                      id: "c_14",
+                      ref: "weather",
+                      type: "class",
+                      element: "className",
+                      icon: "",
+                      parts: [],
+                      data: []
+                    }
+                  ],
+                  icon: "",
+                  parts: [],
+                  data: []
+                }
+              ],
+              data: []
+            }
+          ],
+          data: []
+        },
       ],
       data: "weather_Data"
     }
@@ -1612,7 +1604,7 @@ export const forecast__content = {
                       link: "",
                       id: "fdd_1",
                       ref: "forecast",
-                      type: "discription_group",
+                      type: "description_group",
                       element: "dd",
                       class: [],
                       icon: "",
@@ -1800,7 +1792,7 @@ export const emptyCard = {
           link: "",
           id: "fdd_1",
           ref: "forecast",
-          type: "discription_group",
+          type: "description_group",
           element: "dd",
           class: [],
           icon: "",
@@ -1964,7 +1956,8 @@ export const forms = [
             class: [],
             icon: "",
             parts: [],
-            data: []
+            data: [],
+            function: handleChangeText.bind(this)
           }
           // {
           //   label: "submit",
