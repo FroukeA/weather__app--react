@@ -1,7 +1,7 @@
 import React from "react";
 
 import Term from "../../elements/list/Term";
-import Textdescription from "../../elements/list/Textdescription";
+import Textdescription from "../../elements/list/TextDescription";
 import TextItem from "../../elements/list/TextItem";
 
 function renderDL(props) {
