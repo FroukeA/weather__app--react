@@ -1,7 +1,7 @@
 import React from "react";
 
 import Term from "../../elements/list/Term";
-import TextDiscription from "../../elements/list/TextDiscription";
+import Textdescription from "../../elements/list/Textdescription";
 import TextItem from "../../elements/list/TextItem";
 
 function renderDL(props) {
@@ -15,7 +15,7 @@ function renderDL(props) {
         ) : item.element === "dt" ? (
           <Term key={"list" + i} item={item.label} />
         ) : (
-              <TextDiscription key={"list" + i} item={item.label} />
+              <Textdescription key={"list" + i} item={item.label} />
             );
       })}
     </dl>

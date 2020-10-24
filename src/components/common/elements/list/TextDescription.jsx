@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function TextDiscription(props) {
+export default function Textdescription(props) {
   return <dd className={props.class}>{props.item.label}</dd>;
 }

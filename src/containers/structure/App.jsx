@@ -70,14 +70,14 @@ export default function App() {
               createClass={createClass}
             // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
             /> */}
-            {(weatherData.forecastContent ?
+            {/* {(weatherData.forecastContent ?
               <Forecast
                 content={weatherData.forecastContent}
                 createElement={createElement}
                 createClass={createClass}
               // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
               />
-              : null)}
+              : null)} */}
           </React.Fragment>
         )
         }
