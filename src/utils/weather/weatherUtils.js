@@ -74,11 +74,11 @@ export function handleGetCurrentLocation() {
 }
 
 
-function handleCurrentForcast() {
+function handleCurrentForcast(reason) {
   currentCity.name = currentCityName;
   currentCity.data.daily[0].name = currentCityName;
 
-  handleReceiveData(currentCity, handleData);
+  handleReceiveData(currentCity, handleData, reason);
 }
 
 export function getData(handle) {
@@ -116,7 +116,7 @@ export function handleSubmitCity(event) {
         .get(apiUrl)
         .then((response) => {
           currentCity.data = response.data;
-          handleCurrentForcast();
+          handleCurrentForcast('searchSubmit');
         })
         .catch((error) => {
           console.log('ERROR:', error.response);

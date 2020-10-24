@@ -115,9 +115,12 @@ const handleFahrenheitToCelsius = (value) => {
   return temp;
 };
 
-export function handleChangeConversion(conversion) {
+export function handleChangeConversion(conversion, event) {
+  // console.log(weather__content.parts)
   switch (conversion) {
     case 'celsius':
+      weather__content.parts[1].parts[1].parts[0].parts[1].parts[0].parts[0].checked = true;
+      weather__content.parts[1].parts[1].parts[0].parts[1].parts[1].parts[0].checked = false;
       weather.data.daily.forEach(element => {
         element.temp.day = handleFahrenheitToCelsius(element.temp.day);
         element.temp.max = handleFahrenheitToCelsius(element.temp.max);
@@ -130,6 +133,8 @@ export function handleChangeConversion(conversion) {
       createDataElement(weather.data.daily, forecast__content, "forecastContent");
       break;
     case 'fahrenheit':
+      weather__content.parts[1].parts[1].parts[0].parts[1].parts[1].parts[0].checked = true;
+      weather__content.parts[1].parts[1].parts[0].parts[1].parts[0].parts[0].checked = false;
       weather.data.daily.forEach(element => {
         element.temp.day = handleCelsiusToFahrenheit(element.temp.day);
         element.temp.max = handleCelsiusToFahrenheit(element.temp.max);
@@ -182,7 +187,7 @@ function createDataElement(d, i, t) {
 }
 
 
-export function handleReceiveData(d, handleData) {
+export function handleReceiveData(d, handleData, reason) {
   // d  = {
   //   name: "",
   //   data: {},
@@ -190,6 +195,11 @@ export function handleReceiveData(d, handleData) {
 
   handle = handleData;
   weather = d;
+
+  if (reason === 'searchSubmit') {
+    weather__content.parts[1].parts[1].parts[0].parts[1].parts[0].parts[0].checked = true;
+    weather__content.parts[1].parts[1].parts[0].parts[1].parts[1].parts[0].checked = false;
+  }
 
   // weather
   createDataElement(d.data.daily, weather__content, "weatherContent");
