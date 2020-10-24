@@ -26,7 +26,7 @@ import Footer from "../../components/common/footer/Footer";
 import Weather from "../../components/weather/Weather";
 
 // --- forecast ---
-// import Forecast from "../../components/forecast/Forecast";
+import Forecast from "../../components/forecast/Forecast";
 
 export default function App() {
   const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, forecastContent: {} });
@@ -70,14 +70,14 @@ export default function App() {
               createClass={createClass}
             // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
             /> */}
-            {/* {(weatherData.forecastContent ?
+            {(weatherData.forecastContent ?
               <Forecast
                 content={weatherData.forecastContent}
                 createElement={createElement}
                 createClass={createClass}
               // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
               />
-              : null)} */}
+              : null)}
           </React.Fragment>
         )
         }

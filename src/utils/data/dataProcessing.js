@@ -33,6 +33,7 @@ const days = [
 
 // *** merge ***
 let data = null;
+let weather = null;
 
 let type = null;
 let item = null;
@@ -104,15 +105,46 @@ const handleCreateDay = (day) => {
 }
 
 // weather and forecast
-// const handleCelsiusToFahrenheit = (value) => {
-//   const temp = (value * 9) / 5 + 32;
-//   return temp;
-// };
+const handleCelsiusToFahrenheit = (value) => {
+  const temp = (value * 9) / 5 + 32;
+  return temp;
+};
 
-// const handleFahrenheitToCelsius = (value) => {
-//   const temp = ((value - 32) * 5) / 9;
-//   return temp;
-// };
+const handleFahrenheitToCelsius = (value) => {
+  const temp = ((value - 32) * 5) / 9;
+  return temp;
+};
+
+export function handleChangeConversion(conversion) {
+  switch (conversion) {
+    case 'celsius':
+      weather.data.daily.forEach(element => {
+        element.temp.day = handleFahrenheitToCelsius(element.temp.day);
+        element.temp.max = handleFahrenheitToCelsius(element.temp.max);
+        element.temp.min = handleFahrenheitToCelsius(element.temp.min);
+      });
+
+      // weather
+      createDataElement(weather.data.daily, weather__content, "weatherContent");
+      // daily data.data.daily
+      createDataElement(weather.data.daily, forecast__content, "forecastContent");
+      break;
+    case 'fahrenheit':
+      weather.data.daily.forEach(element => {
+        element.temp.day = handleCelsiusToFahrenheit(element.temp.day);
+        element.temp.max = handleCelsiusToFahrenheit(element.temp.max);
+        element.temp.min = handleCelsiusToFahrenheit(element.temp.min);
+      });
+
+      // weather
+      createDataElement(weather.data.daily, weather__content, "weatherContent");
+      // daily data.data.daily
+      createDataElement(weather.data.daily, forecast__content, "forecastContent");
+      break;
+    default:
+      return console.log('ERROR: I do not know the conversion:', conversion)
+  }
+}
 
 // merge
 
@@ -157,6 +189,7 @@ export function handleReceiveData(d, handleData) {
   // }
 
   handle = handleData;
+  weather = d;
 
   // weather
   createDataElement(d.data.daily, weather__content, "weatherContent");

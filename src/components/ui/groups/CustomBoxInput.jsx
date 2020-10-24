@@ -15,6 +15,8 @@ export default function CustomBoxInput(props) {
         placeholder={props.item.label}
         required={props.item.required}
         reference={props.item.ref}
+        checked={props.item.checked}
+        onChange={props.item.function}
       />
       <Label
         // titles
@@ -26,7 +28,7 @@ export default function CustomBoxInput(props) {
         hide={props.hide}
         labelText={props.item.label}
         htmlFor={props.item.id + props.item.label}
-        // array & objects
+      // array & objects
       />
     </div>
   );

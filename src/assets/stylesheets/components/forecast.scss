@@ -1,9 +1,9 @@
 // *** LAYOUT ***
-.forecast__description--rain,
-.forecast__description--wind,
-.forecast__description--sunrise,
-.forecast__description--sunset,
-.forecast__description--humidity,
+.forecast__discription--rain,
+.forecast__discription--wind,
+.forecast__discription--sunrise,
+.forecast__discription--sunset,
+.forecast__discription--humidity,
 .forecast__text--01d,
 .forecast__text--01n,
 .forecast__text--02d,
@@ -44,29 +44,29 @@
   padding: auto;
 }
 
-.forecast__description--rain::before,
+.forecast__discription--rain::before,
 .forecast__text--09d:before,
 .forecast__text--09n:before {
   content: "";
   background: url("https://image.flaticon.com/icons/svg/959/959687.svg") 0 0 no-repeat;
 }
 
-.forecast__description--sunrise::before {
+.forecast__discription--sunrise::before {
   content: "";
   background: url("https://image.flaticon.com/icons/svg/959/959704.svg") 0 0 no-repeat;
 }
 
-.forecast__description--sunset::before {
+.forecast__discription--sunset::before {
   content: "";
   background: url("https://image.flaticon.com/icons/svg/959/959707.svg") 0 0 no-repeat;
 }
 
-.forecast__description--wind::before {
+.forecast__discription--wind::before {
   content: "";
   background: url("https://image.flaticon.com/icons/svg/959/959711.svg") 0 0 no-repeat;
 }
 
-.forecast__description--humidity::before {
+.forecast__discription--humidity::before {
   content: "";
   background: url("https://image.flaticon.com/icons/svg/959/959696.svg") 0 0 no-repeat;
 }
