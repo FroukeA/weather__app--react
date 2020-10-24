@@ -23,6 +23,7 @@ import Button from "../../components/ui/buttons/Button";
 export function renderElementItems(array) {
   return array.map((item, i) => {
     let todo = null;
+
     if (item.type === "card") {
       return (
         // DOM is a card

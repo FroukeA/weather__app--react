@@ -51,11 +51,11 @@ const handleGetWeatherCurrentPosition = () => {
             handleCurrentForcast();
           })
           .catch((error) => {
-            console.log('error', error.response);
+            console.log('ERROR:', error.response);
           });
       })
       .catch((error) => {
-        console.log('error', error.response);
+        console.log('ERROR', error.response);
       });
   }
 };
@@ -119,11 +119,11 @@ export function handleSubmitCity(event) {
           handleCurrentForcast();
         })
         .catch((error) => {
-          console.log(error.response);
+          console.log('ERROR:', error.response);
         });
     })
     .catch((error) => {
-      console.log(error.response);
+      console.log('ERROR:', error.response);
       sentence = `Sorry, we do not know the weather for this city, try going to https://www.google.com/search?q=weather+${city}`;
       handleGreeting(sentence);
     });

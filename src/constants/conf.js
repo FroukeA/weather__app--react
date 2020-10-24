@@ -3,6 +3,10 @@ import {
   handleGetCurrentLocation
 } from "../utils/weather/weatherUtils";
 
+import {
+  handleChangeConversion
+} from "../utils/data/dataProcessing";
+
 export const header__content = {
   label: "header",
   link: "",
@@ -411,7 +415,7 @@ export const weather__content = {
                   icon: "",
                   parts: [
                     {
-                      label: "Celcius",
+                      label: "Celsius",
                       link: "",
                       id: "wli_1",
                       ref: "weather",
@@ -442,7 +446,9 @@ export const weather__content = {
                           ],
                           icon: "",
                           parts: [],
-                          data: []
+                          data: [],
+                          checked: 'checked',
+                          function: handleChangeConversion.bind(this, 'celsius')
                         }
                         // {
                         //   label: "celsius",
@@ -502,7 +508,9 @@ export const weather__content = {
                           ],
                           icon: "",
                           parts: [],
-                          data: []
+                          data: [],
+                          checked: '',
+                          function: handleChangeConversion.bind(this, 'fahrenheit')
                         }
                         // {
                         //   label: "fahrenheit",
