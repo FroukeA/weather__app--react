@@ -23,7 +23,7 @@ export default function Input(props) {
       placeholder={props.placeholder || ""}
       onChange={props.onChange}
       required={props.required === "true" ? true : false}
-      checked={props.checked ? props.checked : null}
+      checked={props.checked}
     />
   );
 }

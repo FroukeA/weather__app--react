@@ -447,7 +447,7 @@ export const weather__content = {
                           icon: "",
                           parts: [],
                           data: [],
-                          checked: 'checked',
+                          checked: true,
                           function: handleChangeConversion.bind(this, 'celsius')
                         }
                         // {
@@ -509,7 +509,7 @@ export const weather__content = {
                           icon: "",
                           parts: [],
                           data: [],
-                          checked: '',
+                          checked: false,
                           function: handleChangeConversion.bind(this, 'fahrenheit')
                         }
                         // {
