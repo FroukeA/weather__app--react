@@ -25,6 +25,11 @@
   display: none;
 }
 
+.container > section,
+.container > .footer {
+  padding-top: 4rem;
+}
+
 .favorites {
   padding: 2rem 0;
 }

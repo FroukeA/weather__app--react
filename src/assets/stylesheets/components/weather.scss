@@ -80,11 +80,12 @@
 .weather__list--feature,
 .weather__div--searchEngine {
   width: 100%;
-  padding-left: 3rem;
+  // padding-left: 3rem;
 }
 
-.weather__div--featureItem+.weather__div--featureItem {
-  margin-left: .8rem;
+.weather__div--featureItem,
+.weather__div--searchEngine {
+  margin-left: 2.4rem;
 }
 
 .weather__term--center,
@@ -218,7 +219,7 @@
 }
 
 .weather__description--lowTemp {
-  color: blue;
+  color: $secundairy-color1;
 }
 
 .weather__description--highTemp {
