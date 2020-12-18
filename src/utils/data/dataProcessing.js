@@ -361,6 +361,8 @@ export function handleMergeData(structureElement, data, id) {
     structureElement.parts.map((item, itemId) => {
       item.label = data.weather[0].description
       elementData__child.class[0].label = `${get(data, structureElement.link)}`;
+
+      return null
     })
 
   } else {
