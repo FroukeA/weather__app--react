@@ -82,6 +82,8 @@ function convertData(object, key, data) {
       return (data.rain ? `${data.rain}mm/h` : `...mm/h`);
     case 'humidity':
       return `${data.humidity}%`;
+    case 'icon':
+      return data.weather[0].icon;
     default:
       return object[key]
   }
@@ -116,7 +118,6 @@ const handleFahrenheitToCelsius = (value) => {
 };
 
 export function handleChangeConversion(conversion, event) {
-  // console.log(weather__content.parts)
   switch (conversion) {
     case 'celsius':
       weather__content.parts[1].parts[1].parts[0].parts[1].parts[0].parts[0].checked = true;
@@ -193,6 +194,7 @@ export function handleReceiveData(d, handleData, reason) {
   //   data: {},
   // }
 
+
   handle = handleData;
   weather = d;
 
@@ -209,7 +211,10 @@ export function handleReceiveData(d, handleData, reason) {
 }
 
 function handleMergeDataElements(item, key) {
+  // weather or forecast
+
   if (item.parts.length > 0) {
+    // weather or forecast
     // Nested DOM
     mergeDataElementItems(item, key)
   } else {
@@ -222,6 +227,8 @@ export function mergeDataElementItems(structureEl) {
   elementPart__parent = null;
 
   structureEl.parts.map((elementPart, elementPartId) => {
+    // weather section or forecast section
+
     // return mergeDataElement(elementPart, elementPartId);
     if (elementPart.data.length === 0) {
       mergeDataElementItems(elementPart);
@@ -335,7 +342,8 @@ export function handleMergeElementItems(array, data) {
 }
 
 export function handleMergeData(structureElement, data, id) {
-  let result = 'test';
+  // console.log(999, structureElement, data, id)
+  let result = '';
 
   function get(object, key) {
     const keys = key.split('.');
@@ -349,12 +357,18 @@ export function handleMergeData(structureElement, data, id) {
 
   let elementData__child = { ...structureElement }
 
-  elementData__child.label = get(data, structureElement.link);
+  if (structureElement.link === "icon") {
+    structureElement.parts.map((item, itemId) => {
+      item.label = data.weather[0].description
+      elementData__child.class[0].label = `${get(data, structureElement.link)}`;
+    })
+
+  } else {
+    elementData__child.label = get(data, structureElement.link);
+  }
 
   dataMerge(elementData__child, id);
 }
-
-
 
 export function handleMerge(structureElement, data, itemId) {
   if (structureElement.dataParent) {
@@ -366,7 +380,12 @@ export function handleMerge(structureElement, data, itemId) {
   if (structureElement.parts) {
     if (structureElement.parts.length > 0) {
       // NO data needed in this layer
-      handleMergeElementItems(structureElement.parts, data);
+      if (handleCheckIfNot(structureElement.link, "")) {
+        // data needed in this layer
+        handleMergeData(structureElement, data, itemId);
+      } else {
+        handleMergeElementItems(structureElement.parts, data);
+      }
     } else {
       // single dom
       if (handleCheckIfNot(structureElement.link, "")) {
