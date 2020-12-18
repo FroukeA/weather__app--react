@@ -341,6 +341,93 @@ export const weather__content = {
                     {
                       label: "",
                       link: "",
+                      id: "wldd_3",
+                      ref: "weather",
+                      type: "div",
+                      element: "div",
+                      class: [],
+                      icon: "",
+                      dataParent: true,
+                      parts: [
+                        {
+                          label: "Weather icon",
+                          link: "",
+                          id: "wdt_2",
+                          ref: "weather",
+                          type: "term",
+                          element: "dt",
+                          class: [
+                            {
+                              label: "hide",
+                              link: "",
+                              id: "c_1",
+                              ref: "weather",
+                              type: "class",
+                              element: "className",
+                              icon: "",
+                              parts: [],
+                              data: []
+                            }
+                          ],
+                          icon: "",
+                          parts: [],
+                          data: []
+                        },
+                        {
+                          label: "weather visual",
+                          link: "icon",
+                          id: "wdd_3",
+                          ref: "weather",
+                          type: "description",
+                          element: "dd",
+                          class: [
+                            {
+                              label: "",
+                              link: "",
+                              id: "c_1",
+                              ref: "weather",
+                              type: "class",
+                              element: "className",
+                              icon: "",
+                              parts: [],
+                              data: []
+                            }
+                          ],
+                          icon: "",
+                          parentId: "wldd_3",
+                          parts: [
+                            {
+                              label: "weather type",
+                              link: "",
+                              id: "ws_1",
+                              ref: "weather",
+                              type: "text",
+                              element: "span",
+                              class: [
+                                {
+                                  label: "hide",
+                                  link: "",
+                                  id: "c_1",
+                                  ref: "header",
+                                  type: "class",
+                                  element: "className",
+                                  icon: "",
+                                  parts: [],
+                                  data: []
+                                }
+                              ],
+                              icon: "",
+                              parts: [],
+                              data: []
+                            }
+                          ],
+                          data: []
+                        }
+                      ],
+                      data: []
+                    }, {
+                      label: "",
+                      link: "",
                       id: "wldd_2",
                       ref: "weather",
                       type: "div",
@@ -1644,7 +1731,7 @@ export const forecast__content = {
                               dataParent: true,
                               parts: [
                                 {
-                                  label: "23",
+                                  label: "",
                                   link: "temp",
                                   id: "fh_2",
                                   ref: "forecast",
@@ -1673,7 +1760,7 @@ export const forecast__content = {
                             },
                             {
                               label: "weather icon",
-                              link: "",
+                              link: "icon",
                               id: "fp_1",
                               ref: "forecast",
                               type: "text",
@@ -1692,6 +1779,7 @@ export const forecast__content = {
                                 }
                               ],
                               icon: "",
+                              parentId: "fad_1",
                               parts: [
                                 {
                                   label: "weather type",
