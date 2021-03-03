@@ -28,7 +28,7 @@
 
 .forecast__list--forecast {
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -167,3 +167,19 @@
 }
 
 // *** STATE ***
+
+/* *** KEYFRAME *** */
+
+/* *** MEDIAQUERY *** */
+@media only screen and (min-width: 1200px) {
+  .forecast__item {
+    max-width: 13.999%;
+  }
+}
+
+@media only screen and (max-width: 991.9px) {
+  .forecast__card {
+    margin: 2.4rem 0;
+    margin-right: 2.4rem;
+  }
+}

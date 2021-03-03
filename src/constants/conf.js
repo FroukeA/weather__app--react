@@ -1544,6 +1544,198 @@ export const weather__content = {
           ],
           data: []
         },
+        // {
+        //   label: "weather hourly",
+        //   link: "",
+        //   id: "wlt_1",
+        //   ref: "weather",
+        //   type: "list--weather",
+        //   element: "dl",
+        //   class: [],
+        //   icon: "",
+        //   parts: [
+        //     {
+        //       label: "card",
+        //       link: "",
+        //       id: "crd_1",
+        //       ref: "weather",
+        //       type: "card",
+        //       element: "card",
+        //       class: [],
+        //       icon: "",
+        //       parts: [
+        //         {
+        //           label: "structureChild",
+        //           link: "",
+        //           id: "wd_1",
+        //           ref: "weather",
+        //           type: "cardContent",
+        //           element: "div",
+        //           class: [],
+        //           icon: "",
+        //           parts: [
+        //             {
+        //               label: "Temperature",
+        //               link: "",
+        //               id: "wdt_1",
+        //               ref: "weather",
+        //               type: "term",
+        //               element: "dt",
+        //               class: [
+        //                 {
+        //                   label: "hide",
+        //                   link: "",
+        //                   id: "w_2",
+        //                   ref: "weather",
+        //                   type: "class",
+        //                   element: "className",
+        //                   icon: "",
+        //                   parts: [],
+        //                   data: []
+        //                 }
+        //               ],
+        //               icon: "",
+        //               parts: [],
+        //               data: []
+        //             },
+        //             {
+        //               label: "",
+        //               link: "",
+        //               id: "wdd_1",
+        //               ref: "weather",
+        //               type: "description_group",
+        //               element: "dd",
+        //               class: [],
+        //               icon: "",
+        //               parts: [
+        //                 {
+        //                   label: "Daily article",
+        //                   link: "",
+        //                   id: "wad_1",
+        //                   ref: "weather",
+        //                   type: "part",
+        //                   element: "article",
+        //                   class: [],
+        //                   icon: "",
+        //                   dataParent: true,
+        //                   parts: [
+        //                     {
+        //                       label: "",
+        //                       link: "",
+        //                       id: "wahdd_1",
+        //                       ref: "weather",
+        //                       type: "header",
+        //                       element: "header",
+        //                       class: [],
+        //                       icon: "",
+        //                       dataParent: true,
+        //                       parts: [
+        //                         {
+        //                           label: "Day",
+        //                           link: "dt",
+        //                           id: "wh_2",
+        //                           ref: "weather",
+        //                           type: "title",
+        //                           element: "h4",
+        //                           parentId: "wahdd_1",
+        //                           class: [
+        //                             {
+        //                               label: "big",
+        //                               link: "",
+        //                               id: "w_1",
+        //                               ref: "weather",
+        //                               type: "class",
+        //                               element: "className",
+        //                               icon: "",
+        //                               parts: [],
+        //                               data: []
+        //                             }
+        //                           ],
+        //                           icon: "",
+        //                           parts: [],
+        //                           data: []
+        //                         }
+        //                       ],
+        //                       data: []
+        //                     },
+        //                     {
+        //                       label: "weather icon",
+        //                       link: "icon",
+        //                       id: "wp_1",
+        //                       ref: "weather",
+        //                       type: "text",
+        //                       element: "p",
+        //                       class: [
+        //                         {
+        //                           label: "01d",
+        //                           link: "",
+        //                           id: "c_1",
+        //                           ref: "weather",
+        //                           type: "class",
+        //                           element: "className",
+        //                           icon: "",
+        //                           parts: [],
+        //                           data: []
+        //                         }
+        //                       ],
+        //                       icon: "",
+        //                       parentId: "wad_1",
+        //                       parts: [
+        //                         {
+        //                           label: "weather type",
+        //                           link: "",
+        //                           id: "ws_2",
+        //                           ref: "weather",
+        //                           type: "text",
+        //                           element: "span",
+        //                           class: [
+        //                             {
+        //                               label: "hide",
+        //                               link: "",
+        //                               id: "c_1",
+        //                               ref: "header",
+        //                               type: "class",
+        //                               element: "className",
+        //                               icon: "",
+        //                               parts: [],
+        //                               data: []
+        //                             }
+        //                           ],
+        //                           icon: "",
+        //                           parts: [],
+        //                           data: []
+        //                         }
+        //                       ],
+        //                       data: []
+        //                     },
+        //                     {
+        //                       label: "Temperature",
+        //                       link: "dt",
+        //                       id: "ws_2",
+        //                       ref: "weather",
+        //                       type: "text",
+        //                       element: "p",
+        //                       parentId: "wad_1",
+        //                       class: [],
+        //                       icon: "",
+        //                       parts: [],
+        //                       data: []
+        //                     }
+        //                   ],
+        //                   data: []
+        //                 }
+        //               ],
+        //               data: []
+        //             }
+        //           ],
+        //           data: []
+        //         }
+        //       ],
+        //       data: []
+        //     }
+        //   ],
+        //   data: "weather_Data_hourly"
+        // }
       ],
       data: "weather_Data"
     }

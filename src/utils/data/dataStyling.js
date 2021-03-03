@@ -1,3 +1,11 @@
+// data
+
+// functions
+
+// components
+
+// variables
+
 // add styling and SCSS
 export function createClass(item) {
   let c = ``;

@@ -1,5 +1,11 @@
+//data
 import React from "react";
 
+// functions
+
+// style
+
+// components
 import Input from "../inputs/Input";
 import Label from "../labels/Label";
 
@@ -19,16 +25,12 @@ export default function CustomBoxInput(props) {
         onChange={props.item.function}
       />
       <Label
-        // titles
-        // functions
-        // data
         class={""}
         base={""}
         type={""}
         hide={props.hide}
         labelText={props.item.label}
         htmlFor={props.item.id + props.item.label}
-      // array & objects
       />
     </div>
   );

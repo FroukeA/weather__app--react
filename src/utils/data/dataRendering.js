@@ -19,6 +19,8 @@ import TextItem from "../../components/common/elements/list/TextItem";
 import CustomBoxInput from "../../components/ui/groups/CustomBoxInput";
 import Button from "../../components/ui/buttons/Button";
 
+// variables
+
 // render data
 export function renderElementItems(array) {
   return array.map((item, i) => {

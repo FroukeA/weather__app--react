@@ -6,7 +6,9 @@ import {
 
 // functions
 let handle = null;
+
 // components
+
 // variables
 // *** weather and forecast ***
 // let currentCity = {
@@ -194,7 +196,6 @@ export function handleReceiveData(d, handleData, reason) {
   //   data: {},
   // }
 
-
   handle = handleData;
   weather = d;
 
@@ -270,8 +271,6 @@ export function mergeDataElementItems(structureEl) {
                 ? handlePrepareData(elementPart__child, data)
                 : null;
             }
-
-
           }
         }
       }
@@ -342,7 +341,6 @@ export function handleMergeElementItems(array, data) {
 }
 
 export function handleMergeData(structureElement, data, id) {
-  // console.log(999, structureElement, data, id)
   let result = '';
 
   function get(object, key) {

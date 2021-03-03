@@ -1,4 +1,11 @@
+// data
 import React from "react";
+
+// functions
+
+// style
+
+// components
 
 // handleChange(e) {
 //   const value = (props.type == 'checkbox' || props.type == 'radio'? e.target.checked : e.target.value)
