@@ -5,6 +5,7 @@ import axios from "axios";
 import { handleReceiveData } from "../data/dataProcessing";
 
 // components
+
 // variables
 // let favorites = {};
 let handleData = null;

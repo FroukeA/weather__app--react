@@ -1,4 +1,11 @@
+// data
 import React from "react";
+
+// functions
+
+// style
+
+// components
 
 // import Img from '../ui/Img';
 
@@ -49,16 +56,12 @@ export default function Label(props) {
       this.props.img !==  "" &&
       this.props.img !==  null ? (
         <Img
-          // titles
           title={"logo"}
-          // functions
-          // data
           base={this.props.base}
           class={this.props.class}
           src={this.props.img}
           sizeW={this.props.sizeW}
           sizeH={this.props.sizeH}
-          // array & objects
         />
       ) : null} */}
     </label>

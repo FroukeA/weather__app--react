@@ -1,4 +1,11 @@
+// data
 import React from "react";
+
+// functions
+
+// style
+
+// components
 
 export default function Card(props) {
   return (
@@ -8,8 +15,6 @@ export default function Card(props) {
       )}`}
     >
       <div className="cardbody">
-        {/* function to loop over content */}
-        {/* <p>pain in the butt card is comming</p> */}
         {props.createElement(props.content.parts[0], "card")}
       </div>
     </div>

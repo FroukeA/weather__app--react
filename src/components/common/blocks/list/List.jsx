@@ -1,5 +1,11 @@
+// data
 import React from "react";
 
+// functions
+
+// style
+
+// components
 import Term from "../../elements/list/Term";
 import Textdescription from "../../elements/list/TextDescription";
 import TextItem from "../../elements/list/TextItem";
