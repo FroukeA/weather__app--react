@@ -57,7 +57,6 @@ function renderFormFields(props) {
                 type={props.typeSecondButton}
                 id={props.idSecondButton}
                 name={props.idSecondButton}
-                // onClick={handleClick.bind(this)}
                 label={props.labelSecondButton}
               />
             ) : null}
@@ -140,8 +139,6 @@ export default function Form(props) {
         type={props.idSubmitButton}
         id={props.idSubmitButton}
         name={props.idSubmitButton}
-        // onSubmit={handleSubmitCity}
-        // onClick={handleClick.bind(this)}
         label={"submit"}
       />
     </form >

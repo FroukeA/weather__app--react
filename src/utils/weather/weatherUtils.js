@@ -100,9 +100,6 @@ export function handleChangeText(event) {
 export function handleSubmitCity(event) {
   event.preventDefault();
 
-  // handleUnCheckFavorites("all");
-  // document.querySelector("#favorite").checked = "";
-
   const apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${city.toLowerCase()}&appid=${apiKey}&units=metric`;
 
   axios

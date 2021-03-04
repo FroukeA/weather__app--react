@@ -18,6 +18,4 @@ export default function handleCreateFormArray(
   const formArray = item["parts"];
 
   return formArray;
-  // handleSetState(formRef, formLayerRef, item);
-  // handleSetState(formArrayRef, formLayerRef, formArray);
 }

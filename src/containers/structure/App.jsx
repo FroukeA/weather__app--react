@@ -7,11 +7,9 @@ import {
   weather__content,
   hourly__content,
   searchEngine__content
-  // forecast__content
 } from "../../constants/conf";
 
 // functions
-// import { createDataElement } from "../../utils/common/setup/commonUtils";
 import { createElement } from "../../utils/common/setup/commonUtils";
 import { createClass } from "../../utils/data/dataStyling";
 import { getData } from "../../utils/weather/weatherUtils";
@@ -43,8 +41,6 @@ export default function App() {
       [element]: data
     })
   }
-
-  // createDataElement(forecast__content, handleData.bind(this))
 
   return (
     <div className="App">
@@ -81,18 +77,11 @@ export default function App() {
               createClass={createClass}
             />
 
-            {/* <Forecast
-              content={forecast__content}
-              createElement={createElement}
-              createClass={createClass}
-            // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
-            /> */}
             {(weatherData.forecastContent ?
               <Forecast
                 content={weatherData.forecastContent}
                 createElement={createElement}
                 createClass={createClass}
-              // handle={createDataElement.bind(this, forecastdata, null, handleData.bind(this))}
               />
               : null)}
           </React.Fragment>

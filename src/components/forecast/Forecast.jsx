@@ -8,7 +8,6 @@ import React from "react";
 // components
 
 export default function Forecast(props) {
-  // if (props.content) {
   return (
     <section className={props.createClass(props.content)}>
       {props.content.parts.map((item, i) => {
@@ -16,8 +15,4 @@ export default function Forecast(props) {
       })}
     </section>
   );
-  // } else {
-  //   props.handle();
-  //   return null;
-  // }
 }
