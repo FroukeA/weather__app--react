@@ -650,30 +650,6 @@ export const weather__content = {
                           checked: true,
                           function: handleChangeConversion.bind(this, 'celsius')
                         }
-                        // {
-                        //   label: "celsius",
-                        //   link: "",
-                        //   id: "wi_3",
-                        //   ref: "weather",
-                        //   type: "checkbox",
-                        //   element: "input",
-                        //   class: [],
-                        //   icon: "",
-                        //   parts: [],
-                        //   data: []
-                        // },
-                        // {
-                        //   label: "Celsius",
-                        //   link: "",
-                        //   id: "wl_3",
-                        //   ref: "weather",
-                        //   type: "fieldTitle",
-                        //   element: "label",
-                        //   class: [],
-                        //   icon: "",
-                        //   parts: [],
-                        //   data: []
-                        // }
                       ]
                     },
                     {
@@ -712,30 +688,6 @@ export const weather__content = {
                           checked: false,
                           function: handleChangeConversion.bind(this, 'fahrenheit')
                         }
-                        // {
-                        //   label: "fahrenheit",
-                        //   link: "",
-                        //   id: "wi_4",
-                        //   ref: "weather",
-                        //   type: "checkbox",
-                        //   element: "input",
-                        //   class: [],
-                        //   icon: "",
-                        //   parts: [],
-                        //   data: []
-                        // },
-                        // {
-                        //   label: "Fahrenheit",
-                        //   link: "",
-                        //   id: "wl_4",
-                        //   ref: "weather",
-                        //   type: "fieldTitle",
-                        //   element: "label",
-                        //   class: [],
-                        //   icon: "",
-                        //   parts: [],
-                        //   data: []
-                        // }
                       ],
                       data: []
                     }
@@ -1602,32 +1554,7 @@ export const weather__content = {
                     }
                   ],
                   data: []
-                },
-                // {
-                //   label: "search",
-                //   link: "",
-                //   id: "wcbi_2",
-                //   ref: "weather",
-                //   type: "customBoxInput",
-                //   element: "checkbox",
-                //   class: [
-                //     {
-                //       label: "search",
-                //       link: "",
-                //       id: "c_14",
-                //       ref: "weather",
-                //       type: "class",
-                //       element: "className",
-                //       icon: "",
-                //       parts: [],
-                //       data: []
-                //     }
-                //   ],
-                //   icon: "",
-                //   parts: [],
-                //   data: []
-                // },
-                {
+                }, {
                   label: "search form",
                   link: "",
                   id: "f_search",
@@ -2388,7 +2315,6 @@ export const emptyCard = {
                 },
                 {
                   label: "Monday",
-                  // link: "data.day",
                   link: "",
                   id: "fs_2",
                   ref: "forecast",
@@ -2451,17 +2377,6 @@ export const forms = [
             data: [],
             function: handleChangeText.bind(this)
           }
-          // {
-          //   label: "submit",
-          //   link: "",
-          //   id: "wi_4",
-          //   ref: "weather",
-          //   type: "field",
-          //   element: "input",
-          //   class: [],
-          //   icon: "",
-          //   parts: []
-          // }
         ],
         data: []
       }

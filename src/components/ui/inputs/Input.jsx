@@ -7,19 +7,6 @@ import React from "react";
 
 // components
 
-// handleChange(e) {
-//   const value = (props.type == 'checkbox' || props.type == 'radio'? e.target.checked : e.target.value)
-//   if(props.base != 'personlist') {
-//     props.onChange(props.id, props.reference, value, props.required)
-//   } else {
-//     if(value == true) {
-//       props.onChange(props.id);
-//     } else {
-//       props.onChange('');
-//     }
-//   }
-// }
-
 export default function Input(props) {
   return (
     <input

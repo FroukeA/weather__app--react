@@ -31,7 +31,6 @@
   margin-left: 1.6rem;
 }
 
-// .weather__button--primary, 
 .form__button--submit {
   background-color: $secundairy-color1;
   color: $primary-color2;
@@ -69,12 +68,10 @@
   align-items: center;
 }
 
-// .weather__customBoxInput--search > label::after,
 .weather__button--primary > p::before {
   content: "";
   
   background: url("../../../static/svg/location-pin.svg") 0 0 no-repeat;
-  // background: url("https://static.thenounproject.com/png/102549-200.png") 0 0 no-repeat;
 }
 
 .weather__button--primary > p::before {
@@ -101,7 +98,6 @@ button:focus {
 
 .button:hover,
 .weather__customBoxInput--search:hover {
-  // background-color: $secundairy-color1;
   opacity: 0.3;
 }
 

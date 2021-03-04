@@ -10,20 +10,6 @@ let handle = null;
 
 // components
 
-// variables
-// *** weather and forecast ***
-// let currentCity = {
-//   name: "",
-//   data: {},
-// };
-
-// let sunrise = null;
-// let sunset = null;
-
-// const currentDate = new Date();
-
-// let currentDay = null;
-
 const days = [
   "Sunday",
   "Monday",
@@ -36,7 +22,6 @@ const days = [
 
 // *** merge ***
 let data = null;
-// let dataTest = null;
 let weather = null;
 
 let type = null;
@@ -46,7 +31,6 @@ let tempElementPart = null; // foreCast = list
 let elementPart__parent = null; // foreCast = card
 let elementPart__child = null; // foreCast = structureChild
 let elementData__parent = null; // foreCast = header or article
-// let elementData__child = null; // foreCast = h4 or p
 
 let elementPart__parentId = null; // foreCast = card id
 
@@ -102,15 +86,6 @@ function convertData(object, key, data) {
       return object[key]
   }
 }
-
-// const handleChangeDate = () => {
-// const minutes =
-//   currentDate.getMinutes() < 10
-//     ? "0" + currentDate.getMinutes()
-//     : currentDate.getMinutes();
-
-//   currentDay = currentDate.getDay();
-// };
 
 const handleCreateDate = (stamp) => {
   return new Date(stamp * 1000);
@@ -211,11 +186,6 @@ function createDataElement(d, i, t) {
 
 
 export function handleReceiveData(d, handleData, reason) {
-  // d  = {
-  //   name: "",
-  //   data: {},
-  // }
-
   handle = handleData;
   weather = d;
 
@@ -269,8 +239,6 @@ export function mergeDataElementItems(structureEl) {
             data.map((dataItem, dataId) => {
               elementPart__parentId = dataId;
               elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
-              // console.log(9999, elementPart__parent, elementPart__parentId, elementPart)
-              // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
               elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
 
               return elementPart__parent.type === "card"
@@ -312,8 +280,6 @@ export function mergeDataElement(elementPart, elementPartId) {
   } else {
     // data comes from external source, data does NOT come from constants
     if (elementPart.parts[0] !== undefined) {
-      // const data = forecast_data;
-
       if (elementPart.parts.length > 0) {
         // Nested DOM
         tempElementPart = elementPart; // foreCast = list
@@ -322,7 +288,6 @@ export function mergeDataElement(elementPart, elementPartId) {
           data.map((dataItem, dataId) => {
             elementPart__parentId = dataId;
             elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
-            // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
             elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
             return elementPart__parent.type === "card"
               ? handlePrepareData(elementPart__child, dataItem)
@@ -357,20 +322,6 @@ export function mergeDataElement(elementPart, elementPartId) {
 
 export function handlePrepareData(elementPart__child, dataItem) {
   handleMerge(elementPart__child, dataItem, null);
-
-  // if (elementPart__child.label === "weather hourly") {
-  //   console.log('olee', dataTest.daily[0], dataTest.hourly)
-  //   handleMerge(elementPart__child, dataTest.hourly, null);
-  // } else {
-  //   console.log('nooo')
-  //   if (elementPart__child.ref === "weather") {
-  //     console.log('weather')
-  //     // handleMerge(elementPart__child, dataTest.daily[0], null);
-  //   } else {
-  //     console.log('forcast')
-  //     // handleMerge(elementPart__child, dataItem, null);
-  //   }
-  // }
 }
 
 export function handleMergeElementItems(array, data) {
@@ -447,7 +398,6 @@ export function handleMerge(structureElement, data, itemId) {
         handleMergeData(structureElement, data, itemId);
       } else {
         // NO data needed in this layer
-        // renderComponent(structureElement);
       }
     }
   }

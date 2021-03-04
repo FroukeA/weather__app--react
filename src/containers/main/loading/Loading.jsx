@@ -11,8 +11,7 @@ import SearchEngine from "../../../components/common/blocks/search/SearchEngine"
 export default function Loading(props) {
   return (
     <React.Fragment>
-      <p>hello, it supose to be loading...</p>
-
+      <p>When catching your location takes to long, please fill in the place you're looking for.</p>
       <SearchEngine
         content={props.content}
         createElement={props.createElement}

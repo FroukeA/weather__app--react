@@ -1,21 +1,21 @@
 @import "~bootstrap/scss/bootstrap";
-@import "../supplies/variables.scss";
 
 // Setup
+@import "../supplies/variables.scss";
 @import "../setup/reset.scss";
 @import "../setup/base.scss";
 
+// common
 @import "../fonts/font.scss";
+@import "../components/common/footer/footer.scss";
 
-@import "../supplies/variables.scss";
+// blocks
+@import "../components/common/blocks/form.scss";
+
+// ui
+@import "../components/ui/button.scss";
+@import "../components/ui/input.scss";
 
 @import "../components/forecast.scss";
 @import "../components/weather.scss";
 @import "../components/hourly.scss";
-
-@import "../components/ui/button.scss";
-@import "../components/ui/input.scss";
-
-@import "../components/common/blocks/form.scss";
-
-@import "../components/common/footer/footer.scss";

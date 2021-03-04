@@ -97,12 +97,10 @@ input:focus {
   border: none;
 }
 
-
 .searchForm__field {
   border: 0.1rem solid var(--secundairy-color1);
   padding: 0.5rem 1rem;
 }
-
 
 /* *** STATE *** */
 .favorites__field:checked+.favorites__text {
