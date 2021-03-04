@@ -5,6 +5,7 @@ import {
   header__content,
   footer__content,
   weather__content,
+  hourly__content
   // forecast__content
 } from "../../constants/conf";
 
@@ -24,6 +25,9 @@ import Footer from "../../components/common/footer/Footer";
 
 // --- weather ---
 import Weather from "../../components/weather/Weather";
+
+// --- hourly ---
+import Hourly from "../../components/weather/Hourly";
 
 // --- forecast ---
 import Forecast from "../../components/forecast/Forecast";
@@ -60,6 +64,12 @@ export default function App() {
             {/* content when loaded = received weather and or forecast data */}
             < Weather
               content={weather__content}
+              createElement={createElement}
+              createClass={createClass}
+            />
+
+            < Hourly
+              content={hourly__content}
               createElement={createElement}
               createClass={createClass}
             />

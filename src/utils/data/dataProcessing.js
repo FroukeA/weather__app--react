@@ -1,7 +1,8 @@
 // data
 import {
   forecast__content,
-  weather__content
+  weather__content,
+  hourly__content
 } from "../../constants/conf";
 
 // functions
@@ -35,6 +36,7 @@ const days = [
 
 // *** merge ***
 let data = null;
+// let dataTest = null;
 let weather = null;
 
 let type = null;
@@ -52,9 +54,17 @@ let parents = {};
 
 // date
 function convertData(object, key, data) {
+  console.log('convertData', object, key, data);
   switch (key) {
     case 'dt':
       return handleCreateDay(handleCreateDate(data.dt).getDay());
+    case 'time':
+      const time = handleCreateDate(data.dt);
+      return `${time.getHours() < 10 ? "0" + time.getHours() : time.getHours()
+        }: ${time.getMinutes() < 10
+          ? "0" + time.getMinutes()
+          : time.getMinutes()
+        }`;
     case 'sunrise':
       const sunrise = handleCreateDate(data.sunrise);
       return `${sunrise.getHours() < 10 ? "0" + sunrise.getHours() : sunrise.getHours()
@@ -72,6 +82,8 @@ function convertData(object, key, data) {
         }`;
     case 'temp':
       return object[key].day.toFixed(1)
+    case 'temp--hourly':
+      return object['temp'].toFixed(1)
     case 'low':
       return data.temp.min.toFixed(1)
     case 'high':
@@ -130,6 +142,8 @@ export function handleChangeConversion(conversion, event) {
         element.temp.min = handleFahrenheitToCelsius(element.temp.min);
       });
 
+      // hourly
+      createDataElement(weather.data.hourly, hourly__content, "hourContent");
       // weather
       createDataElement(weather.data.daily, weather__content, "weatherContent");
       // daily data.data.daily
@@ -144,6 +158,8 @@ export function handleChangeConversion(conversion, event) {
         element.temp.min = handleCelsiusToFahrenheit(element.temp.min);
       });
 
+      // hourly
+      createDataElement(weather.data.hourly, hourly__content, "hourContent");
       // weather
       createDataElement(weather.data.daily, weather__content, "weatherContent");
       // daily data.data.daily
@@ -157,6 +173,7 @@ export function handleChangeConversion(conversion, event) {
 // merge
 
 function dataMerge(elementData__child, id) {
+  console.log(11111, elementData__child)
   const tempData = { ...parents[elementData__child.parentId] };
   tempData.parts[id] = elementData__child;
 
@@ -164,8 +181,9 @@ function dataMerge(elementData__child, id) {
 }
 
 function mergeDataStructure() {
-  if (elementPart__parent.ref === 'forecast') {
-    tempElementPart.parts[elementPart__parentId] = elementPart__parent; // forecast
+  if (elementPart__parent.ref === 'forecast' || elementPart__parent.ref === 'hourly') {
+    tempElementPart.parts[elementPart__parentId] = elementPart__parent; // forecast and hourly
+    console.log(666, tempElementPart)
   }
   if (elementPart__parent.ref === 'weather') {
     tempElementPart = elementPart__parent; // weather
@@ -184,6 +202,8 @@ function createDataElement(d, i, t) {
     data = d.slice(1, d.length);
   } else if (type === 'weatherContent') {
     data = d[0];
+  } else if (type === 'hourContent') {
+    data = d;
   }
 
   handleMergeDataElements(item);
@@ -204,11 +224,13 @@ export function handleReceiveData(d, handleData, reason) {
     weather__content.parts[1].parts[1].parts[0].parts[1].parts[1].parts[0].checked = false;
   }
 
-  // weather
-  createDataElement(d.data.daily, weather__content, "weatherContent");
-  // daily data.data.daily
+  // hourly
+  createDataElement(d.data.hourly, hourly__content, "hourContent");
+  // // weather
+  // createDataElement(d.data.daily, weather__content, "weatherContent");
+  // // daily data.data.daily
   createDataElement(d.data.daily, forecast__content, "forecastContent");
-  // hourly -- later
+
 }
 
 function handleMergeDataElements(item, key) {
@@ -243,11 +265,14 @@ export function mergeDataElementItems(structureEl) {
           tempElementPart = elementPart; // foreCast = list
 
           if (data.length > 0) {
+
             data.map((dataItem, dataId) => {
               elementPart__parentId = dataId;
               elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
+              // console.log(9999, elementPart__parent, elementPart__parentId, elementPart)
               // elementPart__parent = { ...elementPart.parts[0] }; // foreCast = card === copy
               elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+
               return elementPart__parent.type === "card"
                 ? handlePrepareData(elementPart__child, dataItem)
                 : null;
@@ -332,6 +357,20 @@ export function mergeDataElement(elementPart, elementPartId) {
 
 export function handlePrepareData(elementPart__child, dataItem) {
   handleMerge(elementPart__child, dataItem, null);
+
+  // if (elementPart__child.label === "weather hourly") {
+  //   console.log('olee', dataTest.daily[0], dataTest.hourly)
+  //   handleMerge(elementPart__child, dataTest.hourly, null);
+  // } else {
+  //   console.log('nooo')
+  //   if (elementPart__child.ref === "weather") {
+  //     console.log('weather')
+  //     // handleMerge(elementPart__child, dataTest.daily[0], null);
+  //   } else {
+  //     console.log('forcast')
+  //     // handleMerge(elementPart__child, dataItem, null);
+  //   }
+  // }
 }
 
 export function handleMergeElementItems(array, data) {
