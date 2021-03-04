@@ -45,6 +45,119 @@ export const header__content = {
   func: null
 };
 
+export const searchEngine__content = {
+  label: "",
+  link: "",
+  id: "wd_1",
+  ref: "weather",
+  type: "div",
+  element: "div",
+  class: [
+    {
+      label: "searchEngine",
+      link: "",
+      id: "c_10",
+      ref: "weather",
+      type: "class",
+      element: "className",
+      icon: "",
+      parts: [],
+      data: []
+    }
+  ],
+  icon: "",
+  parts: [
+    {
+      label: "row",
+      link: "",
+      id: "wd_2",
+      ref: "weather",
+      type: "div",
+      element: "div",
+      class: [
+        {
+          label: "row",
+          link: "",
+          id: "c_10",
+          ref: "weather",
+          type: "class",
+          element: "className",
+          icon: "",
+          parts: [],
+          data: []
+        }
+      ],
+      icon: "",
+      parts: [
+        {
+          label: "item",
+          link: "",
+          id: "wd_3",
+          ref: "weather",
+          type: "div",
+          element: "div",
+          class: [],
+          icon: "",
+          parts: [
+            {
+              label: "Current location",
+              link: "",
+              id: "wb_1",
+              ref: "weather",
+              type: "button",
+              element: "button",
+              class: [
+                {
+                  label: "primary",
+                  link: "",
+                  id: "c_10",
+                  ref: "weather",
+                  type: "class",
+                  element: "className",
+                  icon: "",
+                  parts: [],
+                  data: []
+                }
+              ],
+              icon: "",
+              parts: [],
+              data: [],
+              function: handleGetCurrentLocation.bind(this,)
+            }
+          ],
+          data: []
+        },
+        {
+          label: "search form",
+          link: "",
+          id: "f_search",
+          ref: "weather",
+          type: "form",
+          element: "form",
+          class: [
+            {
+              label: "row",
+              link: "",
+              id: "c_14",
+              ref: "weather",
+              type: "class",
+              element: "className",
+              icon: "",
+              parts: [],
+              data: []
+            }
+          ],
+          icon: "",
+          parts: [],
+          data: []
+        }
+      ],
+      data: []
+    }
+  ],
+  data: []
+}
+
 export const footer__content = {
   label: "footer",
   link: "",

@@ -5,7 +5,8 @@ import {
   header__content,
   footer__content,
   weather__content,
-  hourly__content
+  hourly__content,
+  searchEngine__content
   // forecast__content
 } from "../../constants/conf";
 
@@ -22,6 +23,7 @@ import "../../assets/stylesheets/base/app.scss";
 // --- common ---
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
+import Loading from "../main/loading/Loading";
 
 // --- weather ---
 import Weather from "../../components/weather/Weather";
@@ -59,16 +61,21 @@ export default function App() {
             {/* content isn't loaded = search for data and show loading */}
             {getData(handleData)}
             <p>loading...</p>
+            <Loading
+              content={searchEngine__content}
+              createElement={createElement}
+              createClass={createClass}
+            />
           </React.Fragment>
           : <React.Fragment>
             {/* content when loaded = received weather and or forecast data */}
-            < Weather
+            <Weather
               content={weather__content}
               createElement={createElement}
               createClass={createClass}
             />
 
-            < Hourly
+            <Hourly
               content={hourly__content}
               createElement={createElement}
               createClass={createClass}
