@@ -226,9 +226,9 @@ export function handleReceiveData(d, handleData, reason) {
 
   // hourly
   createDataElement(d.data.hourly, hourly__content, "hourContent");
-  // // weather
-  // createDataElement(d.data.daily, weather__content, "weatherContent");
-  // // daily data.data.daily
+  // weather
+  createDataElement(d.data.daily, weather__content, "weatherContent");
+  // daily data.data.daily
   createDataElement(d.data.daily, forecast__content, "forecastContent");
 
 }

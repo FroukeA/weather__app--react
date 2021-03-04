@@ -7,7 +7,7 @@ import React from "react";
 
 // components
 
-export default function Weather(props) {
+export default function SearchEngine(props) {
   return (
     <section className={props.createClass(props.content)}>
       {props.content.parts.map((item, i) => {
