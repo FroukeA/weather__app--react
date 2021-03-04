@@ -40,7 +40,7 @@ export function renderElementItems(array) {
     } else if (item.parts.length > 0) {
       // Nested DOM
       todo = (
-        <item.element key={i} className={createClass(item)}>
+        <item.element key={item.id} className={createClass(item)}>
           {renderElementItems(item.parts)}
         </item.element>
       );

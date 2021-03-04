@@ -1,7 +1,10 @@
+/* *** LAYOUT *** */
 .weather__button--primary > p > span,
 .weather__customBoxInput--search > label > span {
   display: none;
 } 
+
+/* *** MODULE *** */
 
 .button, .weather__customBoxInput--search {
   padding: 1.6rem;
@@ -91,9 +94,7 @@
   margin: auto;
 }
 
-// *** STATE ***
-
-
+/* *** STATE *** */
 button:focus {
   outline: none;
 }
@@ -103,3 +104,7 @@ button:focus {
   // background-color: $secundairy-color1;
   opacity: 0.3;
 }
+
+/* *** KEYFRAME *** */
+
+/* *** MEDIAQUERY *** */
