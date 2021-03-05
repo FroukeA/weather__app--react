@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import {
   header__content,
   footer__content,
-  weather__content,
-  hourly__content,
+  // weather__content,
+  // hourly__content,
   loader__content
 } from "../../constants/conf";
 
@@ -22,15 +22,16 @@ import "../../assets/stylesheets/base/app.scss";
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
 import Loading from "../main/loading/Loading";
+import Loaded from "../main/loaded/Loaded";
 
-// --- weather ---
-import Weather from "../../components/weather/Weather";
+// // --- weather ---
+// import Weather from "../../components/weather/Weather";
 
-// --- hourly ---
-import Hourly from "../../components/weather/Hourly";
+// // --- hourly ---
+// import Hourly from "../../components/weather/Hourly";
 
-// --- forecast ---
-import Forecast from "../../components/forecast/Forecast";
+// // --- forecast ---
+// import Forecast from "../../components/forecast/Forecast";
 
 export default function App() {
   const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, forecastContent: {} });
@@ -65,7 +66,12 @@ export default function App() {
           </React.Fragment>
           : <React.Fragment>
             {/* content when loaded = received weather and or forecast data */}
-            <Weather
+            <Loaded
+              content={weatherData}
+              createElement={createElement}
+              createClass={createClass}
+            />
+            {/* <Weather
               content={weather__content}
               createElement={createElement}
               createClass={createClass}
@@ -83,7 +89,7 @@ export default function App() {
                 createElement={createElement}
                 createClass={createClass}
               />
-              : null)}
+              : null)} */}
           </React.Fragment>
         )
         }
