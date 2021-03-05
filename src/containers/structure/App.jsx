@@ -6,7 +6,7 @@ import {
   footer__content,
   weather__content,
   hourly__content,
-  searchEngine__content
+  loader__content
 } from "../../constants/conf";
 
 // functions
@@ -56,9 +56,9 @@ export default function App() {
           <React.Fragment >
             {/* content isn't loaded = search for data and show loading */}
             {getData(handleData)}
-            <p>loading...</p>
+
             <Loading
-              content={searchEngine__content}
+              content={loader__content}
               createElement={createElement}
               createClass={createClass}
             />

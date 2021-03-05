@@ -6,17 +6,22 @@ import React from "react";
 // style
 
 // components
-import SearchEngine from "../../../components/common/blocks/search/SearchEngine";
+// import SearchEngine from "../../../components/common/blocks/search/SearchEngine";
 
 export default function Loading(props) {
   return (
-    <React.Fragment>
-      <p>When catching your location takes to long, please fill in the place you're looking for.</p>
-      <SearchEngine
+    <main className='loader'>
+      <section className={props.createClass(props.content)}>
+        {props.content.parts.map((item, i) => {
+          return props.createElement(item, i);
+        })}
+
+        {/* <SearchEngine
         content={props.content}
         createElement={props.createElement}
         createClass={props.createClass}
-      />
-    </React.Fragment>
+      /> */}
+      </section>
+    </main>
   );
 }

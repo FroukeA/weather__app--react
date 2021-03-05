@@ -1,10 +1,13 @@
 /* *** LAYOUT *** */
-.weather__form--row{
+.weather__form--row,
+.searchEngine__form--row {
   display: flex;
   align-items: center;
 }
 
-.weather__form label, .form__title--hide{
+.weather__form label, 
+.form__title--hide,
+.searchEngine__form label {
   display: none;
 }
 
