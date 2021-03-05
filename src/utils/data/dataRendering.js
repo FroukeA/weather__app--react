@@ -41,7 +41,10 @@ export function renderElementItems(array) {
     } else if (item.parts.length > 0) {
       // Nested DOM
       todo = (
-        <item.element key={item.id} className={createClass(item)}>
+        <item.element
+          key={item.id}
+          className={createClass(item)}
+        >
           {renderElementItems(item.parts)}
         </item.element>
       );
@@ -93,12 +96,17 @@ export function renderElement(item, key) {
         placeholder={item.label}
         required={item.required}
         reference={item.ref}
-        key={"input" + key}
+        key={item.id + key}
       />
     );
   } else if (item.id.includes("fta")) {
     return (
-      <item.element key={"element" + key} href={item.link} target="_blank" className={createClass(item)}>
+      <item.element
+        key={item.id + key}
+        href={item.link}
+        target="_blank"
+        className={createClass(item)}
+      >
         {item.label}
       </item.element>
     )
@@ -112,7 +120,10 @@ export function renderElement(item, key) {
     }
   } else {
     return (
-      <item.element key={"element" + key} className={createClass(item)}>
+      <item.element
+        key={item.id + key}
+        className={createClass(item)}
+      >
         {item.label}
       </item.element>
     );
@@ -124,7 +135,7 @@ export function renderComponent(item, key, array, load) {
     case "list":
       return (
         <List
-          key={"list" + key}
+          key={item.id + key}
           class={createClass(item)}
           item={item}
           createElement={createElement.bind(this)}
@@ -134,7 +145,7 @@ export function renderComponent(item, key, array, load) {
     case "card":
       return (
         <Card
-          key={key}
+          key={item.id + key}
           class={createClass(item)}
           content={item}
           createElement={createElement.bind(this)}
@@ -142,25 +153,41 @@ export function renderComponent(item, key, array, load) {
         />
       );
     case "form":
-      return <Form key={key} array={array} class={createClass(item)} />;
+      return (
+        <Form
+          key={item.id + key}
+          array={array}
+          class={createClass(item)}
+        />
+      )
     case "loader":
       return (
         <Loader
-          key={key}
+          key={item.id + key}
           item={item}
           class={createClass(item)}
         />
       );
     case "term":
-      return <Term key={key} item={item} class={createClass(item)} />;
+      return (
+        <Term
+          key={item.id + key}
+          item={item}
+          class={createClass(item)}
+        />
+      )
     case "description":
       return (
-        <Textdescription key={key} item={item} class={createClass(item)} />
+        <Textdescription
+          key={item.id + key}
+          item={item}
+          class={createClass(item)}
+        />
       );
     case "description_group":
       return (
         <Groupdescription
-          key={key}
+          key={item.id + key}
           class={createClass(item)}
           item={item}
           createElement={createElement.bind(this)}
@@ -170,7 +197,7 @@ export function renderComponent(item, key, array, load) {
     case "customBoxInput":
       return (
         <CustomBoxInput
-          key={key}
+          key={item.id + key}
           class={createClass(item)}
           item={item}
           createElement={createElement.bind(this)}
@@ -179,11 +206,17 @@ export function renderComponent(item, key, array, load) {
         />
       );
     case "item":
-      return <TextItem key={key} item={item} class={createClass(item)} />;
+      return (
+        <TextItem
+          key={item.id + key}
+          item={item}
+          class={createClass(item)}
+        />
+      )
     case "button":
       return (
         <Button
-          key={key}
+          key={item.id + key}
           item={item}
           label={item.label}
           class={createClass(item)}

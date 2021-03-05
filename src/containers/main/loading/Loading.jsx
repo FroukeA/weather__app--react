@@ -6,7 +6,6 @@ import React from "react";
 // style
 
 // components
-// import SearchEngine from "../../../components/common/blocks/search/SearchEngine";
 
 export default function Loading(props) {
   return (
@@ -15,12 +14,6 @@ export default function Loading(props) {
         {props.content.parts.map((item, i) => {
           return props.createElement(item, i);
         })}
-
-        {/* <SearchEngine
-        content={props.content}
-        createElement={props.createElement}
-        createClass={props.createClass}
-      /> */}
       </section>
     </main>
   );

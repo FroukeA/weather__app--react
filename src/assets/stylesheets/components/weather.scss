@@ -75,7 +75,7 @@
   grid-area: search;
 }
 
-.weather__div--temperature {
+.weather__div--temp {
   grid-area: temp;
 }
 
@@ -107,6 +107,60 @@
 .weather__description--center {  
   text-align: center;
 }
+
+.weather__description--rain::before,
+.weather__description--wind::before,
+.weather__description--sunrise::before,
+.weather__description--sunset::before,
+.weather__description--humidity::before,
+.weather__description--description-01d::before,
+.weather__description--description-01n::before,
+.weather__description--description-02d::before,
+.weather__description--description-02n::before,
+.weather__description--description-03d::before,
+.weather__description--description-03n::before,
+.weather__description--description-04d::before,
+.weather__description--description-04n::before,
+.weather__description--description-09d::before,
+.weather__description--description-09n::before,
+.weather__description--description-10d::before,
+.weather__description--description-10n::before,
+.weather__description--description-11d::before,
+.weather__description--description-11n::before,
+.weather__description--description-13d::before,
+.weather__description--description-13n::before,
+.weather__description--description-50d::before,
+.weather__description--description-50d::before,
+.weather__description--01n::before,
+.weather__description--01d::before,
+.weather__description--02d::before,
+.weather__description--02n::before,
+.weather__description--03d::before,
+.weather__description--03n::before,
+.weather__description--04d::before,
+.weather__description--04n::before,
+.weather__description--09d::before,
+.weather__description--09n::before,
+.weather__description--10d::before,
+.weather__description--10n::before,
+.weather__description--11d::before,
+.weather__description--11n::before,
+.weather__description--13d::before,
+.weather__description--13n::before,
+.weather__description--50d::before,
+.weather__description--50n::before {
+  display: block;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+}
+
+.weather__list--weather {
+  margin: 2.4rem 0;
+}
+
+/* *** MODULE *** */
 
 .weather__description--rain::before,
 .weather__description--09d::before,
@@ -212,60 +266,6 @@
   content: "";
   background: url("https://image.flaticon.com/icons/svg/959/959703.svg") 0 0 no-repeat;
 }
-
-.weather__description--rain::before,
-.weather__description--wind::before,
-.weather__description--sunrise::before,
-.weather__description--sunset::before,
-.weather__description--humidity::before,
-.weather__description--description-01d::before,
-.weather__description--description-01n::before,
-.weather__description--description-02d::before,
-.weather__description--description-02n::before,
-.weather__description--description-03d::before,
-.weather__description--description-03n::before,
-.weather__description--description-04d::before,
-.weather__description--description-04n::before,
-.weather__description--description-09d::before,
-.weather__description--description-09n::before,
-.weather__description--description-10d::before,
-.weather__description--description-10n::before,
-.weather__description--description-11d::before,
-.weather__description--description-11n::before,
-.weather__description--description-13d::before,
-.weather__description--description-13n::before,
-.weather__description--description-50d::before,
-.weather__description--description-50d::before,
-.weather__description--01n::before,
-.weather__description--01d::before,
-.weather__description--02d::before,
-.weather__description--02n::before,
-.weather__description--03d::before,
-.weather__description--03n::before,
-.weather__description--04d::before,
-.weather__description--04n::before,
-.weather__description--09d::before,
-.weather__description--09n::before,
-.weather__description--10d::before,
-.weather__description--10n::before,
-.weather__description--11d::before,
-.weather__description--11n::before,
-.weather__description--13d::before,
-.weather__description--13n::before,
-.weather__description--50d::before,
-.weather__description--50n::before {
-  display: block;
-  background-size: contain;
-  width: 30px;
-  height: 30px;
-  margin-right: 1rem;
-}
-
-.weather__list--weather {
-  margin: 2.4rem 0;
-}
-
-/* *** MODULE *** */
 
 .weather__description--bigger {
   line-height: 1;

@@ -1,4 +1,4 @@
-//data
+// data
 import React from "react";
 
 // functions

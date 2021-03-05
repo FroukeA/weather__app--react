@@ -38,7 +38,6 @@ let parents = {};
 
 // date
 function convertData(object, key, data) {
-  console.log('convertData', object, key, data);
   switch (key) {
     case 'dt':
       return handleCreateDay(handleCreateDate(data.dt).getDay());
@@ -121,7 +120,7 @@ export function handleChangeConversion(conversion, event) {
       createDataElement(weather.data.hourly, hourly__content, "hourContent");
       // weather
       createDataElement(weather.data.daily, weather__content, "weatherContent");
-      // daily data.data.daily
+      // forecast
       createDataElement(weather.data.daily, forecast__content, "forecastContent");
       break;
     case 'fahrenheit':
@@ -137,7 +136,7 @@ export function handleChangeConversion(conversion, event) {
       createDataElement(weather.data.hourly, hourly__content, "hourContent");
       // weather
       createDataElement(weather.data.daily, weather__content, "weatherContent");
-      // daily data.data.daily
+      // forecast
       createDataElement(weather.data.daily, forecast__content, "forecastContent");
       break;
     default:
@@ -148,9 +147,10 @@ export function handleChangeConversion(conversion, event) {
 // merge
 
 function dataMerge(elementData__child, id) {
-  console.log(11111, elementData__child)
   const tempData = { ...parents[elementData__child.parentId] };
   tempData.parts[id] = elementData__child;
+
+  console.log('here', elementData__child, id, elementData__child.parentId, parents, tempData)
 
   mergeDataStructure();
 }
@@ -158,7 +158,6 @@ function dataMerge(elementData__child, id) {
 function mergeDataStructure() {
   if (elementPart__parent.ref === 'forecast' || elementPart__parent.ref === 'hourly') {
     tempElementPart.parts[elementPart__parentId] = elementPart__parent; // forecast and hourly
-    console.log(666, tempElementPart)
   }
   if (elementPart__parent.ref === 'weather') {
     tempElementPart = elementPart__parent; // weather
@@ -198,7 +197,7 @@ export function handleReceiveData(d, handleData, reason) {
   createDataElement(d.data.hourly, hourly__content, "hourContent");
   // weather
   createDataElement(d.data.daily, weather__content, "weatherContent");
-  // daily data.data.daily
+  // forecast
   createDataElement(d.data.daily, forecast__content, "forecastContent");
 
 }
@@ -222,7 +221,6 @@ export function mergeDataElementItems(structureEl) {
   structureEl.parts.map((elementPart, elementPartId) => {
     // weather section or forecast section
 
-    // return mergeDataElement(elementPart, elementPartId);
     if (elementPart.data.length === 0) {
       mergeDataElementItems(elementPart);
     } else {
@@ -348,7 +346,9 @@ export function handleMergeData(structureElement, data, id) {
   if (structureElement.link === "icon") {
     structureElement.parts.map((item, itemId) => {
       item.label = data.weather[0].description
-      elementData__child.class[0].label = `${get(data, structureElement.link)}`;
+      if (elementData__child.class[0]) {
+        elementData__child.class[0].label = `${get(data, structureElement.link)}`;
+      }
 
       return null
     })

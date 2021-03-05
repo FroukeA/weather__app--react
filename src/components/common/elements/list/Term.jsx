@@ -8,7 +8,6 @@ import React from "react";
 // components
 
 export default function Term(props) {
-  console.log('here term')
   return (
     <dt
       className={props.class}
