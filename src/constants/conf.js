@@ -230,8 +230,7 @@ export const header__content = {
 };
 
 // check clean
-export const searchEngine__content =
-{
+export const searchEngine__content = {
   label: "",
   link: "",
   id: "searchEngine",
@@ -2560,32 +2559,6 @@ export const weather__content = {
                   ],
                   data: []
                 }, searchEngine__content,
-                // {
-                //   label: "search form",
-                //   link: "",
-                //   id: "f_search1",
-                //   ref: "weather",
-                //   type: "form",
-                //   element: "form",
-                //   class: [
-                //     {
-                //       label: "row",
-                //       link: "",
-                //       id: "c_12",
-                //       ref: "weather",
-                //       type: "class",
-                //       element: "className",
-                //       icon: "",
-                //       parts: [],
-                //       data: []
-                //     }
-                //   ],
-                //   icon: "",
-                //   dataParent: false,
-                //   parentId: "",
-                //   parts: [],
-                //   data: []
-                // }
               ],
               data: []
             }

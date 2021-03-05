@@ -344,6 +344,12 @@
   }
 }
 
+@media only screen and (min-width: 382px) {
+  .weather__div ~ .searchEngine__div {
+    margin-left: 2.4rem;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .weather__description--bigger {
     font-size: 9vw;
