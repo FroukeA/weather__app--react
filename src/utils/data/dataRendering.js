@@ -14,10 +14,11 @@ import List from "../../components/common/blocks/list/List";
 import Card from "../../components/common/blocks/cards/Card";
 import Term from "../../components/common/elements/list/Term";
 import Textdescription from "../../components/common/elements/list/TextDescription";
-import Groupdescription from "../../components/common/blocks/list/GroupDescription";
+import Groupdescription from "../../components/common/elements/list/GroupDescription";
 import TextItem from "../../components/common/elements/list/TextItem";
 import CustomBoxInput from "../../components/ui/groups/CustomBoxInput";
 import Button from "../../components/ui/buttons/Button";
+import Loader from "../../components/common/elements/loader/Loader";
 
 // variables
 
@@ -77,6 +78,8 @@ export function renderElement(item, key) {
     );
 
     return renderComponent(item, "form" + key, array);
+  } else if (item.type === "loader") {
+    renderComponent(item, "")
   } else if (item.id.includes("wi")) {
     return (
       // DOM is a input of any kind
@@ -140,6 +143,14 @@ export function renderComponent(item, key, array, load) {
       );
     case "form":
       return <Form key={key} array={array} class={createClass(item)} />;
+    case "loader":
+      return (
+        <Loader
+          key={key}
+          item={item}
+          class={createClass(item)}
+        />
+      );
     case "term":
       return <Term key={key} item={item} class={createClass(item)} />;
     case "description":

@@ -38,9 +38,11 @@ function handleRenderElements(item, key) {
       item.type === "term" ||
       item.type === "textItem" ||
       item.type === "button" ||
-      item.type === "customBoxInput"
+      item.type === "customBoxInput" ||
+      item.type === "loader"
     ) {
-      renderComponent(item, key, null);
+      console.log('here', item)
+      return renderComponent(item, key, null);
     } else {
       renderElement(item, key);
     }

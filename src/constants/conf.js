@@ -48,8 +48,8 @@ export const header__content = {
 export const searchEngine__content = {
   label: "",
   link: "",
-  id: "wd_1",
-  ref: "weather",
+  id: "sd_1",
+  ref: "searchEngine",
   type: "div",
   element: "div",
   class: [
@@ -57,7 +57,7 @@ export const searchEngine__content = {
       label: "searchEngine",
       link: "",
       id: "c_10",
-      ref: "weather",
+      ref: "searchEngine",
       type: "class",
       element: "className",
       icon: "",
@@ -71,7 +71,7 @@ export const searchEngine__content = {
       label: "row",
       link: "",
       id: "wd_2",
-      ref: "weather",
+      ref: "searchEngine",
       type: "div",
       element: "div",
       class: [
@@ -79,7 +79,7 @@ export const searchEngine__content = {
           label: "row",
           link: "",
           id: "c_10",
-          ref: "weather",
+          ref: "searchEngine",
           type: "class",
           element: "className",
           icon: "",
@@ -89,49 +89,49 @@ export const searchEngine__content = {
       ],
       icon: "",
       parts: [
-        {
-          label: "item",
-          link: "",
-          id: "wd_3",
-          ref: "weather",
-          type: "div",
-          element: "div",
-          class: [],
-          icon: "",
-          parts: [
-            {
-              label: "Current location",
-              link: "",
-              id: "wb_1",
-              ref: "weather",
-              type: "button",
-              element: "button",
-              class: [
-                {
-                  label: "primary",
-                  link: "",
-                  id: "c_10",
-                  ref: "weather",
-                  type: "class",
-                  element: "className",
-                  icon: "",
-                  parts: [],
-                  data: []
-                }
-              ],
-              icon: "",
-              parts: [],
-              data: [],
-              function: handleGetCurrentLocation.bind(this,)
-            }
-          ],
-          data: []
-        },
+        // {
+        //   label: "item",
+        //   link: "",
+        //   id: "wd_3",
+        //   ref: "searchEngine",
+        //   type: "div",
+        //   element: "div",
+        //   class: [],
+        //   icon: "",
+        //   parts: [
+        //     {
+        //       label: "Current location",
+        //       link: "",
+        //       id: "wb_1",
+        //       ref: "searchEngine",
+        //       type: "button",
+        //       element: "button",
+        //       class: [
+        //         {
+        //           label: "primary",
+        //           link: "",
+        //           id: "c_10",
+        //           ref: "searchEngine",
+        //           type: "class",
+        //           element: "className",
+        //           icon: "",
+        //           parts: [],
+        //           data: []
+        //         }
+        //       ],
+        //       icon: "",
+        //       parts: [],
+        //       data: [],
+        //       function: handleGetCurrentLocation.bind(this,)
+        //     }
+        //   ],
+        //   data: []
+        // },
         {
           label: "search form",
           link: "",
           id: "f_search",
-          ref: "weather",
+          ref: "searchEngine",
           type: "form",
           element: "form",
           class: [
@@ -139,7 +139,7 @@ export const searchEngine__content = {
               label: "row",
               link: "",
               id: "c_14",
-              ref: "weather",
+              ref: "searchEngine",
               type: "class",
               element: "className",
               icon: "",
@@ -157,6 +157,116 @@ export const searchEngine__content = {
   ],
   data: []
 }
+
+export const loader__content = {
+  label: "loader",
+  link: "",
+  id: "loader",
+  ref: "",
+  type: "section",
+  class: [],
+  icon: "",
+  parts: [
+    {
+      label: "",
+      link: "",
+      id: "lhd_1",
+      ref: "loader",
+      type: "header",
+      element: "header",
+      class: [
+        {
+          label: "hide",
+          link: "",
+          id: "lhc_1",
+          ref: "loader",
+          type: "class",
+          element: "className",
+          icon: "",
+          parts: []
+        }
+      ],
+      icon: "",
+      parts: [
+        {
+          label: "loader",
+          link: "",
+          id: "lh_1",
+          ref: "loader",
+          type: "title",
+          element: "h2",
+          class: [],
+          icon: "",
+          parts: [],
+          data: []
+        }
+      ],
+      data: []
+    }, {
+      label: "loader animation",
+      link: "",
+      id: "f_search",
+      ref: "loader",
+      type: "loader",
+      element: "loader",
+      class: [],
+      icon: "",
+      parts: [],
+      data: []
+    }, {
+      label: "Loader article",
+      link: "",
+      id: "fa_1",
+      ref: "loader",
+      type: "part",
+      element: "article",
+      class: [],
+      icon: "",
+      parts: [
+        {
+          label: "",
+          link: "",
+          id: "fahd_1",
+          ref: "loader",
+          type: "header",
+          element: "header",
+          class: [
+            // {
+            //   label: "hide",
+            //   link: "",
+            //   id: "c_1",
+            //   ref: "loader",
+            //   type: "class",
+            //   element: "className",
+            //   icon: "",
+            //   parts: [],
+            //   data: []
+            // }
+          ],
+          icon: "",
+          parts: [
+            {
+              label: "When catching your location takes to long, please fill in the place you're looking for.",
+              link: "",
+              id: "fh_2",
+              ref: "loader",
+              type: "subTitle",
+              element: "h3",
+              class: [],
+              icon: "",
+              parts: [],
+              data: []
+            }
+          ],
+          data: []
+        },
+        searchEngine__content,
+      ],
+      data: []
+    }
+  ],
+  data: []
+};
 
 export const footer__content = {
   label: "footer",
