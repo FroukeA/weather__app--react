@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import {
   header__content,
   footer__content,
-  // weather__content,
-  // hourly__content,
-  loader__content
+  loader__content,
+  weather__content,
+  hourly__content
 } from "../../constants/conf";
 
 // functions
@@ -18,20 +18,20 @@ import { getData } from "../../utils/weather/weatherUtils";
 import "../../assets/stylesheets/base/app.scss";
 
 // components
+// --- weather ---
+import Weather from "../../components/weather/Weather";
+
+// --- hourly ---
+import Hourly from "../../components/weather/Hourly";
+
+// --- forecast ---
+import Forecast from "../../components/forecast/Forecast";
+
 // --- common ---
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
 import Loading from "../main/loading/Loading";
-import Loaded from "../main/loaded/Loaded";
-
-// // --- weather ---
-// import Weather from "../../components/weather/Weather";
-
-// // --- hourly ---
-// import Hourly from "../../components/weather/Hourly";
-
-// // --- forecast ---
-// import Forecast from "../../components/forecast/Forecast";
+// import Loaded from "../main/loaded/Loaded";
 
 export default function App() {
   const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, forecastContent: {} });
@@ -42,7 +42,7 @@ export default function App() {
       [element]: data
     })
   }
-
+  console.log(3333, weatherData)
   return (
     <div className="App">
       <div className="container">
@@ -66,12 +66,12 @@ export default function App() {
           </React.Fragment>
           : <React.Fragment>
             {/* content when loaded = received weather and or forecast data */}
-            <Loaded
+            {/* <Loaded
               content={weatherData}
               createElement={createElement}
               createClass={createClass}
-            />
-            {/* <Weather
+            /> */}
+            <Weather
               content={weather__content}
               createElement={createElement}
               createClass={createClass}
@@ -89,7 +89,7 @@ export default function App() {
                 createElement={createElement}
                 createClass={createClass}
               />
-              : null)} */}
+              : null)}
           </React.Fragment>
         )
         }

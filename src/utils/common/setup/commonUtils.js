@@ -26,7 +26,10 @@ function handleRenderElements(item, key) {
       renderComponent(item, "", null, null, load);
     } else {
       return (
-        <item.element key={key} className={createClass(item)}>
+        <item.element
+          key={item.id + key}
+          className={createClass(item)}
+        >
           {renderElementItems(item.parts)}
         </item.element>
       );
@@ -41,7 +44,6 @@ function handleRenderElements(item, key) {
       item.type === "customBoxInput" ||
       item.type === "loader"
     ) {
-      console.log('here', item)
       return renderComponent(item, key, null);
     } else {
       renderElement(item, key);
