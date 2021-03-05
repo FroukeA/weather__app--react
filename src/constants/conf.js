@@ -230,8 +230,7 @@ export const header__content = {
 };
 
 // check clean
-export const searchEngine__content =
-{
+export const searchEngine__content = {
   label: "",
   link: "",
   id: "searchEngine",
