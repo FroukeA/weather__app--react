@@ -290,9 +290,13 @@
   text-transform: capitalize;
 }
 
-/* *** STATE *** */
-.weather__customBoxInput--favorite > input:checked+label {
-  opacity: 1;
+.weather__customBoxInput--favorite > label::after {
+  content:"♥️";
+  width: 100%;
+  height: auto;
+  color: $primary-color4;
+
+  font-size: 2.4rem;
 }
 
 .weather__customBoxInput--favorite > label {
@@ -301,11 +305,9 @@
   margin-left: 1rem;
 }
 
-.weather__customBoxInput--favorite > label::after {
-  content:"♥️";
-  width: 100%;
-  height: auto;
-  color: $primary-color4;
+/* *** STATE *** */
+.weather__customBoxInput--favorite > input:checked+label {
+  opacity: 1;
 }
 
 .weather__customBoxInput--temp > input:checked+label {
