@@ -52,12 +52,16 @@ function renderFormFields(props) {
             {item.position !== "end" ? (
               <Button
                 class={props.createClass(item)}
-                disabled={props.form_nextButtonDisabled}
                 reference={item.ref}
                 type={props.typeSecondButton}
-                id={props.idSecondButton}
                 name={props.idSecondButton}
+                id={props.idSecondButton}
+                onClick={null}
+                onSubmit={null}
+                disabled={props.form_nextButtonDisabled}
                 label={props.labelSecondButton}
+                key={null}
+                item={null}
               />
             ) : null}
           </div>
@@ -130,16 +134,21 @@ function renderFormItems(props, array) {
 
 export default function Form(props) {
   return (
-    <form className={"form " + props.class} id={""} onSubmit={handleSubmitCity}>
+    <form className={"form " + props.class} id={props.item.id} onSubmit={handleSubmitCity}>
       { renderFormFields(props)}
 
       <Button
-        class={"form__button--submit"}
+        class={`form__button--submit`}
+        reference={null}
         disabled={props.form_submitButtonDisabled}
         type={props.idSubmitButton}
-        id={props.idSubmitButton}
         name={props.idSubmitButton}
+        id={`form${props.item.id}__button--submit`}
+        onClick={null}
+        onSubmit={null}
         label={"submit"}
+        key={null}
+        item={null}
       />
     </form >
   );

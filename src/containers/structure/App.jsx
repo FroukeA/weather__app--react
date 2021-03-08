@@ -42,7 +42,7 @@ export default function App() {
       [element]: data
     })
   }
-  console.log(3333, weatherData)
+
   return (
     <div className="App">
       <div className="container">

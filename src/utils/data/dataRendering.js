@@ -22,6 +22,8 @@ import Loader from "../../components/common/elements/loader/Loader";
 
 // variables
 
+let id = 0;
+
 // render data
 export function renderElementItems(array) {
   return array.map((item, i) => {
@@ -131,6 +133,7 @@ export function renderElement(item, key) {
 }
 
 export function renderComponent(item, key, array, load) {
+  id += 1;
   switch (item.type) {
     case "list":
       return (
@@ -145,7 +148,7 @@ export function renderComponent(item, key, array, load) {
     case "card":
       return (
         <Card
-          key={item.id + key}
+          key={item.id + item.ref + key + id}
           class={createClass(item)}
           content={item}
           createElement={createElement.bind(this)}
@@ -158,6 +161,7 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           array={array}
           class={createClass(item)}
+          item={item}
         />
       )
     case "loader":
@@ -217,10 +221,16 @@ export function renderComponent(item, key, array, load) {
       return (
         <Button
           key={item.id + key}
-          item={item}
-          label={item.label}
           class={createClass(item)}
+          reference={null}
+          type={null}
+          name={null}
+          id={item.id}
+          item={item}
           onClick={item.function}
+          onSubmit={null}
+          disabled={true}
+          label={item.label}
         />
       );
 

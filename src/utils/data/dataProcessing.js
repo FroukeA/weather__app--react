@@ -20,7 +20,7 @@ const days = [
   "Saturday",
 ];
 
-// *** merge ***
+// variables
 let data = null;
 let weather = null;
 
@@ -35,6 +35,46 @@ let elementData__parent = null; // foreCast = header or article
 let elementPart__parentId = null; // foreCast = card id
 
 let parents = {};
+
+// common
+export function handleCheckIfNot(element, condition) {
+  return element !== condition;
+}
+
+// start
+
+function createDataElement(d, i, t) {
+  type = t;
+  item = i;
+
+  if (type === 'forecastContent') {
+    data = d.slice(1, d.length);
+  } else if (type === 'weatherContent') {
+    data = d[0];
+  } else if (type === 'hourContent') {
+    data = d;
+  }
+
+  handleMergeDataElements(item);
+}
+
+export function handleReceiveData(d, handleData, reason) {
+  handle = handleData;
+  weather = d;
+
+  if (reason === 'searchSubmit') {
+    weather__content.parts[1].parts[1].parts[0].parts[1].parts[0].parts[0].checked = true;
+    weather__content.parts[1].parts[1].parts[0].parts[1].parts[1].parts[0].checked = false;
+  }
+
+  // hourly
+  createDataElement(d.data.hourly, hourly__content, "hourContent");
+  // weather
+  createDataElement(d.data.daily, weather__content, "weatherContent");
+  // forecast
+  createDataElement(d.data.daily, forecast__content, "forecastContent");
+
+}
 
 // date
 function convertData(object, key, data) {
@@ -94,7 +134,7 @@ const handleCreateDay = (day) => {
   return days[day]
 }
 
-// weather and forecast
+// weather and forecast conversion scale
 const handleCelsiusToFahrenheit = (value) => {
   const temp = (value * 9) / 5 + 32;
   return temp;
@@ -144,13 +184,31 @@ export function handleChangeConversion(conversion, event) {
   }
 }
 
+// favorites
+
+// const handleAddFavorite = (event) => {
+//   // get item
+//   favorites = JSON.parse(localStorage.getItem("favorites"));
+//   // add current city
+//   favorites[currentCity.name.toLowerCase()] = currentCity;
+//   // save to localStorage
+//   localStorage.setItem("favorites", JSON.stringify(favorites));
+// };
+
+// const handleDeleteFavorite = () => {
+//   // get item
+//   favorites = JSON.parse(localStorage.getItem("favorites"));
+//   // remove current city
+//   delete favorites[currentCity.name.toLowerCase()];
+//   // save to localStorage
+//   localStorage.setItem("favorites", JSON.stringify(favorites));
+// };
+
 // merge
 
 function dataMerge(elementData__child, id) {
   const tempData = { ...parents[elementData__child.parentId] };
   tempData.parts[id] = elementData__child;
-
-  console.log('here', elementData__child, id, elementData__child.parentId, parents, tempData)
 
   mergeDataStructure();
 }
@@ -164,42 +222,7 @@ function mergeDataStructure() {
   }
 
   // forecast
-
   handle(type, item)
-}
-
-function createDataElement(d, i, t) {
-  type = t;
-  item = i;
-
-  if (type === 'forecastContent') {
-    data = d.slice(1, d.length);
-  } else if (type === 'weatherContent') {
-    data = d[0];
-  } else if (type === 'hourContent') {
-    data = d;
-  }
-
-  handleMergeDataElements(item);
-}
-
-
-export function handleReceiveData(d, handleData, reason) {
-  handle = handleData;
-  weather = d;
-
-  if (reason === 'searchSubmit') {
-    weather__content.parts[1].parts[1].parts[0].parts[1].parts[0].parts[0].checked = true;
-    weather__content.parts[1].parts[1].parts[0].parts[1].parts[1].parts[0].checked = false;
-  }
-
-  // hourly
-  createDataElement(d.data.hourly, hourly__content, "hourContent");
-  // weather
-  createDataElement(d.data.daily, weather__content, "weatherContent");
-  // forecast
-  createDataElement(d.data.daily, forecast__content, "forecastContent");
-
 }
 
 function handleMergeDataElements(item, key) {
@@ -403,8 +426,4 @@ export function handleMerge(structureElement, data, itemId) {
   }
 
   return structureElement
-}
-
-export function handleCheckIfNot(element, condition) {
-  return element !== condition;
 }
