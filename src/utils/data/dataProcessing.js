@@ -67,13 +67,14 @@ export function handleReceiveData(d, handleData, reason) {
     weather__content.parts[1].parts[1].parts[0].parts[1].parts[1].parts[0].checked = false;
   }
 
-  // hourly
-  createDataElement(d.data.hourly, hourly__content, "hourContent");
   // weather
   createDataElement(d.data.daily, weather__content, "weatherContent");
+
+  // hourly
+  createDataElement(d.data.hourly, hourly__content, "hourContent");
+
   // forecast
   createDataElement(d.data.daily, forecast__content, "forecastContent");
-
 }
 
 // date
@@ -156,10 +157,12 @@ export function handleChangeConversion(conversion, event) {
         element.temp.min = handleFahrenheitToCelsius(element.temp.min);
       });
 
-      // hourly
-      createDataElement(weather.data.hourly, hourly__content, "hourContent");
       // weather
       createDataElement(weather.data.daily, weather__content, "weatherContent");
+
+      // hourly
+      createDataElement(weather.data.hourly, hourly__content, "hourContent");
+
       // forecast
       createDataElement(weather.data.daily, forecast__content, "forecastContent");
       break;
@@ -172,10 +175,12 @@ export function handleChangeConversion(conversion, event) {
         element.temp.min = handleCelsiusToFahrenheit(element.temp.min);
       });
 
-      // hourly
-      createDataElement(weather.data.hourly, hourly__content, "hourContent");
       // weather
       createDataElement(weather.data.daily, weather__content, "weatherContent");
+
+      // hourly
+      createDataElement(weather.data.hourly, hourly__content, "hourContent");
+
       // forecast
       createDataElement(weather.data.daily, forecast__content, "forecastContent");
       break;
