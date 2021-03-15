@@ -21,7 +21,7 @@ export default function CustomBoxInput(props) {
         placeholder={props.item.label}
         required={props.item.required}
         reference={props.item.ref}
-        checked={props.item.checked}
+        checked={props.item.checked !== null || props.item.checked !== undefined ? props.item.checked : null}
         onChange={props.item.function}
       />
       <Label

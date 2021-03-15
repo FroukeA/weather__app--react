@@ -10,7 +10,7 @@ import {
 } from "../../constants/conf";
 
 // functions
-import { createElement } from "../../utils/common/setup/commonUtils";
+import { createElement } from "../../utils/common/setup/setupUtils";
 import { createClass } from "../../utils/data/dataStyling";
 import { getData } from "../../utils/weather/weatherUtils";
 
@@ -18,29 +18,32 @@ import { getData } from "../../utils/weather/weatherUtils";
 import "../../assets/stylesheets/base/app.scss";
 
 // components
-// --- weather ---
-import Weather from "../../components/weather/Weather";
+// // --- weather ---
+// import Weather from "../../components/weather/Weather";
 
-// --- hourly ---
-import Hourly from "../../components/weather/Hourly";
+// // --- hourly ---
+// import Hourly from "../../components/weather/Hourly";
 
-// --- forecast ---
-import Forecast from "../../components/forecast/Forecast";
+// // --- forecast ---
+// import Forecast from "../../components/forecast/Forecast";
 
 // --- common ---
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
 import Loading from "../main/loading/Loading";
-// import Loaded from "../main/loaded/Loaded";
+import Loaded from "../main/loaded/Loaded";
 
 export default function App() {
-  const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, forecastContent: {} });
+  const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, hourContent: {}, forecastContent: {} });
 
   function handleData(element, data) {
-    setWeatherData({
-      ready: false,
-      [element]: data
-    })
+    setWeatherData(prevState => {
+      return {
+        ...prevState,
+        loading: false,
+        [element]: data
+      }
+    });
   }
 
   return (
@@ -66,30 +69,35 @@ export default function App() {
           </React.Fragment>
           : <React.Fragment>
             {/* content when loaded = received weather and or forecast data */}
-            {/* <Loaded
+            <Loaded
               content={weatherData}
               createElement={createElement}
               createClass={createClass}
-            /> */}
-            <Weather
-              content={weather__content}
-              createElement={createElement}
-              createClass={createClass}
             />
 
-            <Hourly
-              content={hourly__content}
-              createElement={createElement}
-              createClass={createClass}
-            />
+            {/* {(Object.keys(weatherData.weatherContent).length !== 0 ?
+              <Weather
+                content={weather__content}
+                createElement={createElement}
+                createClass={createClass}
+              />
+              : null)}
 
-            {(weatherData.forecastContent ?
+            {(Object.keys(weatherData.hourContent).length !== 0 ?
+              <Hourly
+                content={hourly__content}
+                createElement={createElement}
+                createClass={createClass}
+              />
+              : null)}
+
+            {(Object.keys(weatherData.forecastContent).length !== 0 ?
               <Forecast
                 content={weatherData.forecastContent}
                 createElement={createElement}
                 createClass={createClass}
               />
-              : null)}
+              : null)} */}
           </React.Fragment>
         )
         }

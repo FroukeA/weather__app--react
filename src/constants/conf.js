@@ -4,6 +4,10 @@ import {
 } from "../utils/weather/weatherUtils";
 
 import {
+  handleClickFavorite
+} from "../utils/common/favorite/favoriteUtils";
+
+import {
   handleChangeConversion
 } from "../utils/data/dataProcessing";
 
@@ -24,7 +28,7 @@ export const emptyItem = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 }
 
 export const emptyCard = {
@@ -62,7 +66,7 @@ export const emptyCard = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         },
         {
           label: "",
@@ -110,7 +114,7 @@ export const emptyCard = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -118,7 +122,7 @@ export const emptyCard = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 },
                 {
                   label: "weather icon",
@@ -145,7 +149,7 @@ export const emptyCard = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -153,7 +157,7 @@ export const emptyCard = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 },
                 {
                   label: "Dayname",
@@ -170,7 +174,7 @@ export const emptyCard = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               data: [],
@@ -178,7 +182,7 @@ export const emptyCard = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -186,7 +190,7 @@ export const emptyCard = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: [],
@@ -194,7 +198,7 @@ export const emptyCard = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -202,7 +206,7 @@ export const emptyCard = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 }
 
 export const nav__items = [];
@@ -233,7 +237,7 @@ export const header__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   icon: "",
@@ -257,7 +261,7 @@ export const header__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -265,7 +269,7 @@ export const header__content = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 };
 
 // check clean
@@ -294,7 +298,7 @@ export const searchEngine__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   icon: "",
@@ -326,7 +330,7 @@ export const searchEngine__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       icon: "",
@@ -358,7 +362,7 @@ export const searchEngine__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -370,7 +374,7 @@ export const searchEngine__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: [],
@@ -378,7 +382,7 @@ export const searchEngine__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -386,7 +390,7 @@ export const searchEngine__content = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 }
 
 // check clean
@@ -427,7 +431,7 @@ export const loader__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       icon: "",
@@ -451,7 +455,7 @@ export const loader__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: []
@@ -472,7 +476,7 @@ export const loader__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }, {
       label: "Loader article",
       link: "",
@@ -514,7 +518,7 @@ export const loader__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -522,7 +526,7 @@ export const loader__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         },
         searchEngine__content,
       ],
@@ -531,7 +535,7 @@ export const loader__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -539,7 +543,7 @@ export const loader__content = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 };
 
 // check clean
@@ -584,7 +588,7 @@ export const footer__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "Frouke Buyse-Assaf",
           link: "https://www.facebook.com/profile.php?id=100011123085509",
@@ -602,7 +606,7 @@ export const footer__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "Github",
           link: "https://github.com/FroukeA/weather__app--react",
@@ -620,7 +624,7 @@ export const footer__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: [],
@@ -628,7 +632,7 @@ export const footer__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -636,7 +640,7 @@ export const footer__content = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 };
 
 // check clean
@@ -677,7 +681,7 @@ export const hourly__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       icon: "",
@@ -701,7 +705,7 @@ export const hourly__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: [],
@@ -709,7 +713,7 @@ export const hourly__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }, {
       label: "Hourly article",
       link: "",
@@ -747,7 +751,7 @@ export const hourly__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -771,7 +775,7 @@ export const hourly__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -779,7 +783,7 @@ export const hourly__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "weather hourly list",
           link: "",
@@ -841,7 +845,7 @@ export const hourly__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -853,7 +857,7 @@ export const hourly__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "",
                       link: "",
@@ -907,7 +911,7 @@ export const hourly__content = {
                                   step: null,
                                   position: "",
                                   visible: "",
-                                  checked: false,
+                                  checked: null,
                                 },
                               ],
                               data: [],
@@ -915,7 +919,7 @@ export const hourly__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }, {
                               label: "weather icon",
                               link: "icon",
@@ -941,7 +945,7 @@ export const hourly__content = {
                                   step: null,
                                   position: "",
                                   visible: "",
-                                  checked: false,
+                                  checked: null,
                                 }
                               ],
                               icon: "",
@@ -973,7 +977,7 @@ export const hourly__content = {
                                       step: null,
                                       position: "",
                                       visible: "",
-                                      checked: false,
+                                      checked: null,
                                     }
                                   ],
                                   icon: "",
@@ -985,7 +989,7 @@ export const hourly__content = {
                                   step: null,
                                   position: "",
                                   visible: "",
-                                  checked: false,
+                                  checked: null,
                                 }
                               ],
                               data: [],
@@ -993,7 +997,7 @@ export const hourly__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }, {
                               label: "Hour",
                               link: "time",
@@ -1011,7 +1015,7 @@ export const hourly__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           data: [],
@@ -1019,7 +1023,7 @@ export const hourly__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       data: [],
@@ -1027,7 +1031,7 @@ export const hourly__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -1035,7 +1039,7 @@ export const hourly__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               data: [],
@@ -1043,7 +1047,7 @@ export const hourly__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: "weather_Data_hourly",
@@ -1051,7 +1055,7 @@ export const hourly__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: [],
@@ -1059,7 +1063,7 @@ export const hourly__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -1067,7 +1071,7 @@ export const hourly__content = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 }
 
 // check clean
@@ -1108,7 +1112,7 @@ export const forecast__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       icon: "",
@@ -1132,7 +1136,7 @@ export const forecast__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: [],
@@ -1140,7 +1144,7 @@ export const forecast__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }, {
       label: "Forecast article",
       link: "",
@@ -1178,7 +1182,7 @@ export const forecast__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -1202,7 +1206,7 @@ export const forecast__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -1210,7 +1214,7 @@ export const forecast__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "forcast list",
           link: "",
@@ -1272,7 +1276,7 @@ export const forecast__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -1284,7 +1288,7 @@ export const forecast__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "",
                       link: "",
@@ -1346,7 +1350,7 @@ export const forecast__content = {
                                       step: null,
                                       position: "",
                                       visible: "",
-                                      checked: false,
+                                      checked: null,
                                     }
                                   ],
                                   icon: "",
@@ -1358,7 +1362,7 @@ export const forecast__content = {
                                   step: null,
                                   position: "",
                                   visible: "",
-                                  checked: false,
+                                  checked: null,
                                 }
                               ],
                               data: [],
@@ -1366,7 +1370,7 @@ export const forecast__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }, {
                               label: "weather icon",
                               link: "icon",
@@ -1392,7 +1396,7 @@ export const forecast__content = {
                                   step: null,
                                   position: "",
                                   visible: "",
-                                  checked: false,
+                                  checked: null,
                                 }
                               ],
                               icon: "",
@@ -1424,7 +1428,7 @@ export const forecast__content = {
                                       step: null,
                                       position: "",
                                       visible: "",
-                                      checked: false,
+                                      checked: null,
                                     }
                                   ],
                                   icon: "",
@@ -1436,7 +1440,7 @@ export const forecast__content = {
                                   step: null,
                                   position: "",
                                   visible: "",
-                                  checked: false,
+                                  checked: null,
                                 }
                               ],
                               data: [],
@@ -1444,7 +1448,7 @@ export const forecast__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }, {
                               label: "Monday",
                               link: "dt",
@@ -1462,7 +1466,7 @@ export const forecast__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           data: [],
@@ -1470,7 +1474,7 @@ export const forecast__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       data: [],
@@ -1478,7 +1482,7 @@ export const forecast__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -1486,7 +1490,7 @@ export const forecast__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               data: [],
@@ -1494,7 +1498,7 @@ export const forecast__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: "forecast_Data",
@@ -1502,7 +1506,7 @@ export const forecast__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       data: [],
@@ -1510,7 +1514,7 @@ export const forecast__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -1518,7 +1522,7 @@ export const forecast__content = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 };
 
 // check clean
@@ -1576,7 +1580,7 @@ export const forms = [
     step: null,
     position: "",
     visible: "",
-    checked: false,
+    checked: null,
   },
 ];
 
@@ -1618,7 +1622,7 @@ export const weather__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       icon: "",
@@ -1645,7 +1649,7 @@ export const weather__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }, {
       label: "Weather article",
       link: "",
@@ -1671,7 +1675,7 @@ export const weather__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }
       ],
       icon: "",
@@ -1703,7 +1707,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }, {
               label: "location",
               link: "",
@@ -1721,7 +1725,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -1753,7 +1757,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               icon: "",
@@ -1765,47 +1769,46 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
+            }, {
+              label: "favorite",
+              link: "",
+              id: "wcbi_1",
+              ref: "weather",
+              type: "customBoxInput",
+              element: "checkbox",
+              class: [
+                {
+                  label: "favorite",
+                  link: "",
+                  id: "c_22",
+                  ref: "weather",
+                  type: "class",
+                  element: "className",
+                  class: [],
+                  icon: "",
+                  dataParent: false,
+                  parentId: "",
+                  parts: [],
+                  data: [],
+                  function: null,
+                  step: null,
+                  position: "",
+                  visible: "",
+                  checked: null,
+                }
+              ],
+              icon: "",
+              dataParent: false,
+              parentId: "",
+              parts: [],
+              data: [],
+              function: handleClickFavorite.bind(this,),
+              step: null,
+              position: "",
+              visible: "",
+              checked: null,
             },
-            // {
-            //   label: "favorite",
-            //   link: "",
-            //   id: "wcbi_1",
-            //   ref: "weather",
-            //   type: "customBoxInput",
-            //   element: "checkbox",
-            //   class: [
-            //     {
-            //       label: "favorite",
-            //       link: "",
-            //       id: "c_22",
-            //       ref: "weather",
-            //       type: "class",
-            //       element: "className",
-            //       class: [],
-            //       icon: "",
-            //       dataParent: false,
-            //       parentId: "",
-            //       parts: [],
-            //       data: [],
-            //       function: null,
-            //       step: null,
-            //       position: "",
-            //       visible: "",
-            //       checked: false,
-            //     }
-            //   ],
-            //   icon: "",
-            //   dataParent: false,
-            //   parentId: "",
-            //   parts: [],
-            //   data: [],
-            //   function: null,
-            //   step: null,
-            //   position: "",
-            //   visible: "",
-            //   checked: false,
-            // },
             // {
             //   label: "favorite",
             //   link: "",
@@ -1823,7 +1826,7 @@ export const weather__content = {
             //   step: null,
             //   position: "",
             //   visible: "",
-            //   checked: false,
+            //   checked: null,
             // },
             // {
             //   label: "Favorite",
@@ -1842,7 +1845,7 @@ export const weather__content = {
             //   step: null,
             //   position: "",
             //   visible: "",
-            //   checked: false,
+            //   checked: null,
             // }
           ],
           data: [],
@@ -1850,7 +1853,7 @@ export const weather__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "",
           link: "",
@@ -1876,7 +1879,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -1908,7 +1911,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               icon: "",
@@ -1964,7 +1967,7 @@ export const weather__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           icon: "",
@@ -1976,7 +1979,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }, {
                           label: "weather visual",
                           link: "icon",
@@ -2014,7 +2017,7 @@ export const weather__content = {
                                   step: null,
                                   position: "",
                                   visible: "",
-                                  checked: false,
+                                  checked: null,
                                 }
                               ],
                               icon: "",
@@ -2026,7 +2029,7 @@ export const weather__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           data: [],
@@ -2034,7 +2037,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       data: [],
@@ -2042,7 +2045,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "",
                       link: "",
@@ -2080,7 +2083,7 @@ export const weather__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           icon: "",
@@ -2092,7 +2095,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }, {
                           label: "temp",
                           link: "temp",
@@ -2118,7 +2121,7 @@ export const weather__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           icon: "",
@@ -2130,7 +2133,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       data: [],
@@ -2138,7 +2141,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -2146,7 +2149,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 },
                 {
                   label: "list",
@@ -2197,7 +2200,7 @@ export const weather__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           icon: "",
@@ -2217,7 +2220,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "Fahrenheit",
                       link: "",
@@ -2253,13 +2256,13 @@ export const weather__content = {
                               step: null,
                               position: "",
                               visible: "",
-                              checked: false,
+                              checked: null,
                             }
                           ],
                           icon: "",
                           parts: [],
                           data: [],
-                          checked: false,
+                          checked: null,
                           function: handleChangeConversion.bind(this, 'fahrenheit')
                         }
                       ],
@@ -2268,7 +2271,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -2276,7 +2279,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               data: [],
@@ -2284,7 +2287,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -2292,7 +2295,7 @@ export const weather__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "list",
           link: "",
@@ -2318,7 +2321,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -2350,7 +2353,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               icon: "",
@@ -2382,7 +2385,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "featureItem",
                       link: "",
@@ -2400,7 +2403,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -2432,7 +2435,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2444,7 +2447,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "temp low",
                       link: "temp.low",
@@ -2470,7 +2473,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2482,7 +2485,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -2490,7 +2493,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, {
                   label: "div",
                   link: "",
@@ -2516,7 +2519,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "featureItem",
                       link: "",
@@ -2534,7 +2537,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -2566,7 +2569,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2578,7 +2581,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "temp high",
                       link: "temp.high",
@@ -2604,7 +2607,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2616,7 +2619,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -2624,7 +2627,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               data: [],
@@ -2632,7 +2635,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }, {
               label: "div",
               link: "",
@@ -2658,7 +2661,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               icon: "",
@@ -2690,7 +2693,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -2722,7 +2725,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2734,7 +2737,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "description",
                       link: "description",
@@ -2752,7 +2755,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -2760,7 +2763,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, {
                   label: "item",
                   link: "",
@@ -2786,7 +2789,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -2818,7 +2821,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2830,7 +2833,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "...mm/h",
                       link: "rain",
@@ -2856,7 +2859,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2868,7 +2871,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -2876,7 +2879,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, {
                   label: "item",
                   link: "",
@@ -2902,7 +2905,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -2933,7 +2936,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2943,7 +2946,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "...km/h",
                       link: "wind_speed",
@@ -2969,7 +2972,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -2981,7 +2984,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -2989,7 +2992,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, {
                   label: "item",
                   link: "",
@@ -3015,7 +3018,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -3046,7 +3049,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -3058,7 +3061,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "...%",
                       link: "humidity",
@@ -3084,7 +3087,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -3096,7 +3099,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -3104,7 +3107,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, {
                   label: "item",
                   link: "",
@@ -3130,7 +3133,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -3162,7 +3165,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -3174,7 +3177,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }, {
                       label: "00:00",
                       link: "sunrise",
@@ -3200,7 +3203,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -3212,7 +3215,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -3220,7 +3223,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, {
                   label: "item",
                   link: "",
@@ -3246,7 +3249,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -3303,7 +3306,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -3315,7 +3318,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   data: [],
@@ -3323,7 +3326,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               data: [],
@@ -3331,7 +3334,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -3339,7 +3342,7 @@ export const weather__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "list",
           link: "",
@@ -3365,7 +3368,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -3409,7 +3412,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -3421,7 +3424,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, {
                   label: "Dayname",
                   link: "dt",
@@ -3447,7 +3450,7 @@ export const weather__content = {
                       step: null,
                       position: "",
                       visible: "",
-                      checked: false,
+                      checked: null,
                     }
                   ],
                   icon: "",
@@ -3459,7 +3462,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               data: [],
@@ -3467,7 +3470,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -3475,7 +3478,7 @@ export const weather__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         }, {
           label: "",
           link: "",
@@ -3501,7 +3504,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           icon: "",
@@ -3533,7 +3536,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }
               ],
               icon: "",
@@ -3577,7 +3580,7 @@ export const weather__content = {
                           step: null,
                           position: "",
                           visible: "",
-                          checked: false,
+                          checked: null,
                         }
                       ],
                       icon: "",
@@ -3593,7 +3596,7 @@ export const weather__content = {
                   step: null,
                   position: "",
                   visible: "",
-                  checked: false,
+                  checked: null,
                 }, searchEngine__content,
               ],
               data: [],
@@ -3601,7 +3604,7 @@ export const weather__content = {
               step: null,
               position: "",
               visible: "",
-              checked: false,
+              checked: null,
             }
           ],
           data: [],
@@ -3609,7 +3612,7 @@ export const weather__content = {
           step: null,
           position: "",
           visible: "",
-          checked: false,
+          checked: null,
         },
       ],
       data: "weather_Data",
@@ -3617,7 +3620,7 @@ export const weather__content = {
       step: null,
       position: "",
       visible: "",
-      checked: false,
+      checked: null,
     }
   ],
   data: [],
@@ -3625,5 +3628,5 @@ export const weather__content = {
   step: null,
   position: "",
   visible: "",
-  checked: false,
+  checked: null,
 };

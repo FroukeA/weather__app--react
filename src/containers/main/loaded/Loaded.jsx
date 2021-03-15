@@ -21,22 +21,27 @@ import Hourly from "../../../components/weather/Hourly";
 import Forecast from "../../../components/forecast/Forecast";
 
 export default function Loaded(props) {
-
   return (
     <main className='loaded'>
-      <Weather
-        content={weather__content}
-        createElement={props.createElement}
-        createClass={props.createClass}
-      />
+      {(Object.keys(props.content.weatherContent).length !== 0 ?
+        <Weather
+          content={props.content.weatherContent}
+          // content={props.content.weatherContent}
+          createElement={props.createElement}
+          createClass={props.createClass}
+        />
+        : null)}
 
-      <Hourly
-        content={hourly__content}
-        createElement={props.createElement}
-        createClass={props.createClass}
-      />
+      {(Object.keys(props.content.hourContent).length !== 0 ?
+        <Hourly
+          content={props.content.hourContent}
+          // content={props.content.hourContent}
+          createElement={props.createElement}
+          createClass={props.createClass}
+        />
+        : null)}
 
-      {(props.content.forecastContent ?
+      {(Object.keys(props.content.forecastContent).length !== 0 ?
         <Forecast
           content={props.content.forecastContent}
           createElement={props.createElement}

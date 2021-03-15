@@ -3,9 +3,9 @@ import React from "react";
 import { forms } from "../../constants/conf";
 
 // functions
-import handleCreateFormArray from "../common/forms/forms";
+import handleCreateFormArray from "../common/forms/formsUtils";
 import { createClass } from "./dataStyling";
-import { createElement } from "../common/setup/commonUtils";
+import { createElement } from "../common/setup/setupUtils";
 
 // components
 import Form from "../../components/common/blocks/form/Form";
