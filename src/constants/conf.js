@@ -211,7 +211,6 @@ export const emptyCard = {
 
 export const nav__items = [];
 
-// check clean
 export const header__content = {
   label: "header",
   link: "",
@@ -272,7 +271,301 @@ export const header__content = {
   checked: null,
 };
 
-// check clean
+export const favorites__content = {
+  label: "favorites",
+  link: "",
+  id: "favorites",
+  ref: "favorites",
+  type: "section",
+  element: "",
+  class: [],
+  icon: "",
+  dataParent: false,
+  parentId: "",
+  parts: [
+    {
+      label: "",
+      link: "",
+      id: "favohd_1",
+      ref: "favorites",
+      type: "header",
+      element: "header",
+      class: [
+        {
+          label: "hide",
+          link: "",
+          id: "c_1",
+          ref: "favorites",
+          type: "class",
+          element: "className",
+          class: [],
+          icon: "",
+          dataParent: false,
+          parentId: "",
+          parts: [],
+          data: [],
+          function: null,
+          step: null,
+          position: "",
+          visible: "",
+          checked: null,
+        }
+      ],
+      icon: "",
+      dataParent: false,
+      parentId: "",
+      parts: [
+        {
+          label: "Favorites",
+          link: "",
+          id: "favoh_1",
+          ref: "favorites",
+          type: "title",
+          element: "h2",
+          class: [],
+          icon: "",
+          dataParent: false,
+          parentId: "",
+          parts: [],
+          data: [],
+          function: null,
+          step: null,
+          position: "",
+          visible: "",
+          checked: null,
+        }
+      ],
+      data: [],
+      function: null,
+      step: null,
+      position: "",
+      visible: "",
+      checked: null,
+    }, {
+      label: "Favorites article",
+      link: "",
+      id: "favoartcl_1",
+      ref: "favorites",
+      type: "part",
+      element: "article",
+      class: [],
+      icon: "",
+      dataParent: false,
+      parentId: "",
+      parts: [
+        {
+          label: "",
+          link: "",
+          id: "favoartclhd_1",
+          ref: "favorites",
+          type: "header",
+          element: "header",
+          class: [
+            {
+              label: "hide",
+              link: "",
+              id: "c_1",
+              ref: "favorites",
+              type: "class",
+              element: "className",
+              class: [],
+              icon: "",
+              dataParent: false,
+              parentId: "",
+              parts: [],
+              data: [],
+              function: null,
+              step: null,
+              position: "",
+              visible: "",
+              checked: null,
+            }
+          ],
+          icon: "",
+          dataParent: false,
+          parentId: "",
+          parts: [
+            {
+              label: "Favorites article title",
+              link: "",
+              id: "favoartclh_1",
+              ref: "favorites",
+              type: "title",
+              element: "h3",
+              class: [],
+              icon: "",
+              dataParent: false,
+              parentId: "",
+              parts: [],
+              data: [],
+              function: null,
+              step: null,
+              position: "",
+              visible: "",
+              checked: null,
+            }
+          ],
+          data: [],
+          function: null,
+          step: null,
+          position: "",
+          visible: "",
+          checked: null,
+        }, {
+          label: "Favorites list",
+          link: "",
+          id: "favolt_1",
+          ref: "favorites",
+          type: "list--favorite",
+          element: "ul",
+          class: [],
+          icon: "",
+          dataParent: false,
+          parentId: "",
+          parts: [
+            {
+              label: "Favorite",
+              link: "",
+              id: "favoli_1",
+              ref: "favorites",
+              type: "item",
+              element: "li",
+              class: [],
+              icon: "",
+              dataParent: false,
+              parentId: "",
+              parts: [
+                {
+                  label: "Favo article",
+                  link: "",
+                  id: "favoartcl_2",
+                  ref: "favorites",
+                  type: "part",
+                  element: "article",
+                  class: [],
+                  icon: "",
+                  dataParent: false,
+                  parentId: "",
+                  parts: [
+                    {
+                      label: "",
+                      link: "",
+                      id: "favoartclhd_2",
+                      ref: "favorites",
+                      type: "header",
+                      element: "header",
+                      class: [],
+                      icon: "",
+                      dataParent: true,
+                      parentId: "fartcl_2",
+                      parts: [
+                        {
+                          label: "test",
+                          link: "name--favo",
+                          id: "favoh_2",
+                          ref: "favorites",
+                          type: "title",
+                          element: "h4",
+                          class: [
+                            {
+                              label: "big",
+                              link: "",
+                              id: "f_1",
+                              ref: "favorites",
+                              type: "class",
+                              element: "className",
+                              class: [],
+                              icon: "",
+                              dataParent: false,
+                              parentId: "",
+                              parts: [],
+                              data: [],
+                              function: null,
+                              step: null,
+                              position: "",
+                              visible: "",
+                              checked: null,
+                            }
+                          ],
+                          icon: "",
+                          dataParent: false,
+                          parentId: "favoartclhd_2",
+                          parts: [],
+                          data: [],
+                          function: null,
+                          step: null,
+                          position: "",
+                          visible: "",
+                          checked: null,
+                        }
+                      ],
+                      data: [],
+                      function: null,
+                      step: null,
+                      position: "",
+                      visible: "",
+                      checked: null,
+                    }
+                  ],
+                  data: [],
+                  function: null,
+                  step: null,
+                  position: "",
+                  visible: "",
+                  checked: null,
+                }
+                // {
+                //   label: "Spring",
+                //   link: "name",
+                //   id: "favop_1",
+                //   ref: "favorites",
+                //   type: "text",
+                //   element: "p",
+                //   class: [],
+                //   icon: "",
+                //   dataParent: false,
+                //   parentId: "favoli_1",
+                //   parts: [],
+                //   data: [],
+                //   function: null,
+                //   step: null,
+                //   position: "",
+                //   visible: "",
+                //   checked: true,
+                // }
+              ],
+              data: [],
+              function: null,
+              step: null,
+              position: "",
+              visible: "",
+              checked: null,
+            }
+          ],
+          data: "favorites_Data",
+          function: null,
+          step: null,
+          position: "",
+          visible: "",
+          checked: null,
+        }
+      ],
+      data: [],
+      function: null,
+      step: null,
+      position: "",
+      visible: "",
+      checked: null,
+    }
+  ],
+  data: [],
+  function: null,
+  step: null,
+  position: "",
+  visible: "",
+  checked: null,
+};
+
 export const searchEngine__content = {
   label: "",
   link: "",
@@ -393,7 +686,6 @@ export const searchEngine__content = {
   checked: null,
 }
 
-// check clean
 export const loader__content = {
   label: "loader",
   link: "",
@@ -546,7 +838,6 @@ export const loader__content = {
   checked: null,
 };
 
-// check clean
 export const footer__content = {
   label: "footer",
   link: "",
@@ -643,7 +934,6 @@ export const footer__content = {
   checked: null,
 };
 
-// check clean
 export const hourly__content = {
   label: "hourly",
   link: "",
@@ -1074,7 +1364,6 @@ export const hourly__content = {
   checked: null,
 }
 
-// check clean
 export const forecast__content = {
   label: "forecast",
   link: "",
@@ -1216,7 +1505,7 @@ export const forecast__content = {
           visible: "",
           checked: null,
         }, {
-          label: "forcast list",
+          label: "forecast list",
           link: "",
           id: "flt_1",
           ref: "forecast",
@@ -1317,7 +1606,7 @@ export const forecast__content = {
                               label: "",
                               link: "",
                               id: "fartclhd_2",
-                              ref: "forcast",
+                              ref: "forecast",
                               type: "header",
                               element: "header",
                               class: [],
@@ -1525,7 +1814,6 @@ export const forecast__content = {
   checked: null,
 };
 
-// check clean
 export const forms = [
   {
     label: "search form data",
@@ -1584,8 +1872,6 @@ export const forms = [
   },
 ];
 
-
-// breaks here
 export const weather__content = {
   label: "weather",
   link: "",
@@ -1809,44 +2095,6 @@ export const weather__content = {
               visible: "",
               checked: null,
             },
-            // {
-            //   label: "favorite",
-            //   link: "",
-            //   id: "wi_1",
-            //   ref: "weather",
-            //   type: "checkbox",
-            //   element: "input",
-            //   class: [],
-            //   icon: "",
-            //   dataParent: false,
-            //   parentId: "",
-            //   parts: [],
-            //   data: [],
-            //   function: null,
-            //   step: null,
-            //   position: "",
-            //   visible: "",
-            //   checked: null,
-            // },
-            // {
-            //   label: "Favorite",
-            //   link: "",
-            //   id: "wl_1",
-            //   ref: "weather",
-            //   type: "fieldTitle",
-            //   element: "label",
-            //   class: [],
-            //   icon: "",
-            //   dataParent: false,
-            //   parentId: "",
-            //   parts: [],
-            //   data: [],
-            //   function: null,
-            //   step: null,
-            //   position: "",
-            //   visible: "",
-            //   checked: null,
-            // }
           ],
           data: [],
           function: null,

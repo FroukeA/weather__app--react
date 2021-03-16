@@ -2,7 +2,8 @@
 import {
   forecast__content,
   weather__content,
-  hourly__content
+  hourly__content,
+  favorites__content
 } from "../../constants/conf";
 
 // functions
@@ -44,6 +45,7 @@ export function handleCheckIfNot(element, condition) {
 // start
 
 function createDataElement(d, i, t) {
+  console.log(d, i, t)
   type = t;
   item = i;
 
@@ -53,9 +55,22 @@ function createDataElement(d, i, t) {
     data = d[0];
   } else if (type === 'hourContent') {
     data = d;
+  } else if (type === 'favoritesContent') {
+    data = d;
   }
 
   handleMergeDataElements(item);
+}
+
+export function handleReceiveFavoriteData(d, handleData, reason) {
+  handle = handleData;
+  // favorites
+  if (Object.values(d).length > 0) {
+    createDataElement(Object.values(d), favorites__content, "favoritesContent");
+    handle("favoritesData", d);
+  } else {
+    handle("favoritesContent", {});
+  }
 }
 
 export function handleReceiveData(d, handleData, reason) {
@@ -69,12 +84,15 @@ export function handleReceiveData(d, handleData, reason) {
 
   // weather
   createDataElement(d.data.daily, weather__content, "weatherContent");
+  handle("weatherData", d.data.daily);
 
   // hourly
   createDataElement(d.data.hourly, hourly__content, "hourContent");
+  handle("hourData", d.data.daily);
 
   // forecast
   createDataElement(d.data.daily, forecast__content, "forecastContent");
+  handle("forecastData", d.data.daily);
 }
 
 // date
@@ -122,6 +140,8 @@ function convertData(object, key, data) {
       return `${data.humidity}%`;
     case 'icon':
       return data.weather[0].icon;
+    case 'name--favo':
+      return data.name;
     default:
       return object[key]
   }
@@ -222,11 +242,10 @@ function mergeDataStructure() {
   if (elementPart__parent.ref === 'forecast' || elementPart__parent.ref === 'hourly') {
     tempElementPart.parts[elementPart__parentId] = elementPart__parent; // forecast and hourly
   }
-  if (elementPart__parent.ref === 'weather') {
-    tempElementPart = elementPart__parent; // weather
+  if (elementPart__parent.ref === 'weather' || elementPart__parent.ref === 'favorites') {
+    tempElementPart = elementPart__parent; // weather and favorites
   }
 
-  // forecast
   handle(type, item)
 }
 
@@ -248,28 +267,38 @@ export function mergeDataElementItems(structureEl) {
 
   structureEl.parts.map((elementPart, elementPartId) => {
     // weather section or forecast section
-
     if (elementPart.data.length === 0) {
       mergeDataElementItems(elementPart);
     } else {
       // data comes from external source, data does NOT come from constants
       if (elementPart.parts[0] !== undefined) {
         // const data = forecast_data;
-
         if (elementPart.parts.length > 0) {
           // Nested DOM
           tempElementPart = elementPart; // foreCast = list
 
           if (data.length > 0) {
-
             data.map((dataItem, dataId) => {
-              elementPart__parentId = dataId;
-              elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
-              elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+              if (elementPart.type === "list--favorite") {
+                elementPart__parentId = dataId;
 
-              return elementPart__parent.type === "card"
-                ? handlePrepareData(elementPart__child, dataItem)
-                : null;
+                elementPart__parent = { ...elementPart }; // favorite === deep copy // works
+                // elementPart__parent = JSON.parse(JSON.stringify(elementPart)); // favorite === deep copy // doesn't work
+                elementPart__child = { ...elementPart__parent.parts[0] };
+
+                return elementPart__parent.type === "list--favorite"
+                  ? handlePrepareData(elementPart__child, dataItem, dataId)
+                  : null;
+              } else {
+                elementPart__parentId = dataId;
+                elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
+
+                elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
+
+                return elementPart__parent.type === "card"
+                  ? handlePrepareData(elementPart__child, dataItem, null)
+                  : null;
+              }
             })
           } else {
             elementPart__parentId = 0;
@@ -279,15 +308,16 @@ export function mergeDataElementItems(structureEl) {
               elementPart__parent.parts.map((partItem, partId) => {
                 elementPart__parentId = partId;
                 elementPart__child = { ...partItem }
-                return elementPart__parent.type === "part"
-                  ? handlePrepareData(elementPart__child, data)
+
+                return elementPart__parent.type === "part" || elementPart__parent.type === "list--favorite"
+                  ? handlePrepareData(elementPart__child, data, null)
                   : null;
               })
             } else {
               elementPart__child = { ...elementPart__parent.parts[0] }; // weather = structureChild
 
               return elementPart__parent.type === "part"
-                ? handlePrepareData(elementPart__child, data)
+                ? handlePrepareData(elementPart__child, data, null)
                 : null;
             }
           }
@@ -316,7 +346,7 @@ export function mergeDataElement(elementPart, elementPartId) {
             elementPart__parent = JSON.parse(JSON.stringify(elementPart.parts[0])); // foreCast = card === deep copy
             elementPart__child = { ...elementPart__parent.parts[0] }; // foreCast = structureChild
             return elementPart__parent.type === "card"
-              ? handlePrepareData(elementPart__child, dataItem)
+              ? handlePrepareData(elementPart__child, dataItem, null)
               : null;
           })
         } else {
@@ -328,31 +358,29 @@ export function mergeDataElement(elementPart, elementPartId) {
               elementPart__parentId = partId;
               elementPart__child = { ...partItem }
               return elementPart__parent.type === "part"
-                ? handlePrepareData(elementPart__child, data)
+                ? handlePrepareData(elementPart__child, data, null)
                 : null;
             })
           } else {
             elementPart__child = { ...elementPart__parent.parts[0] }; // weather = structureChild
 
             return elementPart__parent.type === "part"
-              ? handlePrepareData(elementPart__child, data)
+              ? handlePrepareData(elementPart__child, data, null)
               : null;
           }
-
-
         }
       }
     }
   }
 }
 
-export function handlePrepareData(elementPart__child, dataItem) {
-  handleMerge(elementPart__child, dataItem, null);
+export function handlePrepareData(elementPart__child, dataItem, itemId) {
+  handleMerge(elementPart__child, dataItem, itemId);
 }
 
-export function handleMergeElementItems(array, data) {
+export function handleMergeElementItems(array, data, id) {
   return array.map((item, itemId) => {
-    return handleMerge(item, data, itemId);
+    return handleMerge(item, data, (item.ref === 'favorites' ? id : itemId));
   });
 }
 
@@ -402,7 +430,7 @@ export function handleMerge(structureElement, data, itemId) {
         // data needed in this layer
         handleMergeData(structureElement, data, itemId);
       } else {
-        handleMergeElementItems(structureElement.parts, data);
+        handleMergeElementItems(structureElement.parts, data, itemId);
       }
     } else {
       // single dom
