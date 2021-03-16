@@ -25,6 +25,7 @@ export function handleClickFavorite(e) {
     handleAddFavorite();
   } else {
     console.log('remove')
+
   }
 }
 
@@ -60,7 +61,7 @@ export function handleGetFavorites() {
 export function getFavorites(handleFavo) {
   handleData = handleFavo;
 
-  localStorage.removeItem('favorites');
+  // localStorage.removeItem('favorites');
   // localStorage.clear();
 
   if (

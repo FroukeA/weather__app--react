@@ -45,7 +45,6 @@ export function handleCheckIfNot(element, condition) {
 // start
 
 function createDataElement(d, i, t) {
-  console.log(d, i, t)
   type = t;
   item = i;
 
@@ -64,7 +63,7 @@ function createDataElement(d, i, t) {
 
 export function handleReceiveFavoriteData(d, handleData, reason) {
   handle = handleData;
-  // favorites
+
   if (Object.values(d).length > 0) {
     createDataElement(Object.values(d), favorites__content, "favoritesContent");
     handle("favoritesData", d);
@@ -208,26 +207,6 @@ export function handleChangeConversion(conversion, event) {
       return console.log('ERROR: I do not know the conversion:', conversion)
   }
 }
-
-// favorites
-
-// const handleAddFavorite = (event) => {
-//   // get item
-//   favorites = JSON.parse(localStorage.getItem("favorites"));
-//   // add current city
-//   favorites[currentCity.name.toLowerCase()] = currentCity;
-//   // save to localStorage
-//   localStorage.setItem("favorites", JSON.stringify(favorites));
-// };
-
-// const handleDeleteFavorite = () => {
-//   // get item
-//   favorites = JSON.parse(localStorage.getItem("favorites"));
-//   // remove current city
-//   delete favorites[currentCity.name.toLowerCase()];
-//   // save to localStorage
-//   localStorage.setItem("favorites", JSON.stringify(favorites));
-// };
 
 // merge
 
