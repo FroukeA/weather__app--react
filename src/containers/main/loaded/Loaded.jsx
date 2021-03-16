@@ -1,10 +1,10 @@
 // data
 import React from "react";
 
-import {
-  weather__content,
-  hourly__content,
-} from "../../../constants/conf";
+// import {
+//   weather__content,
+//   hourly__content,
+// } from "../../../constants/conf";
 
 // functions
 
@@ -26,7 +26,6 @@ export default function Loaded(props) {
       {(Object.keys(props.content.weatherContent).length !== 0 ?
         <Weather
           content={props.content.weatherContent}
-          // content={props.content.weatherContent}
           createElement={props.createElement}
           createClass={props.createClass}
         />
@@ -35,7 +34,6 @@ export default function Loaded(props) {
       {(Object.keys(props.content.hourContent).length !== 0 ?
         <Hourly
           content={props.content.hourContent}
-          // content={props.content.hourContent}
           createElement={props.createElement}
           createClass={props.createClass}
         />

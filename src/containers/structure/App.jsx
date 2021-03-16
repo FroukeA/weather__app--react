@@ -5,14 +5,19 @@ import {
   header__content,
   footer__content,
   loader__content,
-  weather__content,
-  hourly__content
+  favorites__content
+  // weather__content,
+  // hourly__content
 } from "../../constants/conf";
 
 // functions
 import { createElement } from "../../utils/common/setup/setupUtils";
 import { createClass } from "../../utils/data/dataStyling";
 import { getData } from "../../utils/weather/weatherUtils";
+import {
+  getFavorites,
+  handleReceiveState
+} from "../../utils/common/favorite/favoriteUtils";
 
 // style
 import "../../assets/stylesheets/base/app.scss";
@@ -27,6 +32,9 @@ import "../../assets/stylesheets/base/app.scss";
 // // --- forecast ---
 // import Forecast from "../../components/forecast/Forecast";
 
+// --- favorites ---
+import Favorites from "../../components/favorites/Favorites";
+
 // --- common ---
 import Header from "../../components/common/header/Header";
 import Footer from "../../components/common/footer/Footer";
@@ -34,7 +42,21 @@ import Loading from "../main/loading/Loading";
 import Loaded from "../main/loaded/Loaded";
 
 export default function App() {
-  const [weatherData, setWeatherData] = useState({ loading: true, weatherContent: {}, hourContent: {}, forecastContent: {} });
+  const [weatherData, setWeatherData] = useState({
+    loading: true,
+    weatherContent: {},
+    hourContent: {},
+    forecastContent: {},
+    weatherData: {},
+    hourData: {},
+    forecastData: {}
+  });
+  const [favoriteData, setFavoriteData] = useState({
+    loading: true,
+    list: {},
+    favoritesContent: {},
+    data: {}
+  });
 
   function handleData(element, data) {
     setWeatherData(prevState => {
@@ -46,6 +68,18 @@ export default function App() {
     });
   }
 
+  function handleFavorite(element, data) {
+    setFavoriteData(prevState => {
+      return {
+        ...prevState,
+        loading: false,
+        [element]: data
+      }
+    });
+  }
+
+  // getFavorites(handleFavorite)
+
   return (
     <div className="App">
       <div className="container">
@@ -55,6 +89,17 @@ export default function App() {
           createElement={createElement}
           createClass={createClass}
         />
+
+        {(favoriteData.loading ?
+          getFavorites(handleFavorite)
+          : <React.Fragment>
+            <Favorites
+              content={favoriteData.favoritesContent}
+              createElement={createElement}
+              createClass={createClass}
+            />
+          </React.Fragment>
+        )}
 
         {(weatherData.loading ?
           <React.Fragment >
@@ -69,6 +114,9 @@ export default function App() {
           </React.Fragment>
           : <React.Fragment>
             {/* content when loaded = received weather and or forecast data */}
+
+            {handleReceiveState(weatherData)}
+
             <Loaded
               content={weatherData}
               createElement={createElement}

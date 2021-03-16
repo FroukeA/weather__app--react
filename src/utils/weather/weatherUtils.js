@@ -49,7 +49,7 @@ const handleGetWeatherCurrentPosition = () => {
           .then((response) => {
             currentCity.data = response.data;
 
-            handleCurrentForcast();
+            handleCurrentForcast('weather');
           })
           .catch((error) => {
             console.log('ERROR:', error.response);
