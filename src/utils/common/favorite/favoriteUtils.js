@@ -25,9 +25,24 @@ export function handleClickFavorite(e) {
     handleAddFavorite();
   } else {
     console.log('remove')
-
+    handleDeleteFavorite()
   }
 }
+
+export function handleDeleteFavorite() {
+  const name = tempState.weatherData[0].name;
+
+  // get item
+  favorites = JSON.parse(localStorage.getItem("favorites"));
+
+  // remove city
+  delete favorites[name.toLowerCase()];
+
+  // save to localStorage
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+
+  handleReceiveFavoriteData(favorites, handleData, 'collectFavorites');
+};
 
 export function handleAddFavorite() {
   const name = tempState.weatherData[0].name;
