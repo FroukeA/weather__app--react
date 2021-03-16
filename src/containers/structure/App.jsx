@@ -78,8 +78,6 @@ export default function App() {
     });
   }
 
-  // getFavorites(handleFavorite)
-
   return (
     <div className="App">
       <div className="container">

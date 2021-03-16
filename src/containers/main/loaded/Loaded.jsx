@@ -1,11 +1,6 @@
 // data
 import React from "react";
 
-// import {
-//   weather__content,
-//   hourly__content,
-// } from "../../../constants/conf";
-
 // functions
 
 // style
