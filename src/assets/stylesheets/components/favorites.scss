@@ -1,11 +1,25 @@
 /* *** LAYOUT *** */
-.favorites__header--hide {
+.favorites__header--hide,
+.favorites__customBoxInput > input {
   display: none;
+}
+
+.favorites {
+  padding: 2rem 0;
+}
+
+.favorites__list--favorite {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 /* *** MODULE *** */
 
 /* *** STATE *** */
+.favorites__customBoxInput > input:checked+label {
+  color: orange;
+}
 
 /* *** KEYFRAME *** */
 

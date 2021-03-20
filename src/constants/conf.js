@@ -1,10 +1,12 @@
 import {
   handleChangeText,
-  handleGetCurrentLocation
+  handleGetCurrentLocation,
+  handleSubmitCity
 } from "../utils/weather/weatherUtils";
 
 import {
-  handleClickFavorite
+  handleClickFavorite,
+  handleClickFavoriteItem
 } from "../utils/common/favorite/favoriteUtils";
 
 import {
@@ -420,7 +422,7 @@ export const favorites__content = {
           element: "ul",
           class: [],
           icon: "",
-          dataParent: false,
+          dataParent: true,
           parentId: "",
           parts: [
             {
@@ -432,83 +434,26 @@ export const favorites__content = {
               element: "li",
               class: [],
               icon: "",
-              dataParent: false,
-              parentId: "",
+              dataParent: true,
+              parentId: "favolt_1",
               parts: [
                 {
-                  label: "Favo article",
-                  link: "",
-                  id: "favoartcl_2",
+                  label: "test",
+                  link: "name--favo",
+                  id: "favobttnclhd_2",
                   ref: "favorites",
-                  type: "part",
-                  element: "article",
+                  // type: "button",
+                  // element: "button",
+                  type: "customBoxInput",
+                  element: "radio",
                   class: [],
                   icon: "",
                   dataParent: false,
-                  parentId: "",
-                  parts: [
-                    {
-                      label: "",
-                      link: "",
-                      id: "favoartclhd_2",
-                      ref: "favorites",
-                      type: "header",
-                      element: "header",
-                      class: [],
-                      icon: "",
-                      dataParent: true,
-                      parentId: "fartcl_2",
-                      parts: [
-                        {
-                          label: "test",
-                          link: "name--favo",
-                          id: "favoh_2",
-                          ref: "favorites",
-                          type: "title",
-                          element: "h4",
-                          class: [
-                            {
-                              label: "big",
-                              link: "",
-                              id: "f_1",
-                              ref: "favorites",
-                              type: "class",
-                              element: "className",
-                              class: [],
-                              icon: "",
-                              dataParent: false,
-                              parentId: "",
-                              parts: [],
-                              data: [],
-                              function: null,
-                              step: null,
-                              position: "",
-                              visible: "",
-                              checked: null,
-                            }
-                          ],
-                          icon: "",
-                          dataParent: false,
-                          parentId: "favoartclhd_2",
-                          parts: [],
-                          data: [],
-                          function: null,
-                          step: null,
-                          position: "",
-                          visible: "",
-                          checked: null,
-                        }
-                      ],
-                      data: [],
-                      function: null,
-                      step: null,
-                      position: "",
-                      visible: "",
-                      checked: null,
-                    }
-                  ],
+                  parentId: "favoli_1",
+                  parts: [],
                   data: [],
-                  function: null,
+                  function: handleClickFavoriteItem.bind(this,),
+                  // function: "",
                   step: null,
                   position: "",
                   visible: "",
@@ -531,7 +476,7 @@ export const favorites__content = {
           checked: null,
         }
       ],
-      data: [],
+      data: "",
       function: null,
       step: null,
       position: "",
@@ -644,7 +589,7 @@ export const searchEngine__content = {
           parentId: "",
           parts: [],
           data: [],
-          function: null,
+          function: handleSubmitCity.bind(this,),
           step: null,
           position: "",
           visible: "",
