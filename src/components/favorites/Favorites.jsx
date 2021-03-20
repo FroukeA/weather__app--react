@@ -8,7 +8,6 @@ import React from "react";
 // components
 
 export default function Favorites(props) {
-  // console.log('favorites', props.content)
   return (
     (Object.keys(props.content).length !== 0 ? <React.Fragment>
       <section className={props.createClass(props.content)}>

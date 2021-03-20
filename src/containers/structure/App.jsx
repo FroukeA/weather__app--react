@@ -53,9 +53,8 @@ export default function App() {
   });
   const [favoriteData, setFavoriteData] = useState({
     loading: true,
-    list: {},
     favoritesContent: {},
-    data: {}
+    favoritesData: {}
   });
 
   function handleData(element, data) {
