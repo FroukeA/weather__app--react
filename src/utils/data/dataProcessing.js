@@ -242,7 +242,6 @@ function handleMergeDataElements(item, key) {
 }
 
 export function mergeDataElementItems(structureEl) {
-  // console.log('try to proccess favorites')
   elementPart__parent = null;
 
   structureEl.parts.map((elementPart, elementPartId) => {
@@ -384,13 +383,14 @@ export function handleMergeData(structureElement, data, id) {
       item.label = data.weather[0].description
       if (elementData__child.class[0]) {
         elementData__child.class[0].label = `${get(data, structureElement.link)}`;
+        elementData__child.class[0].checked = (data.checked ? data.checked : null);
       }
 
       return null
     })
-
   } else {
     elementData__child.label = get(data, structureElement.link);
+    elementData__child.checked = data.checked;
   }
 
   dataMerge(elementData__child, id);

@@ -208,6 +208,7 @@ export function renderComponent(item, key, array, load) {
           createElement={createElement.bind(this)}
           createClass={createClass.bind(this)}
           content={item.parts}
+          checked={item.checked}
         />
       );
     case "item":

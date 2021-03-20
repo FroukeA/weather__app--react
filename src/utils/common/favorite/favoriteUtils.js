@@ -8,7 +8,10 @@ import { handleSubmitCity } from "../../weather/weatherUtils";
 
 // variables
 let handleData = null;
-let favorites = {};
+let tempState = null;
+
+let favorites = {
+};
 let favorite = {
   name: "",
   data: {
@@ -17,10 +20,31 @@ let favorite = {
     forecastData: {}
   }
 };
-let tempState = null;
+
+export function handleCheckFavorite(value) {
+  Object.keys(favorites).forEach((element) => {
+    if (element !== value || value === "all") {
+      handleUnCheckFavoriteItem(element)
+    } else if (element === value) {
+      handleCheckFavoriteItem(element)
+    }
+  });
+
+  handleReceiveFavoriteData(favorites, handleData, 'collectFavorites');
+}
+
+export function handleUnCheckFavoriteItem(value) {
+  return favorites[value].checked = false;
+}
+
+export function handleCheckFavoriteItem(value) {
+  return favorites[value].checked = true;
+}
 
 export function handleClickFavoriteItem(e) {
-  handleSubmitCity(e, e.target.className, false)
+  handleCheckFavorite(e.target.className);
+
+  handleSubmitCity(e, e.target.className, false);
 }
 
 export function handleClickFavorite(e) {
@@ -55,6 +79,7 @@ export function handleAddFavorite() {
   tempFavorite.data.weatherData = (tempState.weatherData ? tempState.weatherData : null);
   tempFavorite.data.hourData = (tempState.hourData ? tempState.hourData : null);
   tempFavorite.data.forecastData = (tempState.forecastData ? tempState.forecastData : null);
+  tempFavorite.checked = true;
 
   // get localStorage favorites
   favorites = handleGetFavorites();
