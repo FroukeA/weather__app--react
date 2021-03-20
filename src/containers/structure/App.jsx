@@ -5,7 +5,7 @@ import {
   header__content,
   footer__content,
   loader__content,
-  favorites__content
+  // favorites__content
   // weather__content,
   // hourly__content
 } from "../../constants/conf";

@@ -1,8 +1,6 @@
 // data 
 import React from "react";
 
-import { handleSubmitCity } from "../../../../utils/weather/weatherUtils" // hard code
-
 // functions
 
 // style
@@ -134,7 +132,7 @@ function renderFormItems(props, array) {
 
 export default function Form(props) {
   return (
-    <form className={"form " + props.class} id={props.item.id} onSubmit={handleSubmitCity}>
+    <form className={"form " + props.class} id={props.item.id} onSubmit={props.item.function}>
       { renderFormFields(props)}
 
       <Button

@@ -2,6 +2,7 @@
 
 // functions
 import { handleReceiveFavoriteData } from "../../data/dataProcessing";
+import { handleSubmitCity } from "../../weather/weatherUtils";
 
 // components
 
@@ -18,13 +19,15 @@ let favorite = {
 };
 let tempState = null;
 
+export function handleClickFavoriteItem(e) {
+  handleSubmitCity(e, e.target.className, false)
+}
+
 export function handleClickFavorite(e) {
   const target = e.currentTarget;
   if (target.checked) {
-    console.log('add')
     handleAddFavorite();
   } else {
-    console.log('remove')
     handleDeleteFavorite()
   }
 }

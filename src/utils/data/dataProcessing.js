@@ -242,6 +242,7 @@ function handleMergeDataElements(item, key) {
 }
 
 export function mergeDataElementItems(structureEl) {
+  // console.log('try to proccess favorites')
   elementPart__parent = null;
 
   structureEl.parts.map((elementPart, elementPartId) => {

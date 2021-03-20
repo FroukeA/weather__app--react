@@ -134,6 +134,7 @@ export function renderElement(item, key) {
 
 export function renderComponent(item, key, array, load) {
   id += 1;
+
   switch (item.type) {
     case "list":
       return (

@@ -36,6 +36,7 @@ let currentCityName = null;
 // Weather API
 
 const handleGetWeatherCurrentPosition = () => {
+  console.log('here click current location')
   const apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
   apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minute&appid=${apiKey}&units=metric`;
 
@@ -67,10 +68,13 @@ function handlePosition(response) {
   lat = currentPosition.coords.latitude;
   long = currentPosition.coords.longitude;
 
+  console.log('got position', currentPosition, lat, long)
+
   handleGetWeatherCurrentPosition();
 };
 
 export function handleGetCurrentLocation() {
+  console.log('click position')
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
 
@@ -97,10 +101,13 @@ export function handleChangeText(event) {
   city = value;
 }
 
-export function handleSubmitCity(event) {
-  event.preventDefault();
+export function handleSubmitCity(event, name, defaultBehavior) {
 
-  const apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${city.toLowerCase()}&appid=${apiKey}&units=metric`;
+  if (defaultBehavior !== false) {
+    event.preventDefault()
+  }
+
+  const apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${(name ? name.toLowerCase() : city.toLowerCase())}&appid=${apiKey}&units=metric`;
 
   axios
     .get(apiUrl1)
