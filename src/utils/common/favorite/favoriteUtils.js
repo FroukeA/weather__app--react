@@ -31,6 +31,8 @@ let favorite = {
 export function handleCheckFavorite(value) {
   Object.keys(favorites).forEach((element) => {
     if (element !== value || value === "all") {
+      itemChecked = false;
+
       handleUnCheckFavoriteItem(element);
 
       handleUnCheckRefItem(value)
@@ -141,21 +143,15 @@ export function handleGetFavorites() {
 export function getFavorites(handleFavo) {
   handleData = handleFavo;
 
-  // localStorage.removeItem('favorites');
-  // localStorage.clear();
-
   if (
     handleGetFavorites() === undefined ||
     handleGetFavorites() === null
   ) {
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
-    // handleAddFavoriteTest();
-
     handleReceiveFavoriteData(favorites, handleData, 'collectFavorites');
   } else {
     favorites = handleGetFavorites();
-    // handleAddFavoriteTest();
 
     handleReceiveFavoriteData(favorites, handleData, 'collectFavorites');
   }
@@ -169,24 +165,4 @@ export function handleReceiveState(state, refs) {
   if (itemChecked) {
     handleCheckRefItem()
   }
-}
-
-
-export function handleAddFavoriteTest() {
-  const name = 'Spain';
-  const tempFavorite = { ...favorite }
-
-  tempFavorite.name = name;
-  tempFavorite.data.weatherData = (tempState ? tempState.weatherData : null);
-  tempFavorite.data.hourData = (tempState ? tempState.hourData : null);
-  tempFavorite.data.forecastData = (tempState ? tempState.forecastData : null);
-
-  // get localStorage favorites
-  favorites = handleGetFavorites();
-
-  // add item
-  favorites['testName'] = tempFavorite;
-
-  // save to localStorage
-  localStorage.setItem("favorites", JSON.stringify(favorites));
 }
