@@ -2,7 +2,6 @@
 import React,
 {
   useState,
-  // createRef,
   useRef
 } from "react";
 
@@ -10,9 +9,6 @@ import {
   header__content,
   footer__content,
   loader__content,
-  // favorites__content
-  // weather__content,
-  // hourly__content
 } from "../../constants/conf";
 
 // functions
@@ -28,14 +24,6 @@ import {
 import "../../assets/stylesheets/base/app.scss";
 
 // components
-// // --- weather ---
-// import Weather from "../../components/weather/Weather";
-
-// // --- hourly ---
-// import Hourly from "../../components/weather/Hourly";
-
-// // --- forecast ---
-// import Forecast from "../../components/forecast/Forecast";
 
 // --- favorites ---
 import Favorites from "../../components/favorites/Favorites";
