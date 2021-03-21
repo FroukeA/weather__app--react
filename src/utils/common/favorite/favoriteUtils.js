@@ -33,6 +33,8 @@ export function handleCheckFavorite(value) {
     if (element !== value || value === "all") {
       handleUnCheckFavoriteItem(element);
 
+      handleUnCheckRefItem(value)
+
       localStorage.setItem("favorites", JSON.stringify(favorites));
     } else if (element === value) {
       itemChecked = true;
