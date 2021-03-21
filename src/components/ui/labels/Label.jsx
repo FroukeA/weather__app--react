@@ -12,6 +12,7 @@ export default function Label(props) {
     <label
       className={""}
       htmlFor={props.htmlFor}
+      ref={props.myref}
     >
       <span
         className={props.className}

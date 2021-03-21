@@ -10,11 +10,14 @@ import React from "react";
 export default function Footer(props) {
   return (
     <React.Fragment>
-      <footer className={props.createClass(props.content)}>
+      <footer
+        className={props.createClass(props.content)}
+        ref={props.myref}
+      >
         {props.content.parts.map((item, i) => {
           return props.createElement(item, i);
         })}
       </footer>
-    </React.Fragment>
+    </React.Fragment >
   );
 }

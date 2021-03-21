@@ -12,35 +12,58 @@ import TextItem from "../../elements/list/TextItem";
 
 function renderDL(props) {
   return (
-    <dl className={props.createClass(props.item)}>
-      {props.item.parts.map((item, i) => {
-        return item.parts.length > 0 ? (
-          <React.Fragment key={"list" + i}>
-            {props.createElement(item)}
-          </React.Fragment>
-        ) : item.element === "dt" ? (
-          <Term key={"list" + i} item={item.label} />
-        ) : (
-              <Textdescription key={"list" + i} item={item.label} />
-            );
-      })}
-    </dl>
+    <dl
+      className={props.createClass(props.item)}
+      ref={props.myref}
+    >
+      {
+        props.item.parts.map((item, i) => {
+          return item.parts.length > 0 ? (
+            <React.Fragment
+              key={"list" + i}
+            >
+              {props.createElement(item, "")}
+            </React.Fragment>
+          ) : item.element === "dt" ? (
+            <Term
+              key={"list" + i}
+              item={item.label}
+            />
+          ) : (
+                <Textdescription
+                  key={"list" + i}
+                  item={item.label}
+                />
+              );
+        })
+      }
+    </dl >
   );
 }
 
 function renderUL(props) {
   return (
-    <ul className={props.createClass(props.item)}>
-      {props.item.parts.map((item, i) => {
-        return item.parts.length > 0 ? (
-          <React.Fragment key={"list" + i}>
-            {props.createElement(item)}
-          </React.Fragment>
-        ) : (
-            <TextItem key={"list" + i} item={item} />
-          );
-      })}
-    </ul>
+    <ul
+      className={props.createClass(props.item)}
+      ref={props.myref}
+    >
+      {
+        props.item.parts.map((item, i) => {
+          return item.parts.length > 0 ? (
+            <React.Fragment
+              key={"list" + i}
+            >
+              {props.createElement(item, "")}
+            </React.Fragment>
+          ) : (
+              <TextItem
+                key={"list" + i}
+                item={item}
+              />
+            );
+        })
+      }
+    </ul >
   );
 }
 

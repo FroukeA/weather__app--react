@@ -11,8 +11,9 @@ export default function TextItem(props) {
   return (
     <li
       className={props.class}
+      ref={props.myref}
     >
-      {props.item.label}
-    </li>
+      { props.item.label}
+    </li >
   )
 }

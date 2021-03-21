@@ -10,12 +10,15 @@ import React from "react";
 export default function Favorites(props) {
   return (
     (Object.keys(props.content).length !== 0 ? <React.Fragment>
-      <section className={props.createClass(props.content)}>
+      <section
+        className={props.createClass(props.content)}
+        ref={props.myref}
+      >
         {props.content.parts.map((item, i) => {
           return props.createElement(item, i);
         })}
       </section>
-    </React.Fragment>
+    </React.Fragment >
       : null)
   );
 }

@@ -1,5 +1,10 @@
 // data
-import React, { useState } from "react";
+import React,
+{
+  useState,
+  // createRef,
+  useRef
+} from "react";
 
 import {
   header__content,
@@ -51,11 +56,15 @@ export default function App() {
     hourData: {},
     forecastData: {}
   });
+
   const [favoriteData, setFavoriteData] = useState({
     loading: true,
     favoritesContent: {},
     favoritesData: {}
   });
+
+  const revealRefs = useRef({});
+  revealRefs.current = {};
 
   function handleData(element, data) {
     setWeatherData(prevState => {
@@ -77,13 +86,19 @@ export default function App() {
     });
   }
 
+  function handleCreateRef(el) {
+    if (el && !revealRefs.current[el.id]) {
+      revealRefs.current[el.id] = el;
+    }
+  }
+
   return (
     <div className="App">
       <div className="container">
         {/* common */}
         <Header
           content={header__content}
-          createElement={createElement}
+          createElement={createElement.bind(this, handleCreateRef)}
           createClass={createClass}
         />
 
@@ -92,7 +107,7 @@ export default function App() {
           : <React.Fragment>
             <Favorites
               content={favoriteData.favoritesContent}
-              createElement={createElement}
+              createElement={createElement.bind(this, handleCreateRef)}
               createClass={createClass}
             />
           </React.Fragment>
@@ -105,25 +120,25 @@ export default function App() {
 
             <Loading
               content={loader__content}
-              createElement={createElement}
+              createElement={createElement.bind(this, handleCreateRef)}
               createClass={createClass}
             />
           </React.Fragment>
           : <React.Fragment>
             {/* content when loaded = received weather and or forecast data */}
 
-            {handleReceiveState(weatherData)}
+            {handleReceiveState(weatherData, revealRefs)}
 
             <Loaded
               content={weatherData}
-              createElement={createElement}
+              createElement={createElement.bind(this, handleCreateRef)}
               createClass={createClass}
             />
 
             {/* {(Object.keys(weatherData.weatherContent).length !== 0 ?
               <Weather
                 content={weather__content}
-                createElement={createElement}
+                createElement={createElement.bind(this, handleCreateRef)}
                 createClass={createClass}
               />
               : null)}
@@ -131,7 +146,7 @@ export default function App() {
             {(Object.keys(weatherData.hourContent).length !== 0 ?
               <Hourly
                 content={hourly__content}
-                createElement={createElement}
+                createElement={createElement.bind(this, handleCreateRef)}
                 createClass={createClass}
               />
               : null)}
@@ -139,7 +154,7 @@ export default function App() {
             {(Object.keys(weatherData.forecastContent).length !== 0 ?
               <Forecast
                 content={weatherData.forecastContent}
-                createElement={createElement}
+                createElement={createElement.bind(this, handleCreateRef)}
                 createClass={createClass}
               />
               : null)} */}
@@ -150,7 +165,7 @@ export default function App() {
         {/* common */}
         < Footer
           content={footer__content}
-          createElement={createElement}
+          createElement={createElement.bind(this, handleCreateRef)}
           createClass={createClass}
         />
       </div >

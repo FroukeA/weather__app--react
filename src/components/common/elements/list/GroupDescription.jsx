@@ -9,8 +9,10 @@ import React from "react";
 
 export default function Groupdescription(props) {
   return (
-    <dd>
-      {props.createElement(props.item.parts[0], "groupdd", props.data)}
-    </dd>
+    <dd
+      ref={props.myref}
+    >
+      { props.createElement(props.item.parts[0], "groupdd")}
+    </dd >
   );
 }

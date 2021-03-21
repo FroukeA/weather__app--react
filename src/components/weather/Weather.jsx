@@ -9,7 +9,10 @@ import React from "react";
 
 export default function Weather(props) {
   return (
-    <section className={props.createClass(props.content)}>
+    <section
+      className={props.createClass(props.content)}
+      ref={props.myref}
+    >
       {props.content.parts.map((item, i) => {
         return props.createElement(item, i);
       })}
