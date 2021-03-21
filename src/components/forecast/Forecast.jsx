@@ -9,10 +9,15 @@ import React from "react";
 
 export default function Forecast(props) {
   return (
-    <section className={props.createClass(props.content)}>
-      {props.content.parts.map((item, i) => {
-        return props.createElement(item, i);
-      })}
-    </section>
+    <section
+      className={props.createClass(props.content)}
+      ref={props.myref}
+    >
+      {
+        props.content.parts.map((item, i) => {
+          return props.createElement(item, i);
+        })
+      }
+    </section >
   );
 }

@@ -6,6 +6,7 @@ import {
   mergeDataElement,
   mergeDataElementItems
 } from "../../data/dataProcessing";
+
 import {
   renderComponent,
   renderElementItems,
@@ -18,19 +19,21 @@ import { createClass } from "../../data/dataStyling";
 
 // variables
 let load = true;
+let handleRef = null;
 
 function handleRenderElements(item, key) {
   if (item.parts.length > 0) {
     // Nested DOM
     if (item.type === "card") {
-      renderComponent(item, "", null, null, load);
+      renderComponent(item, "", null, load, handleRef);
     } else {
       return (
         <item.element
           key={item.id + key}
           className={createClass(item)}
+          ref={(item.needRef ? handleRef : null)}
         >
-          {renderElementItems(item.parts)}
+          {renderElementItems(item.parts, handleRef)}
         </item.element>
       );
     }
@@ -44,14 +47,16 @@ function handleRenderElements(item, key) {
       item.type === "customBoxInput" ||
       item.type === "loader"
     ) {
-      return renderComponent(item, key, null);
+      return renderComponent(item, key, null, null, handleRef);
     } else {
-      renderElement(item, key);
+      renderElement(item, key, handleRef);
     }
   }
 }
 
-export function createElement(item, key) {
+export function createElement(handle, item, key) {
+  handleRef = handle
+
   return handleRenderElements(item, key);
 }
 

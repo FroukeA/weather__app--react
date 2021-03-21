@@ -10,7 +10,6 @@ import Input from "../inputs/Input";
 import Label from "../labels/Label";
 
 export default function CustomBoxInput(props) {
-  // console.log('custom input', props.item.label, props.item.checked)
   return (
     <div className={props.createClass(props.item)}>
       <Input
@@ -24,6 +23,7 @@ export default function CustomBoxInput(props) {
         reference={props.item.ref}
         checked={props.item.checked !== null || props.item.checked !== undefined ? props.item.checked : null}
         onChange={props.item.function}
+        myref={props.myref}
       />
       <Label
         class={""}

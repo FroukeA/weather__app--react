@@ -14,9 +14,16 @@ function renderFormFields(props) {
   return props.array.map((item, i) => {
     return item.visible === "true" ? (
       <React.Fragment key={i}>
-        <fieldset className={""} id={item.id}>
+        <fieldset
+          className={""}
+          id={item.id}
+        >
           {item.label !== "" ? (
-            <legend className={"form__title--hide"}>{item.label}</legend>
+            <legend
+              className={"form__title--hide"}
+            >
+              {item.label}
+            </legend>
           ) : null}
 
           {item.type === "form_dataPart" ? (
@@ -73,7 +80,10 @@ function renderFormItems(props, array) {
   return array.map((parentItem, pi) => {
     return parentItem.type !== "parent" ? (
       parentItem.type !== "custom" ? (
-        <div key={pi} className={""}>
+        <div
+          key={pi}
+          className={""}
+        >
           <Label
             class={""}
             base={""}
@@ -101,7 +111,10 @@ function renderFormItems(props, array) {
     ) : (
         parentItem.elements.map((subItem, si) => {
           return subItem.type !== "custom" ? (
-            <div key={si} className={props.createClass(subItem)}>
+            <div
+              key={si}
+              className={props.createClass(subItem)}
+            >
               <Label
                 class={""}
                 base={""}
@@ -132,16 +145,22 @@ function renderFormItems(props, array) {
 
 export default function Form(props) {
   return (
-    <form className={"form " + props.class} id={props.item.id} onSubmit={props.item.function}>
+    <form
+      className={"form " + props.class}
+      id={props.item.id}
+      onSubmit={props.item.function}
+      ref={props.myref}
+    >
       { renderFormFields(props)}
 
-      <Button
+      < Button
         class={`form__button--submit`}
         reference={null}
         disabled={props.form_submitButtonDisabled}
         type={props.idSubmitButton}
         name={props.idSubmitButton}
-        id={`form${props.item.id}__button--submit`}
+        id={`form${props.item.id}__button--submit`
+        }
         onClick={null}
         onSubmit={null}
         label={"submit"}

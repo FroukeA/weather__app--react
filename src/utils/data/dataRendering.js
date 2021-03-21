@@ -21,11 +21,11 @@ import Button from "../../components/ui/buttons/Button";
 import Loader from "../../components/common/elements/loader/Loader";
 
 // variables
-
 let id = 0;
+// let handleRef = null;
 
 // render data
-export function renderElementItems(array) {
+export function renderElementItems(array, handleRef) {
   return array.map((item, i) => {
     let todo = null;
 
@@ -33,21 +33,22 @@ export function renderElementItems(array) {
       return (
         // DOM is a card
         // render card !!! content = interactive created by creatElement
-        renderComponent(item, "")
+        renderComponent(item, "", null, null, handleRef)
       );
     }
     if (item.type === "list" || item.type === "description_group") {
       // DOM is a list of any type or group dd
       // render list !!! type = trough props
-      todo = renderComponent(item, i, null);
+      todo = renderComponent(item, i, null, null, handleRef);
     } else if (item.parts.length > 0) {
       // Nested DOM
       todo = (
         <item.element
           key={item.id}
           className={createClass(item)}
+          ref={(item.needRef ? handleRef : null)}
         >
-          {renderElementItems(item.parts)}
+          {renderElementItems(item.parts, handleRef)}
         </item.element>
       );
     } else {
@@ -59,7 +60,7 @@ export function renderElementItems(array) {
         item.type === "button" ||
         item.type === "customBoxInput"
       ) {
-        return renderComponent(item, i, null);
+        return renderComponent(item, i, null, null, handleRef);
       } else {
         todo = renderElement(item, i, null);
       }
@@ -69,7 +70,9 @@ export function renderElementItems(array) {
   });
 }
 
-export function renderElement(item, key) {
+export function renderElement(item, key, handleRef) {
+  // handleRef = handleRef;
+
   if (item.type === "form") {
     // DOM is a form
     // collect the form data
@@ -82,7 +85,7 @@ export function renderElement(item, key) {
       null
     );
 
-    return renderComponent(item, "form" + key, array);
+    return renderComponent(item, "form" + key, array, null, handleRef);
   } else if (item.type === "loader") {
     renderComponent(item, "")
   } else if (item.id.includes("wi")) {
@@ -99,6 +102,7 @@ export function renderElement(item, key) {
         required={item.required}
         reference={item.ref}
         key={item.id + key}
+        myref={(item.needRef ? handleRef : null)}
       />
     );
   } else if (item.id.includes("fta")) {
@@ -108,6 +112,7 @@ export function renderElement(item, key) {
         href={item.link}
         target="_blank"
         className={createClass(item)}
+        ref={(item.needRef ? handleRef : null)}
       >
         {item.label}
       </item.element>
@@ -117,7 +122,7 @@ export function renderElement(item, key) {
       return (
         // DOM is a card
         // render card !!! content = interactive created by creatElement
-        renderComponent(item, "")
+        renderComponent(item, "", null, null, handleRef)
       );
     }
   } else {
@@ -125,6 +130,7 @@ export function renderElement(item, key) {
       <item.element
         key={item.id + key}
         className={createClass(item)}
+        ref={(item.needRef ? handleRef : null)}
       >
         {item.label}
       </item.element>
@@ -132,8 +138,9 @@ export function renderElement(item, key) {
   }
 }
 
-export function renderComponent(item, key, array, load) {
+export function renderComponent(item, key, array, load, handleRef) {
   id += 1;
+  // handleRef = handleRef
 
   switch (item.type) {
     case "list":
@@ -142,8 +149,9 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           class={createClass(item)}
           item={item}
-          createElement={createElement.bind(this)}
+          createElement={createElement.bind(this, handleRef)}
           createClass={createClass.bind(this)}
+          myref={(item.needRef ? handleRef : null)}
         />
       );
     case "card":
@@ -152,8 +160,9 @@ export function renderComponent(item, key, array, load) {
           key={item.id + item.ref + key + id}
           class={createClass(item)}
           content={item}
-          createElement={createElement.bind(this)}
+          createElement={createElement.bind(this, handleRef)}
           createClass={createClass.bind(this)}
+          myref={(item.needRef ? handleRef : null)}
         />
       );
     case "form":
@@ -163,6 +172,7 @@ export function renderComponent(item, key, array, load) {
           array={array}
           class={createClass(item)}
           item={item}
+          myref={(item.needRef ? handleRef : null)}
         />
       )
     case "loader":
@@ -171,6 +181,7 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           item={item}
           class={createClass(item)}
+          myref={(item.needRef ? handleRef : null)}
         />
       );
     case "term":
@@ -179,6 +190,7 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           item={item}
           class={createClass(item)}
+          myref={(item.needRef ? handleRef : null)}
         />
       )
     case "description":
@@ -187,6 +199,7 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           item={item}
           class={createClass(item)}
+          myref={(item.needRef ? handleRef : null)}
         />
       );
     case "description_group":
@@ -195,8 +208,9 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           class={createClass(item)}
           item={item}
-          createElement={createElement.bind(this)}
+          createElement={createElement.bind(this, handleRef)}
           createClass={createClass.bind(this)}
+          myref={(item.needRef ? handleRef : null)}
         />
       );
     case "customBoxInput":
@@ -205,10 +219,11 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           class={createClass(item)}
           item={item}
-          createElement={createElement.bind(this)}
+          createElement={createElement.bind(this, handleRef)}
           createClass={createClass.bind(this)}
           content={item.parts}
           checked={item.checked}
+          myref={(item.needRef ? handleRef : null)}
         />
       );
     case "item":
@@ -217,6 +232,7 @@ export function renderComponent(item, key, array, load) {
           key={item.id + key}
           item={item}
           class={createClass(item)}
+          myref={(item.needRef ? handleRef : null)}
         />
       )
     case "button":
@@ -233,6 +249,7 @@ export function renderComponent(item, key, array, load) {
           onSubmit={null}
           disabled={true}
           label={item.label}
+          myref={(item.needRef ? handleRef : null)}
         />
       );
 

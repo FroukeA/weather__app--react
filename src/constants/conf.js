@@ -2020,6 +2020,7 @@ export const weather__content = {
               position: "",
               visible: "",
               checked: null,
+              needRef: true
             },
           ],
           data: [],

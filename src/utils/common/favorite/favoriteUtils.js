@@ -9,6 +9,10 @@ import { handleSubmitCity } from "../../weather/weatherUtils";
 // variables
 let handleData = null;
 let tempState = null;
+let tempRefs = null;
+let itemChecked = false;
+
+const heartInputId = 'wcbi_1favorite';
 
 let favorites = {
 };
@@ -21,12 +25,23 @@ let favorite = {
   }
 };
 
+// state
+
+// --- Favorite ---
 export function handleCheckFavorite(value) {
   Object.keys(favorites).forEach((element) => {
     if (element !== value || value === "all") {
-      handleUnCheckFavoriteItem(element)
+      handleUnCheckFavoriteItem(element);
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     } else if (element === value) {
-      handleCheckFavoriteItem(element)
+      itemChecked = true;
+
+      handleCheckFavoriteItem(element);
+
+      handleCheckRefItem(value)
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   });
 
@@ -34,6 +49,8 @@ export function handleCheckFavorite(value) {
 }
 
 export function handleUnCheckFavoriteItem(value) {
+  favorites = handleGetFavorites();
+
   return favorites[value].checked = false;
 }
 
@@ -41,8 +58,28 @@ export function handleCheckFavoriteItem(value) {
   return favorites[value].checked = true;
 }
 
+// --- Reference elements ---
+export function handleUnCheckRefItem(value) {
+  if (tempRefs) {
+    if (Object.keys(tempRefs.current).length > 0) {
+      tempRefs.current[heartInputId].checked = false;
+    }
+  }
+}
+
+export function handleCheckRefItem(value) {
+  if (tempRefs) {
+    setTimeout(() => {
+      if (Object.keys(tempRefs.current).length > 0) {
+        tempRefs.current[heartInputId].checked = true;
+      }
+    }, 1000);
+  }
+}
+
+// interaction
 export function handleClickFavoriteItem(e) {
-  handleCheckFavorite(e.target.className);
+  handleCheckFavorite(e.target.className.toLowerCase());
 
   handleSubmitCity(e, e.target.className, false);
 }
@@ -56,6 +93,7 @@ export function handleClickFavorite(e) {
   }
 }
 
+// manipulation
 export function handleDeleteFavorite() {
   const name = tempState.weatherData[0].name;
 
@@ -93,10 +131,7 @@ export function handleAddFavorite() {
   handleReceiveFavoriteData(favorites, handleData, 'collectFavorites');
 }
 
-export function handleReceiveState(state) {
-  tempState = state;
-}
-
+// data collecting
 export function handleGetFavorites() {
   return JSON.parse(localStorage.getItem("favorites"));
 }
@@ -121,6 +156,16 @@ export function getFavorites(handleFavo) {
     // handleAddFavoriteTest();
 
     handleReceiveFavoriteData(favorites, handleData, 'collectFavorites');
+  }
+}
+
+// setup
+export function handleReceiveState(state, refs) {
+  tempState = state;
+  tempRefs = refs;
+
+  if (itemChecked) {
+    handleCheckRefItem()
   }
 }
 

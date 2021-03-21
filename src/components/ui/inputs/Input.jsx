@@ -18,6 +18,7 @@ export default function Input(props) {
       onChange={props.onChange}
       required={props.required === "true" ? true : false}
       checked={props.checked}
+      ref={props.myref}
     />
   );
 }

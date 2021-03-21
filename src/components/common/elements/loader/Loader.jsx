@@ -9,9 +9,12 @@ import React from "react";
 
 export default function Loader(props) {
   return (
-    <div className="loader__ripple">
+    <div
+      className="loader__ripple"
+      ref={props.myref}
+    >
       <div></div>
       <div></div>
-    </div>
+    </div >
   );
 }

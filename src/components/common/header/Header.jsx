@@ -10,7 +10,10 @@ import React from "react";
 export default function Header(props) {
   return (
     <React.Fragment>
-      <header className={props.createClass(props.content)}>
+      <header
+        className={props.createClass(props.content)}
+        ref={props.myref}
+      >
         {props.content.parts.map((item, i) => {
           return props.createElement(item, i);
         })}

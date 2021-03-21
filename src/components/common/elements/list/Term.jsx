@@ -11,8 +11,9 @@ export default function Term(props) {
   return (
     <dt
       className={props.class}
+      ref={props.myref}
     >
-      {props.item.label}
-    </dt>
+      { props.item.label}
+    </dt >
   )
 }
